@@ -8,6 +8,14 @@ Each phase has a separate Codex task. Execute Phase 0, 1, 2, 3, 4, then 5. Only 
 
 Each task uses its own Git worktree. Before a queued task begins, fast-forward its branch to the validated predecessor commit supplied by the coordinator. Preserve unrelated changes. Commit only the completed phase's scoped changes and return the commit hash, worktree path, and validation evidence. The coordinator integrates a validated phase before releasing the next.
 
+## Phase commits
+
+After a phase's validation passes, put its implementation, meaningful tests, regressions, and phase evidence into its own phase-scoped commit before handing it back. Keep later phases out of that commit. The coordinator integrates that commit into main before releasing the next phase; worktrees are only an implementation detail, not parallel phase work.
+
+Preserve completed history. The user explicitly does not require retroactive commits or history rewriting for phases already completed without a separate commit. Phase 0 already has its own implementation commit, `355720e`.
+
+Coordinator-only status and integration commits may remain separate. Report the implementation commit for each completed phase so the user can identify the actual delivered work.
+
 ## Test-driven development
 
 Use the TDD skill and vertical red → green slices. Write a behavior test, observe the expected failure, then implement the minimum behavior to pass. Scaffold and generated configuration may precede tests so the test runner can execute.
