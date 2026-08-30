@@ -50,7 +50,7 @@ export function createJsonlSurveyRepository(
         return [surveyResponseSchema.parse(JSON.parse(line))]
       } catch (cause) {
         throw new Error(
-          `Malformed survey data at line ${index + 1} in ${file}`,
+          `Malformed survey data at line ${index + 1} in ${file}. Restore a backup or repair the indicated line before retrying.`,
           { cause },
         )
       }
@@ -67,13 +67,20 @@ export function createJsonlSurveyRepository(
           id: uniqueSurveyId(records, options.generateId),
           submittedAt: (options.now?.() ?? new Date()).toISOString(),
         }
-        await mkdir(dirname(file), { recursive: true })
-        const separator = contents && !contents.endsWith('\n') ? '\n' : ''
-        await appendFile(
-          file,
-          `${separator}${JSON.stringify(response)}\n`,
-          'utf8',
-        )
+        try {
+          await mkdir(dirname(file), { recursive: true })
+          const separator = contents && !contents.endsWith('\n') ? '\n' : ''
+          await appendFile(
+            file,
+            `${separator}${JSON.stringify(response)}\n`,
+            'utf8',
+          )
+        } catch (cause) {
+          throw new Error(
+            'Could not confirm the save. Check stored responses and repair incomplete data before retrying; check directory permissions and available disk space.',
+            { cause },
+          )
+        }
         return response
       })
     },
@@ -95,6 +102,11 @@ export function createJsonlSurveyRepository(
             { encoding: 'utf8', flag: 'wx' },
           )
           await rename(temporary, file)
+        } catch (cause) {
+          throw new Error(
+            'Could not delete survey responses; the original responses are unchanged. Check directory permissions and available disk space before retrying.',
+            { cause },
+          )
         } finally {
           await rm(temporary, { force: true })
         }

@@ -1,9 +1,9 @@
-import { expect, test } from '@playwright/test'
-import { resolve } from 'node:path'
+import { expect, test } from '../support/browser.fixture'
 import { createJsonlSurveyRepository } from '../../src/survey/survey-repository.server'
 
 test('production attendee validates, goes Back, refreshes, submits once, and starts again', async ({
   page,
+  app,
 }, testInfo) => {
   const errors: string[] = []
   page.on('pageerror', (error) => errors.push(error.message))
@@ -55,9 +55,7 @@ test('production attendee validates, goes Back, refreshes, submits once, and sta
     /Survey ID: [A-Z0-9]{3}-[A-Z0-9]{3}/,
   )
   // Observe the saved response through the public repository boundary.
-  const repository = createJsonlSurveyRepository(
-    resolve('test-results/manual-surveys.jsonl'),
-  )
+  const repository = createJsonlSurveyRepository(app.dataFile)
   const rows = await repository.find({ name })
   expect(rows).toHaveLength(1)
   expect(rows[0]).toMatchObject({
@@ -85,8 +83,12 @@ test('production routes present conference copy and direct Step 2 recovers safel
     await page.goto(path)
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
     await expect(page.locator('body')).not.toContainText(
-      /demo|demonstration|preview|placeholder|phase\s*\d|two ways/i,
+      /demo|demonstration|preview|prototype|development|placeholder|phase\s*\d|two ways/i,
     )
+    expect(await page.locator('body').ariaSnapshot()).not.toMatch(
+      /demo|preview|prototype|development/i,
+    )
+    await expect(page).toHaveTitle('AI Dev Days · Conference survey')
     await expect(page.locator('meta[name="description"]')).toHaveAttribute(
       'content',
       'Share your AI Dev Days talk feedback and choose a thank-you gift.',
@@ -98,6 +100,7 @@ test('production routes present conference copy and direct Step 2 recovers safel
 
 test('pending submission stays on the form when navigation is attempted', async ({
   page,
+  app,
 }, testInfo) => {
   let release!: () => void
   const pending = new Promise<void>((resolve) => {
@@ -134,9 +137,7 @@ test('pending submission stays on the form when navigation is attempted', async 
     release()
   }
   await expect(page.getByRole('status')).toContainText('Survey ID:')
-  const repository = createJsonlSurveyRepository(
-    resolve('test-results/manual-surveys.jsonl'),
-  )
+  const repository = createJsonlSurveyRepository(app.dataFile)
   expect(await repository.find({ name })).toHaveLength(1)
   await page.getByRole('link', { name: 'Home', exact: true }).click()
   await expect(page).toHaveURL('/')

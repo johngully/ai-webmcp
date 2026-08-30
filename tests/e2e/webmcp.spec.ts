@@ -1,11 +1,11 @@
-import { expect, test } from '@playwright/test'
+import { expect, test } from '../support/browser.fixture'
 import type { ChromeModelContext } from '@mcp-b/webmcp-types'
-import { resolve } from 'node:path'
 import { createJsonlSurveyRepository } from '../../src/survey/survey-repository.server'
 import { surveyInput } from '../survey.fixture'
 
 test('production polyfill discovers one tool, corrects invalid input, and saves one response through the server', async ({
   page,
+  app,
   browser,
 }, testInfo) => {
   const errors: string[] = []
@@ -57,9 +57,7 @@ test('production polyfill discovers one tool, corrects invalid input, and saves 
   })
   const name = `Assistant Attendee ${testInfo.project.name}`
   const input = { ...surveyInput, name }
-  const repository = createJsonlSurveyRepository(
-    resolve('test-results/manual-surveys.jsonl'),
-  )
+  const repository = createJsonlSurveyRepository(app.dataFile)
   const invalid = await page.evaluate(async (input) => {
     const context = document.modelContext as ChromeModelContext
     const [tool] = await context.getTools()
@@ -115,6 +113,7 @@ test('production polyfill discovers one tool, corrects invalid input, and saves 
 for (const state of ['unavailable', 'registration error'] as const) {
   test(`manual attendee can submit when assistant is ${state}`, async ({
     page,
+    app,
   }, testInfo) => {
     await page.addInitScript((state) => {
       if (state === 'unavailable') {
@@ -152,9 +151,7 @@ for (const state of ['unavailable', 'registration error'] as const) {
       /Survey ID: [A-Z0-9]{3}-[A-Z0-9]{3}/,
     )
     expect(
-      await createJsonlSurveyRepository(
-        resolve('test-results/manual-surveys.jsonl'),
-      ).find({ name }),
+      await createJsonlSurveyRepository(app.dataFile).find({ name }),
     ).toHaveLength(1)
   })
 }

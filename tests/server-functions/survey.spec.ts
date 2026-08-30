@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test'
+import { expect, test } from '../support/browser.fixture'
 import { surveyInput } from '../survey.fixture'
 
 test('browser callers submit, query, validate, and delete through real TanStack server functions', async ({

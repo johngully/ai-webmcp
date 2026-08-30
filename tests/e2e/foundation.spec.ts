@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test'
+import { expect, test } from '../support/browser.fixture'
 
 test('production shell supports pointer and keyboard navigation without overflow', async ({
   page,
@@ -58,10 +58,11 @@ test('production shell supports pointer and keyboard navigation without overflow
 
 test('a direct production request renders usable navigation without JavaScript', async ({
   browser,
+  app,
 }) => {
   const context = await browser.newContext({ javaScriptEnabled: false })
   const page = await context.newPage()
-  await page.goto('http://127.0.0.1:4173/survey/new?step=1')
+  await page.goto(`${app.url}/survey/new?step=1`)
   await expect(page.getByRole('heading', { name: 'Take survey' })).toBeVisible()
   await page
     .getByRole('link', { name: 'Manage responses', exact: true })

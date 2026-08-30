@@ -6,6 +6,7 @@
     "#/*": "./src/*"
   },
   "scripts": {
+    "verification:client": "node scripts/verification-client.mjs",
     "dev": "vite dev --host 127.0.0.1 --port 3000",
     "generate-routes": "tsr generate",
     "build": "vite build",
@@ -15,7 +16,7 @@
     "format:check": "prettier --check .",
     "test": "pnpm generate-routes && vitest run",
     "test:coverage": "pnpm generate-routes && vitest run --coverage",
-    "test:e2e": "playwright test",
+    "test:e2e": "pnpm build && playwright test",
     "test:server-functions": "playwright test --config playwright.server-functions.config.ts"
   },
   "dependencies": {

@@ -1,11 +1,11 @@
-import { expect, test } from '@playwright/test'
-import { resolve } from 'node:path'
+import { expect, test } from '../support/browser.fixture'
 import { createJsonlSurveyRepository } from '../../src/survey/survey-repository.server'
 
 // Every write goes through the running app. Other browser workers use distinct
 // names, and repository access below is read-only: one Node process owns writes.
 test('organizer filters, inspects, cancels, and deletes only the intended persisted responses', async ({
   page,
+  app,
 }, testInfo) => {
   const errors: string[] = []
   page.on('pageerror', (error) => errors.push(error.message))
@@ -140,9 +140,7 @@ test('organizer filters, inspects, cancels, and deletes only the intended persis
   await page.getByRole('button', { name: 'Apply' }).click()
   await expect(rows).toHaveCount(2)
   await expect(rows.nth(1)).toContainText(`${prefix} Keep`)
-  const repository = createJsonlSurveyRepository(
-    resolve('test-results/manual-surveys.jsonl'),
-  )
+  const repository = createJsonlSurveyRepository(app.dataFile)
   expect(
     (await repository.find({ name: prefix })).map((row) => row.name),
   ).toEqual([`${prefix} Keep`])
