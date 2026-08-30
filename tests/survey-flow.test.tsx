@@ -9,7 +9,10 @@ afterEach(() => vi.restoreAllMocks())
 
 async function openSurvey(path = '/survey/new') {
   const router = getRouter()
-  router.update({ history: createMemoryHistory({ initialEntries: [path] }) })
+  router.update({
+    context: router.options.context,
+    history: createMemoryHistory({ initialEntries: [path] }),
+  })
   await router.load()
   render(<RouterProvider router={router} />, { container: document })
   await screen.findByRole('heading', { name: 'Take survey' })

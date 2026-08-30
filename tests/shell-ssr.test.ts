@@ -6,7 +6,10 @@ import { getRouter } from '../src/router'
 
 test('a direct page request provides an English document with survey metadata and content', async () => {
   const router = getRouter()
-  router.update({ history: createMemoryHistory({ initialEntries: ['/'] }) })
+  router.update({
+    context: router.options.context,
+    history: createMemoryHistory({ initialEntries: ['/'] }),
+  })
   await router.load()
 
   const html = renderToString(createElement(RouterProvider, { router }))

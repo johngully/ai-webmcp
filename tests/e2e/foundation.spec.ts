@@ -42,9 +42,7 @@ test('production shell supports pointer and keyboard navigation without overflow
     page.getByRole('link', { name: 'Manage responses', exact: true }),
   ).toBeFocused()
   await page.keyboard.press('Enter')
-  await expect(
-    page.getByText(/Response management is currently unavailable/),
-  ).toBeVisible()
+  await expect(page.getByLabel('Name contains')).toBeVisible()
   await expect(page).toHaveURL('/survey')
   expect(
     await page.evaluate(

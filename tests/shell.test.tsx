@@ -3,10 +3,17 @@ import { render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { expect, test } from 'vitest'
 import { getRouter } from '../src/router'
+import { createSurveyOperations } from '../src/survey/survey.operations.server'
+import { createMemorySurveyRepository } from '../src/survey/survey-repository.memory'
 
 async function renderPage(path = '/') {
-  const router = getRouter()
-  router.update({ history: createMemoryHistory({ initialEntries: [path] }) })
+  const router = getRouter({
+    management: createSurveyOperations(createMemorySurveyRepository()),
+  })
+  router.update({
+    context: router.options.context,
+    history: createMemoryHistory({ initialEntries: [path] }),
+  })
   await router.load()
   render(<RouterProvider router={router} />, { container: document })
 }
@@ -75,9 +82,7 @@ test('keyboard user can skip navigation and reach the management page', async ()
   expect(
     await screen.findByRole('heading', { name: 'Manage responses' }),
   ).toBeVisible()
-  expect(
-    screen.getByText(/Response management is currently unavailable/),
-  ).toBeVisible()
+  expect(screen.getByText('No responses yet.')).toBeVisible()
   expect(
     screen.getByRole('link', { name: 'Manage responses' }),
   ).toHaveAttribute('aria-current', 'page')

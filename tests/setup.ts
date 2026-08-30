@@ -6,3 +6,13 @@ import { afterEach, vi } from 'vitest'
 window.scrollTo = vi.fn()
 
 afterEach(cleanup)
+
+// jsdom does not implement native dialog methods. Browser tests verify modal
+// focus, inert background, Escape, and restoration using actual Chromium.
+HTMLDialogElement.prototype.showModal = function () {
+  this.setAttribute('open', '')
+  this.querySelector<HTMLElement>('button')?.focus()
+}
+HTMLDialogElement.prototype.close = function () {
+  this.removeAttribute('open')
+}

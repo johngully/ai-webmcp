@@ -2,12 +2,15 @@ import {
   HeadContent,
   Link,
   Scripts,
-  createRootRoute,
+  createRootRouteWithContext,
 } from '@tanstack/react-router'
 
 import appCss from '../styles.css?url'
+import type { SurveyManagementOperations } from '../survey/survey.types'
 
-export const Route = createRootRoute({
+export const Route = createRootRouteWithContext<{
+  management: SurveyManagementOperations
+}>()({
   head: () => ({
     meta: [
       {

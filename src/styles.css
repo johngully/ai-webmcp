@@ -337,3 +337,88 @@ th {
 textarea {
   resize: vertical;
 }
+
+.management-panel h1 {
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+}
+.management-filters {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+.management-filters label {
+  display: grid;
+  gap: var(--space-2);
+}
+.management-panel form {
+  margin-bottom: var(--space-8);
+}
+.selection-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-block: var(--space-6);
+}
+.selection-actions p {
+  margin: 0;
+}
+.select-visible {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 44px;
+}
+.management-panel input[type='checkbox'] {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+.management-panel caption {
+  text-align: start;
+  padding-block: var(--space-4);
+  font-weight: 700;
+}
+.management-panel td {
+  min-width: 6rem;
+  overflow-wrap: anywhere;
+}
+.management-panel td:nth-child(4) {
+  min-width: 12rem;
+}
+.management-panel td button + button {
+  margin-top: var(--space-2);
+}
+dialog {
+  width: min(38rem, calc(100% - var(--space-8)));
+  max-height: calc(100dvh - var(--space-8));
+  overflow-y: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-8);
+  color: var(--color-ink);
+  background: var(--color-surface);
+}
+dialog::backdrop {
+  background: rgb(23 46 49 / 55%);
+}
+dialog li,
+.response-details dd {
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+.response-details div {
+  margin-bottom: var(--space-4);
+}
+.response-details dt {
+  font-weight: 700;
+}
+.response-details dd {
+  margin: 0;
+}
+@media (max-width: 40rem) {
+  .management-filters {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
