@@ -18,8 +18,8 @@ All six tasks were created on 2026-08-30. `list_threads` omitted these new tasks
 | 1     | AI Dev Days — Phase 1: Domain and storage | `01a05463-0af0-7783-92a8-0ec217730054` | Validated and integrated (`e39cde6`) |
 | 2     | AI Dev Days — Phase 2: Manual survey      | `01a05463-141f-70f3-ab93-af7f5c7f1921` | Validated and integrated (`05adb65`) |
 | 3     | AI Dev Days — Phase 3: Management         | `01a05463-237c-7372-ae9a-16648b437057` | Validated and integrated (`a768b5b`) |
-| 4     | AI Dev Days — Phase 4: WebMCP             | `01a05463-2ef2-7692-a9f5-1c1d91461e14` | Released after Phase 3 validation    |
-| 5     | AI Dev Days — Phase 5: Verification…      | `01a05463-4065-7b91-98f3-66d1b4dd3bfc` | Ready; awaiting release              |
+| 4     | AI Dev Days — Phase 4: WebMCP             | `01a05463-2ef2-7692-a9f5-1c1d91461e14` | Validated and integrated (`8cc0297`) |
+| 5     | AI Dev Days — Phase 5: Verification…      | `01a05463-4065-7b91-98f3-66d1b4dd3bfc` | Released after Phase 4 validation    |
 
 All tasks use host `local`. Worktree directory prefixes by phase: `ae76`, `92e7`, `d739`, `046d`, `46af`, `bcf3`, under `/Users/john/.codex/worktrees/<prefix>/ai-webmcp`.
 
@@ -34,6 +34,10 @@ All tasks use host `local`. Worktree directory prefixes by phase: `ae76`, `92e7`
 
 ## Current gate
 
-Phases 0–3 passed independent coordinator validation and were integrated into main. Their implementation commits are recorded in the table above and each phase's acceptance evidence. Phase 4 is the sole released implementation task; Phase 5 remains queued.
+Phases 0–4 passed independent coordinator validation and were integrated into main. Their implementation commits are recorded in the table above and each phase's acceptance evidence. Phase 5 is the sole released implementation task.
 
 The Phase 3 coordinator reran formatting, types, 45 Vitest tests, 14 production desktop/mobile browser tests (including build/start), and the real server-function test. Coverage was 96.73% statements, 97.24% branches, 94.01% functions, and 97.22% lines with unchanged exclusions and thresholds. Live Chrome at `http://127.0.0.1:3104/` verified native detail focus/Escape/restore, two manual submissions, combined case-insensitive name/talk/inclusive 0–10 filters, hidden-selection pruning, canceled and confirmed bulk/single deletion, post-delete focus, and retained JSONL data after reload. The coordinator Chrome log was empty. All changes were confined to isolated synthetic records; no user data was touched. No blocker remains.
+
+The Phase 4 coordinator reviewed the registration/schema/shared-operation implementation, tests, TDD evidence, and live approval boundary; then reran formatting, types, 53 Vitest tests, 20 production desktop/mobile browser tests (including build/start), and the real server-function test against `8cc0297731e106863097d57629743ef2d35076b6`. Coverage was 96.50% statements, 96.29% branches, 93.65% functions, and 97.50% lines with unchanged exclusions and thresholds. After the user approved exactly two disposable local submissions, the phase task created `H48-WJT` through the real polyfill and `4A7-VD6` through the manual form. The coordinator independently inspected management and the assistant response details, then rechecked both retained rows and assistant availability on the normal production build at `http://127.0.0.1:3105/`; its Chrome log was empty. No additional live write or deletion was performed by the coordinator. The validated lane is the real 5.0.1 polyfill with a same-origin in-page client, not native WebMCP or an external agent bridge.
+
+Phase 5 must make both interaction scripts reproducible without chat history, identify the actual execution lane and its limits, keep any verification client out of the ordinary production app, and run the final clean-install, accessibility, responsive, persistence, regression, and product-language gates. The earlier two-record approval is fully consumed; it does not authorize unrelated live writes if another action-time approval is required. Keep all fixes regression-first within Phase 5 until its gate passes.
