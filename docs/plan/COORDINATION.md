@@ -6,6 +6,8 @@ Project: `a585b92d-22be-49e0-a549-8aca7adc0fb9` (WebMCP).
 
 Initial implementation baseline: `4dac74f472a958fbd1c531ba3756ef0f17146068`.
 
+Temporary coordinator heartbeat: `coordinate-ai-dev-days-build`, every five minutes in the coordinating task. Pause it after Phase 5 validates.
+
 ## Task creation
 
 All six task creation requests were accepted on 2026-08-30. The app created six worktrees but returned pending client IDs; resolve actual task IDs through `list_threads` before using `wait_threads`, `read_thread`, or `send_message_to_thread`. Do not pass client IDs to those tools and do not create duplicate tasks while setup is pending.
