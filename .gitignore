@@ -1,0 +1,16 @@
+node_modules/
+.DS_Store
+dist/
+.output/
+.nitro/
+.tanstack/
+coverage/
+playwright-report/
+test-results/
+*.local
+.env
+.env.*
+!.env.example
+# Survey responses and atomic rewrite files must never enter version control.
+*.jsonl
+*.jsonl.*
