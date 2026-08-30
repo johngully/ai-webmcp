@@ -1,6 +1,6 @@
 # Verification matrix
 
-Tests exercise the pre-approved public seams. New behavior and discovered defects use a focused failing test before the minimum fix. Audit tests for existing passing behavior do not manufacture failures. The [Phase 5 evidence](plan/phase-5-verification-demo.md) records actual commands, red/green observations, browser lane, and measured coverage.
+Tests exercise the pre-approved public seams. New behavior and discovered defects use a focused failing test before the minimum fix. Audit tests for existing passing behavior do not manufacture failures. The [pre-styling checkpoint](plan/phase-5-verification-demo.md) records prior commands, red/green observations, browser lane, and measured coverage. [Phase 6](plan/phase-6-final-verification.md) must refresh final evidence after the styling revision.
 
 | Public seam / flow            | Success evidence                                                                                                                                                    | Failure, cancellation, or recovery evidence                                                                                                                                    |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -28,10 +28,10 @@ This is a functional keyboard/semantic/responsive audit, not a claim of formal W
 
 The one-process queue is stressed by two repository adapters concurrently creating 16 unique responses and deleting an existing record, then reopening the retained records. Contract tests add simultaneous collision retries and mixed create/delete. Malformed stored lines retain their physical line number and fail closed. A partial append is not transactional: it can require manual repair, but prior complete records remain intact. Atomic rename failure does not replace the original, and temporary siblings are cleaned up. Tests cover these realistic failures without pretending to prove OS power-loss durability or multi-process safety.
 
-## References rechecked for Phase 5
+## References rechecked for the pre-styling checkpoint
 
 - [Playwright fixtures](https://playwright.dev/docs/test-fixtures) and [parallelism](https://playwright.dev/docs/test-parallel): isolated fixture lifecycles, parallel projects and workers.
 - [TanStack Start hosting](https://tanstack.com/start/latest/docs/framework/react/guide/hosting): local Node production output.
 - [WebMCP draft](https://webmachinelearning.github.io/webmcp/) and installed `@mcp-b/webmcp-types@5.0.1` / polyfill source: distinguish the current object-input draft from the pinned JSON-text execution extension.
 
-No dependency upgrade was needed in Phase 5. The exact manifest and lockfile remain authoritative; validated versions are recorded in the phase evidence.
+No dependency upgrade was needed in the pre-styling checkpoint. The exact manifest and lockfile remain authoritative; validated versions are recorded in the checkpoint evidence.

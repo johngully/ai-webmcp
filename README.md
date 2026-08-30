@@ -52,7 +52,7 @@ Run the two browser commands sequentially: the second uses a development build a
 pnpm test:e2e --repeat-each=2
 ```
 
-If browser binaries are in a shared location, set `PLAYWRIGHT_BROWSERS_PATH` for both installation and execution. The validation machine used `/private/tmp/ai-webmcp-playwright`. The automated browser has no personal Chrome profile; live Chrome checks are separately recorded in [Phase 5 evidence](docs/plan/phase-5-verification-demo.md).
+If browser binaries are in a shared location, set `PLAYWRIGHT_BROWSERS_PATH` for both installation and execution. The validation machine used `/private/tmp/ai-webmcp-playwright`. The automated browser has no personal Chrome profile; prior live Chrome checks are recorded in the [pre-styling checkpoint](docs/plan/phase-5-verification-demo.md). [Phase 5 styling](docs/plan/phase-5-styling.md) and [Phase 6 final verification](docs/plan/phase-6-final-verification.md) track the visual revision and its acceptance.
 
 Vitest covers public schemas/IDs, both repositories, operations, rendered routes, form interactions, management, and WebMCP discovery/execution. The [verification matrix](docs/verification.md) maps success and recovery/cancellation cases to files. Coverage measures **all** `src/**/*.{ts,tsx}`, including unimported application files, with **86% minimums** for statements, branches, functions, and lines. Only generated `src/routeTree.gen.ts` and declarations are excluded. Tests, configuration, CSS, and generated output are outside that source glob; contributor scripts do not contain application operations. Do not move application code to bypass coverage.
 

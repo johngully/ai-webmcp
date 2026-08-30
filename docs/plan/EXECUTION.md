@@ -6,11 +6,11 @@ These requirements supersede earlier sequencing and testing assumptions in the p
 
 Present the application as the AI Dev Days conference survey, with ordinary attendee and organizer language about feedback, gifts, and responses. The app must not describe itself as a demo, demonstration, preview, prototype, or development phase. Apply this to visible copy, document titles and metadata, accessibility text, and agent-facing WebMCP tool descriptions and results. Keep comparison scripts, implementation status, and local-only/no-auth operational warnings in contributor documentation. This copy requirement does not change the local-only security or deployment scope.
 
-Phase 2 owns replacing the existing shell and route framing, with a user-visible regression test and production Chrome verification. Later phases preserve that requirement; Phase 5 audits all rendered routes and WebMCP metadata/results before release.
+Phase 2 owns replacing the existing shell and route framing, with a user-visible regression test and production Chrome verification. Later phases preserve that requirement; Phase 5 applies the researched visual restyle and Phase 6 audits all rendered routes and WebMCP metadata/results before final release.
 
 ## Sequential delivery
 
-Each phase has a separate Codex task. Execute Phase 0, 1, 2, 3, 4, then 5. Only one phase implements at a time. Queued tasks may read their plan and report readiness, but must wait for the coordinating task to release them after validation of their predecessor.
+Each phase has a separate Codex task. Execute Phase 0, 1, 2, 3, 4, 5 (styling), then 6 (final verification). Only one phase implements at a time. Queued tasks may read their plan and report readiness, but must wait for the coordinating task to release them after validation of their predecessor. The original verification commit is preserved as a pre-styling checkpoint; the renamed Phase 6 task reruns final acceptance after styling rather than discarding or recreating its work.
 
 Place user feedback in an unfinished phase when it naturally fits that phase's scope. Otherwise add a separately documented feedback, cleanup, and refinement phase with its own Codex task, status-tracked tasks, validation gate, and scoped commit. Apply the same sequential delivery and testing requirements; update the phase index and coordination record when adding a phase. The current product-language correction fits Phase 2's UI work and does not need an extra phase.
 

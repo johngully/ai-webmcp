@@ -1,4 +1,8 @@
-# Phase 5 — Integrated Verification and Demo Readiness
+# Pre-styling Verification Checkpoint (Original Phase 5)
+
+Historical evidence, preserved in commit `311155f080b92daac87bda6cb3cda35cc1f1b190`. The user subsequently inserted [Phase 5 styling](./phase-5-styling.md); the existing verification task is now [Phase 6](./phase-6-final-verification.md). Checked items below describe the pre-styling build only and do not complete final acceptance of the new appearance. Historical commit/task numbering is retained rather than rewriting history.
+
+Coordinator checked this commit independently on 2026-08-30: formatting, types, 56 Vitest tests, 28 production desktop/mobile browser cases, one real server-function case, and build all passed. Coverage was 96.53% statements / 96.29% branches / 93.65% functions / 97.53% lines. Read-only Chrome verified the three retained synthetic rows, full `G8T-B6V` details, and the separately served contributor client at ports 3106/3108; the inspected app log was empty. No additional live write or deletion was made by the coordinator. Integrated as the reusable checkpoint, with post-styling validation still required.
 
 ## Outcome
 

@@ -11,7 +11,7 @@ This document is the source of truth for the packages, runtime assumptions, brow
 | Chromium-based browser | Current stable or preview build                                               | Manual browser flow and WebMCP demonstration                     |
 | WebMCP agent bridge    | Native `document.modelContext` support or a compatible extension/agent bridge | Tool discovery and invocation                                    |
 
-The development machine currently satisfies the Node and pnpm requirements. The browser lane must be documented and smoke-tested in Phase 5 because native WebMCP remains an evolving browser capability.
+The development machine currently satisfies the Node and pnpm requirements. The browser lane must be documented and smoke-tested again in Phase 6 because native WebMCP remains an evolving browser capability.
 
 ## Application dependencies
 
@@ -26,7 +26,7 @@ The development machine currently satisfies the Node and pnpm requirements. The 
 | `nanoid`                 | Short random survey ID generation                                                           | Phase 1    |
 | `@mcp-b/webmcp-polyfill` | Installs the current `document.modelContext` interface when the browser does not provide it | Phase 4    |
 
-Use the latest mutually compatible releases selected by the TanStack scaffold, then commit `pnpm-lock.yaml`. Keep `@tanstack/react-start` and `@tanstack/react-router` on compatible releases. Dependency upgrades are deliberate changes verified by the full Phase 5 test suite.
+Use the latest mutually compatible releases selected by the TanStack scaffold, then commit `pnpm-lock.yaml`. Keep `@tanstack/react-start` and `@tanstack/react-router` on compatible releases. Dependency upgrades are deliberate changes verified by the full Phase 6 test suite.
 
 ## Development dependencies
 
@@ -93,14 +93,21 @@ Production responses are excluded from version control. Tests use a unique tempo
 
 ## Phase prerequisites
 
-| Phase              | Requires                     | Produces for later phases                               |
-| ------------------ | ---------------------------- | ------------------------------------------------------- |
-| 0 — Foundation     | Empty repository, Node, pnpm | Runnable TanStack app, scripts, test harness, layout    |
-| 1 — Domain/storage | Phase 0                      | Schemas, IDs, repository adapters, server operations    |
-| 2 — Manual survey  | Phase 1                      | Complete browser form and shared submit path            |
-| 3 — Management     | Phase 1                      | Search, filters, details, single and bulk deletion      |
-| 4 — WebMCP         | Phases 1 and 2               | One-shot WebMCP survey tool and registration status     |
-| 5 — Verification   | Phases 2, 3, and 4           | End-to-end evidence, demo guide, clean production build |
+| Phase                  | Requires                                                           | Produces for later phases                                                    |
+| ---------------------- | ------------------------------------------------------------------ | ---------------------------------------------------------------------------- |
+| 0 — Foundation         | Empty repository, Node, pnpm                                       | Runnable TanStack app, scripts, test harness, layout                         |
+| 1 — Domain/storage     | Phase 0                                                            | Schemas, IDs, repository adapters, server operations                         |
+| 2 — Manual survey      | Phase 1                                                            | Complete browser form and shared submit path                                 |
+| 3 — Management         | Phase 1                                                            | Search, filters, details, single and bulk deletion                           |
+| 4 — WebMCP             | Phases 1 and 2                                                     | One-shot WebMCP survey tool and registration status                          |
+| 5 — Styling            | Phases 2, 3, 4; visual research; preserved verification checkpoint | Shared visual tokens, restyled routes/states, visual and functional evidence |
+| 6 — Final verification | Phase 5 and checkpoint tests/docs                                  | Restyled end-to-end evidence, refreshed guide, clean production build        |
+
+### Styling dependencies
+
+Phase 5 uses the [first-party visual research](../research/openai-visual-reference.md), existing CSS custom properties and native controls, system-installed sans-serif fonts, and Chrome screenshot/contrast/reflow checks. No additional runtime or styling package is planned. OpenAI Sans is an observed reference font, not a licensed project asset. If a font asset becomes necessary, verify its redistribution license, self-host a pinned release, preserve its notice, and validate fallback rendering; otherwise retain the system stack. No live third-party CSS or font-CDN dependency is introduced.
+
+The preserved checkpoint adds a contributor-only `verification:client` script and isolated per-test browser servers using Node built-ins, without a package upgrade. Both remain available for styling regression checks and Phase 6 reproduction.
 
 ## External references
 

@@ -25,7 +25,10 @@ Check a phase here only after every task in its phase file is checked.
 - [x] [Phase 2 — Manual multi-step survey](./phase-2-survey-flow.md)
 - [x] [Phase 3 — Survey management](./phase-3-management.md)
 - [x] [Phase 4 — WebMCP submission](./phase-4-webmcp.md)
-- [ ] [Phase 5 — Integrated verification and demo readiness](./phase-5-verification-demo.md) **IN PROGRESS**
+- [ ] [Phase 5 — Styling](./phase-5-styling.md) **IN PROGRESS**
+- [ ] [Phase 6 — Final verification](./phase-6-final-verification.md)
+
+The original verification work is preserved in commit `311155f` and its [pre-styling checkpoint evidence](./phase-5-verification-demo.md). On 2026-08-30 the user inserted styling as Phase 5; final verification moved to Phase 6 and must run against the restyled application.
 
 See [Dependencies](./DEPENDENCIES.md) for the package inventory, runtime prerequisites, data dependencies, and phase graph.
 
@@ -44,10 +47,13 @@ Phase 2: Manual   Phase 3: Management
 Phase 4: WebMCP
        \          /
         v        v
-Phase 5: Verification and demo
+Phase 5: Styling
+          |
+          v
+Phase 6: Final verification
 ```
 
-The diagram describes technical dependencies only. Execution is strictly sequential: Phase 0 → 1 → 2 → 3 → 4 → 5. A later phase remains queued until the preceding phase passes the validation gate in [Execution rules](./EXECUTION.md).
+The diagram describes technical dependencies only. Execution is strictly sequential: Phase 0 → 1 → 2 → 3 → 4 → 5 → 6. A later phase remains queued until the preceding phase passes the validation gate in [Execution rules](./EXECUTION.md).
 
 ## Fixed product decisions
 
@@ -67,6 +73,7 @@ The diagram describes technical dependencies only. Execution is strictly sequent
 - TanStack Table is omitted. A semantic HTML table plus ordinary React state covers the required filtering, selection, modal, and deletion behavior.
 - WebMCP exposes survey submission only. Management operations remain human-interface actions.
 - The application uses plain CSS and native platform controls; it does not require a visual framework.
+- Styling follows the researched OpenAI homepage/developer-docs visual language while retaining AI Dev Days identity. Use a system-font fallback unless an alternative font's redistribution license is verified; see [visual research](../research/openai-visual-reference.md).
 
 ## Target module seams
 
