@@ -23,7 +23,7 @@ export const Route = createRootRoute({
       {
         name: 'description',
         content:
-          'Compare manual and WebMCP conference survey flows at AI Dev Days.',
+          'Share your AI Dev Days talk feedback and choose a thank-you gift.',
       },
     ],
     links: [
@@ -49,7 +49,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <header className="site-header">
           <div className="container header-content">
             <span className="brand">
-              AI Dev Days <span> / Survey demo</span>
+              AI Dev Days <span> / Conference survey</span>
             </span>
             <nav aria-label="Main">
               <Link to="/" activeOptions={{ exact: true }}>
@@ -68,7 +68,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
           {children}
         </main>
         <footer className="container site-footer">
-          AI Dev Days · Local conference survey demonstration
+          AI Dev Days · Conference feedback
         </footer>
 
         <Scripts />

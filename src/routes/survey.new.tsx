@@ -1,18 +1,31 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { useState } from 'react'
+import { createFileRoute, useBlocker } from '@tanstack/react-router'
+import { submitSurvey } from '../survey/survey.functions'
+import { SurveyForm } from '../survey/survey-form'
 
 export const Route = createFileRoute('/survey/new')({
-  // This preview only exposes the initial step. Phase 2 owns form navigation.
-  validateSearch: () => ({ step: 1 }),
-  component: SurveyPreview,
+  validateSearch: (search): { step: 1 | 2 } => ({
+    step: search.step === 2 ? 2 : 1,
+  }),
+  component: SurveyPage,
 })
 
-function SurveyPreview() {
+function SurveyPage() {
+  const [submitting, setSubmitting] = useState(false)
+  useBlocker({
+    shouldBlockFn: () => submitting,
+    enableBeforeUnload: submitting,
+  })
+  const { step } = Route.useSearch()
+  const navigate = Route.useNavigate()
   return (
-    <section className="panel" aria-labelledby="survey-heading">
-      <p className="eyebrow">Foundation preview</p>
-      <h1 id="survey-heading">Take survey</h1>
-      <p>Phase 2 placeholder: the two-step survey is not available yet.</p>
-      <p>No answers are collected or saved in this preview.</p>
-    </section>
+    <SurveyForm
+      onSubmittingChange={setSubmitting}
+      submit={(input) => submitSurvey({ data: input })}
+      step={step}
+      navigate={(nextStep, replace) =>
+        navigate({ search: { step: nextStep }, replace })
+      }
+    />
   )
 }

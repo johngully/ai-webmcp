@@ -1,9 +1,9 @@
-# AI Dev Days survey demo
+# AI Dev Days conference survey
 
-A local, single-process TanStack Start app comparing a two-step browser survey
-with a WebMCP submission. **Phase 1 adds the shared domain, JSONL persistence,
-and validated server operations.** The visible survey and management routes remain
-placeholders; their UI flows and WebMCP registration arrive in later phases.
+A local, single-process TanStack Start app for conference feedback and thank-you
+gifts. **Phase 2 implements the complete two-step manual survey**, backed by the
+shared domain, JSONL repository, and validated server operations. Management and
+WebMCP submission remain planned work; see the delivery plan for their status.
 
 ## Run locally
 
@@ -18,10 +18,20 @@ pnpm dev
 Open [the development app](http://127.0.0.1:3000). The file-based routes are:
 
 - `/` — introduction and navigation.
-- `/survey/new?step=1` — clearly labeled Phase 2 survey placeholder.
-- `/survey` — clearly labeled Phase 3 management placeholder.
+- `/survey/new?step=1` — talk, rating, and feedback, followed by gift and delivery details at `?step=2`.
+- `/survey` — neutral availability message until response management is implemented.
 
-The preview always uses step 1. Phase 2 will add step validation and navigation.
+Missing or invalid steps resolve to Step 1. Draft answers survive Back/Next,
+client navigation, and refresh in the same browser tab using session storage.
+Incomplete drafts opened at Step 2 return to Step 1. The form requires JavaScript;
+server-rendered navigation remains usable without it.
+
+A successful submission displays its survey ID and clears the draft. Pending
+submissions disable form controls and block route navigation until they finish.
+Storage failures and submission errors explain how to continue without silently
+clearing entered answers. If a network response is lost after a server commit,
+a retry is potentially ambiguous; the operation does not implement idempotency.
+
 There is no authentication; keep the app local. Both server scripts bind to
 `127.0.0.1`, and Nitro uses the `node-server` preset, not a cluster or edge runtime.
 
@@ -49,7 +59,10 @@ pnpm test:server-functions
 `pnpm format` formats the repository. Type checking and Vitest generate the
 route tree first, so they also work before the initial development build.
 `test:e2e` builds and starts a separate production server on port 4173 and
-checks desktop and 375px navigation, focus, hydration, and HTML without JavaScript.
+checks desktop and 375px navigation, focus, hydration, HTML without JavaScript,
+the complete manual flow, draft recovery, product copy, and pending navigation.
+Survey submissions use isolated `test-results/manual-surveys.jsonl` data and
+assert the returned ID against the public repository result.
 It does not connect to your personal Chrome profile. Live Chrome plugin checks
 are additionally recorded in the phase document.
 
@@ -61,8 +74,10 @@ Run the two Playwright commands sequentially because both use that output tree.
 
 Vitest has a `ui` project using jsdom/Testing Library and a `node` project for
 server-side checks. Tests exercise the real router and visible document. The
-only platform stub is jsdom's missing `scrollTo`; browser tests check real scrolling
-and focus. Add Node tests as `tests/**/*.test.ts` and UI tests as
+platform seams simulated in UI tests are jsdom's missing `scrollTo`, browser
+storage failures, and delayed/rejected browser-to-server requests. Successful
+submission tests use real application operations and the memory repository;
+browser tests check actual production RPCs, persistence, scrolling, and focus. Add Node tests as `tests/**/*.test.ts` and UI tests as
 `tests/**/*.test.tsx`. See [the approved seams and TDD rules](docs/plan/EXECUTION.md).
 
 Coverage includes **all** `src/**/*.{ts,tsx}`, even unimported application files,
@@ -104,7 +119,8 @@ Client code imports `submitSurvey`, `findSurveys`, and `deleteSurveys` from
 `findSurveys()` also accepts no filters. These functions return `{ surveyId }`,
 `SurveyResponse[]`, and `{ deletedCount }`. The framework compiles them into
 client RPC stubs when imported by a UI or tool consumer; server implementations
-stay in `.server.ts` modules. No UI consumer is introduced before Phase 2.
+stay in `.server.ts` modules. The manual survey route statically imports
+`submitSurvey`, so it is reachable in the production server-function graph.
 
 ## Visual foundation
 
@@ -118,6 +134,7 @@ name and keyboard access when implementing management.
 
 - [Delivery plan](docs/plan/README.md) and [Phase 0 evidence](docs/plan/phase-0-foundation.md).
 - [Phase 1 domain/storage evidence](docs/plan/phase-1-domain-storage.md).
+- [Phase 2 manual survey and live Chrome evidence](docs/plan/phase-2-survey-flow.md).
 - [TanStack server functions](https://tanstack.com/start/latest/docs/framework/react/guide/server-functions), [Zod schemas](https://zod.dev/api), and [Nano ID custom alphabets](https://github.com/ai/nanoid#custom-alphabet-or-size).
 - [Official TanStack CLI setup](https://tanstack.com/start/latest/docs/framework/react/getting-started).
 - [Official TanStack Node/Nitro hosting](https://tanstack.com/start/latest/docs/framework/react/guide/hosting).

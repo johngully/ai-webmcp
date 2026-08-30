@@ -1,20 +1,20 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, Link } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/')({ component: Home })
 
 function Home() {
   return (
     <section aria-labelledby="welcome-heading">
-      <p className="eyebrow">Conference feedback · Local demo</p>
+      <p className="eyebrow">Conference feedback</p>
       <h1 id="welcome-heading">AI Dev Days</h1>
-      <p className="intro">Your experience. Two ways to share it.</p>
+      <p className="intro">Tell us about your talk.</p>
       <p>
-        This demo will compare a browser agent using the two-step form with a
-        WebMCP agent submitting the same answers in one structured tool call.
+        Share what worked and what could be better. Rate the talk you attended,
+        tell us why, and choose a thank-you gift.
       </p>
-      <p className="feedback feedback-info">
-        Foundation preview: survey submission and WebMCP are not available yet.
-      </p>
+      <Link className="button" to="/survey/new" search={{ step: 1 }}>
+        Start survey
+      </Link>
     </section>
   )
 }

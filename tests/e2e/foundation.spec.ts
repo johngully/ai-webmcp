@@ -26,7 +26,7 @@ test('production shell supports pointer and keyboard navigation without overflow
 
   await page.getByRole('link', { name: 'Take survey', exact: true }).click()
   await expect(page).toHaveURL('/survey/new?step=1')
-  await expect(page.getByText(/Phase 2 placeholder/)).toBeVisible()
+  await expect(page.getByLabel('Talk attended')).toBeVisible()
   await page.getByRole('link', { name: 'Home', exact: true }).click()
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(
     'AI Dev Days',
@@ -42,7 +42,9 @@ test('production shell supports pointer and keyboard navigation without overflow
     page.getByRole('link', { name: 'Manage responses', exact: true }),
   ).toBeFocused()
   await page.keyboard.press('Enter')
-  await expect(page.getByText(/Phase 3 placeholder/)).toBeVisible()
+  await expect(
+    page.getByText(/Response management is currently unavailable/),
+  ).toBeVisible()
   await expect(page).toHaveURL('/survey')
   expect(
     await page.evaluate(
