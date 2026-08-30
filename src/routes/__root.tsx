@@ -7,6 +7,7 @@ import {
 
 import appCss from '../styles.css?url'
 import type { SurveyManagementOperations } from '../survey/survey.types'
+import { SurveyAssistant } from '../webmcp/survey-assistant'
 
 export const Route = createRootRouteWithContext<{
   management: SurveyManagementOperations
@@ -71,6 +72,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
           {children}
         </main>
         <footer className="container site-footer">
+          <SurveyAssistant />
           AI Dev Days · Conference feedback
         </footer>
 

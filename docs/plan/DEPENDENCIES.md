@@ -76,6 +76,8 @@ Phase 1 pins `zod@4.5.4` and `nanoid@6.0.1` with no framework upgrades. Its
 schema, JSONL, operation, and live validation evidence is recorded in
 [Phase 1](./phase-1-domain-storage.md).
 
+Phase 4 pins `@mcp-b/webmcp-polyfill@5.0.1` and `@mcp-b/webmcp-types@5.0.1`, without framework upgrades. The polyfill loads after hydration only when `document.modelContext` is absent. The installed execution extension takes JSON text, whereas the 26 August 2026 draft takes an object. Standard discovery retains only read-only/untrusted-content hints, so the tool description also states non-destructive and non-idempotent behavior. See [Phase 4](./phase-4-webmcp.md) for the validated browser lane and evidence.
+
 ## Data and operating dependencies
 
 | Dependency           | Contract                                                                                   |

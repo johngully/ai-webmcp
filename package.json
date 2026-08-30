@@ -19,6 +19,7 @@
     "test:server-functions": "playwright test --config playwright.server-functions.config.ts"
   },
   "dependencies": {
+    "@mcp-b/webmcp-polyfill": "5.0.1",
     "@tanstack/react-form": "1.33.5",
     "@tanstack/react-router": "1.170.32",
     "@tanstack/react-start": "1.168.49",
@@ -28,6 +29,7 @@
     "zod": "4.5.4"
   },
   "devDependencies": {
+    "@mcp-b/webmcp-types": "5.0.1",
     "@playwright/test": "1.62.1",
     "@tanstack/router-cli": "1.167.33",
     "@testing-library/jest-dom": "7.0.1",

@@ -18,6 +18,20 @@ async function renderPage(path = '/') {
   render(<RouterProvider router={router} />, { container: document })
 }
 
+test('assistant submission remains available exactly once across conference navigation', async () => {
+  const user = userEvent.setup()
+  await renderPage()
+  expect(
+    await screen.findByText('Assistant submission available.'),
+  ).toBeVisible()
+  await user.click(screen.getByRole('link', { name: 'Take survey' }))
+  expect(await screen.findByLabelText('Talk attended')).toBeVisible()
+  expect(await document.modelContext!.getTools()).toHaveLength(1)
+  await user.click(screen.getByRole('link', { name: 'Manage responses' }))
+  expect(await screen.findByText('No responses yet.')).toBeVisible()
+  expect(await document.modelContext!.getTools()).toHaveLength(1)
+})
+
 test('attendee understands how to share talk feedback and choose a gift', async () => {
   await renderPage()
 
