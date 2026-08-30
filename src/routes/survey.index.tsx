@@ -1,19 +1,15 @@
 import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/survey/')({
-  component: ManagementPreview,
+  component: ManagementPage,
 })
 
-function ManagementPreview() {
+function ManagementPage() {
   return (
     <section className="panel" aria-labelledby="management-heading">
-      <p className="eyebrow">Foundation preview</p>
+      <p className="eyebrow">Conference feedback</p>
       <h1 id="management-heading">Manage responses</h1>
-      <p>Phase 3 placeholder: response management is not available yet.</p>
-      <p>
-        This local demo will not require authentication. Do not expose it
-        publicly.
-      </p>
+      <p>Response management is currently unavailable.</p>
     </section>
   )
 }

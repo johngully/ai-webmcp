@@ -13,7 +13,7 @@ test('a direct page request provides an English document with survey metadata an
   expect(html).toContain('<html lang="en">')
   expect(html).toContain('<title>AI Dev Days · Conference survey</title>')
   expect(html).toContain(
-    'name="description" content="Compare manual and WebMCP conference survey flows at AI Dev Days."',
+    'name="description" content="Share your AI Dev Days talk feedback and choose a thank-you gift."',
   )
-  expect(html).toContain('Your experience. Two ways to share it.')
+  expect(html).toContain('Tell us about your talk.')
 })

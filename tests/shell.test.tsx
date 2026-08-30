@@ -11,17 +11,20 @@ async function renderPage(path = '/') {
   render(<RouterProvider router={router} />, { container: document })
 }
 
-test('attendee understands the two ways to complete the AI Dev Days survey', async () => {
+test('attendee understands how to share talk feedback and choose a gift', async () => {
   await renderPage()
 
   expect(await screen.findByRole('heading', { level: 1 })).toHaveTextContent(
     'AI Dev Days',
   )
-  expect(screen.getByText(/two-step form/i)).toBeVisible()
-  expect(screen.getByText(/WebMCP.*one structured tool call/i)).toBeVisible()
+  expect(screen.getByText('Tell us about your talk.')).toBeVisible()
+  expect(screen.getByRole('link', { name: 'Start survey' })).toHaveAttribute(
+    'href',
+    '/survey/new?step=1',
+  )
 })
 
-test('attendee can open the survey preview and return home using navigation', async () => {
+test('attendee can open the survey and return home using navigation', async () => {
   const user = userEvent.setup()
   await renderPage()
 
@@ -36,7 +39,7 @@ test('attendee can open the survey preview and return home using navigation', as
   expect(
     await screen.findByRole('heading', { name: 'Take survey' }),
   ).toBeVisible()
-  expect(screen.getByText(/Phase 2 placeholder/)).toBeVisible()
+  expect(screen.getByLabelText('Talk attended')).toBeVisible()
   expect(
     within(navigation).getByRole('link', { name: 'Take survey' }),
   ).toHaveAttribute('aria-current', 'page')
@@ -47,7 +50,7 @@ test('attendee can open the survey preview and return home using navigation', as
   )
 })
 
-test('keyboard user can skip navigation and reach the management preview', async () => {
+test('keyboard user can skip navigation and reach the management page', async () => {
   const user = userEvent.setup()
   await renderPage()
 
@@ -72,8 +75,26 @@ test('keyboard user can skip navigation and reach the management preview', async
   expect(
     await screen.findByRole('heading', { name: 'Manage responses' }),
   ).toBeVisible()
-  expect(screen.getByText(/Phase 3 placeholder/)).toBeVisible()
+  expect(
+    screen.getByText(/Response management is currently unavailable/),
+  ).toBeVisible()
   expect(
     screen.getByRole('link', { name: 'Manage responses' }),
   ).toHaveAttribute('aria-current', 'page')
 })
+
+test.each(['/', '/survey/new?step=1', '/survey'])(
+  'conference page %s uses attendee-facing copy without development framing',
+  async (path) => {
+    await renderPage(path)
+    expect(await screen.findByRole('heading', { level: 1 })).toBeVisible()
+    expect(document.body).not.toHaveTextContent(
+      /demo|demonstration|preview|placeholder|phase\s*\d|agent.*comparison|two ways/i,
+    )
+    expect(
+      document
+        .querySelector('meta[name="description"]')
+        ?.getAttribute('content'),
+    ).not.toMatch(/demo|compare|WebMCP/i)
+  },
+)
