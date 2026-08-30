@@ -12,6 +12,8 @@ Phase 2 owns replacing the existing shell and route framing, with a user-visible
 
 Each phase has a separate Codex task. Execute Phase 0, 1, 2, 3, 4, then 5. Only one phase implements at a time. Queued tasks may read their plan and report readiness, but must wait for the coordinating task to release them after validation of their predecessor.
 
+Place user feedback in an unfinished phase when it naturally fits that phase's scope. Otherwise add a separately documented feedback, cleanup, and refinement phase with its own Codex task, status-tracked tasks, validation gate, and scoped commit. Apply the same sequential delivery and testing requirements; update the phase index and coordination record when adding a phase. The current product-language correction fits Phase 2's UI work and does not need an extra phase.
+
 Each task uses its own Git worktree. Before a queued task begins, fast-forward its branch to the validated predecessor commit supplied by the coordinator. Preserve unrelated changes. Commit only the completed phase's scoped changes and return the commit hash, worktree path, and validation evidence. The coordinator integrates a validated phase before releasing the next.
 
 ## Phase commits
