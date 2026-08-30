@@ -10,22 +10,22 @@ Temporary coordinator heartbeat: `coordinate-ai-dev-days-build`, every five minu
 
 ## Task creation
 
-All six task creation requests were accepted on 2026-08-30. The app created six worktrees but returned pending client IDs; resolve actual task IDs through `list_threads` before using `wait_threads`, `read_thread`, or `send_message_to_thread`. Do not pass client IDs to those tools and do not create duplicate tasks while setup is pending.
+All six tasks were created on 2026-08-30. `list_threads` omitted these new tasks even after creation. The mapping below was recovered from the app's task-creation logs and verified with `read_thread` and `wait_threads`; use these real IDs directly. Do not recreate the tasks or confuse an omitted listing with unfinished setup.
 
-| Phase | Requested title | Pending client ID | Release state |
+| Phase | App title | Task ID | Release state |
 | --- | --- | --- | --- |
-| 0 | AI Dev Days — Phase 0: Foundation | `client-new-thread:24072eea-e738-442d-8a2f-1511b120ed0d` | Released in initial prompt |
-| 1 | AI Dev Days — Phase 1: Domain and storage | `client-new-thread:b5d15675-898e-49f3-9190-37f6df62968e` | Queued; read-only readiness only |
-| 2 | AI Dev Days — Phase 2: Manual survey | `client-new-thread:6e64f69e-b957-4283-bd17-7014bd15e905` | Queued; read-only readiness only |
-| 3 | AI Dev Days — Phase 3: Management | `client-new-thread:71dffbcf-841e-400a-bd94-3194ac0136af` | Queued; read-only readiness only |
-| 4 | AI Dev Days — Phase 4: WebMCP | `client-new-thread:04bd324f-3508-49cf-970a-b87b6dd421fc` | Queued; read-only readiness only |
-| 5 | AI Dev Days — Phase 5: Verification and demo | `client-new-thread:521cfc9f-dbd9-4457-850e-f1c548dfa6ad` | Queued; read-only readiness only |
+| 0 | AI Dev Days — Phase 0: Foundation | `01a05463-0245-77f0-9229-d45bc1a42db9` | Implementing and validating |
+| 1 | AI Dev Days — Phase 1: Domain and storage | `01a05463-0af0-7783-92a8-0ec217730054` | Ready; awaiting release |
+| 2 | AI Dev Days — Phase 2: Manual survey | `01a05463-141f-70f3-ab93-af7f5c7f1921` | Ready; awaiting release |
+| 3 | AI Dev Days — Phase 3: Management | `01a05463-237c-7372-ae9a-16648b437057` | Ready; awaiting release |
+| 4 | AI Dev Days — Phase 4: WebMCP | `01a05463-2ef2-7692-a9f5-1c1d91461e14` | Ready; awaiting release |
+| 5 | AI Dev Days — Phase 5: Verification… | `01a05463-4065-7b91-98f3-66d1b4dd3bfc` | Ready; awaiting release |
 
-Titles above are the requested titles, not a substitute for the app's returned canonical titles. Update this table with actual IDs/titles as setup completes.
+All tasks use host `local`. Worktree directory prefixes by phase: `ae76`, `92e7`, `d739`, `046d`, `46af`, `bcf3`, under `/Users/john/.codex/worktrees/<prefix>/ai-webmcp`.
 
 ## Coordinator procedure
 
-1. Read `EXECUTION.md` and the current phase document. Resolve task IDs once, then use compact `wait_threads` snapshots and cursors for status.
+1. Read `EXECUTION.md` and the current phase document. Use the verified task IDs above with compact `wait_threads` snapshots and cursors for status.
 2. Keep at most one phase implementing. Readiness acknowledgements from queued tasks do not satisfy their phase gates.
 3. When the active phase reports completion, inspect its diff, tests, coverage configuration/report, and recorded functional evidence. Reproduce relevant checks and use Chrome for live behavior as needed. Return any defect to that same task for a failing regression test and fix.
 4. Integrate only validated work into the coordinating checkout without discarding unrelated edits. Fast-forward to the completed phase commit when possible. If coordinator-only documentation commits require a non-conflicting merge, preserve both histories.
@@ -34,4 +34,4 @@ Titles above are the requested titles, not a substitute for the app's returned c
 
 ## Current gate
 
-Waiting for pending task setup to resolve and Phase 0 to implement/validate. No application code has been validated yet. Chrome connection succeeded in the coordinator; future tasks must establish their own skill-compliant browser sessions.
+Phase 0 is implementing and validating. It reports passing shell behavior tests and a successful production build; review is not complete. Coordinator identified navigation drift (`/survey` and `/manage` instead of `/survey/new?step=1` and `/survey`) and requested a failing regression test, correction, and renewed functional checks in the Phase 0 task. Phases 1–5 acknowledged readiness without editing files. Chrome connection succeeded in the coordinator; future tasks must establish their own skill-compliant browser sessions.
