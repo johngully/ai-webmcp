@@ -6,7 +6,7 @@ Project: `a585b92d-22be-49e0-a549-8aca7adc0fb9` (WebMCP).
 
 Initial implementation baseline: `4dac74f472a958fbd1c531ba3756ef0f17146068`.
 
-Temporary coordinator heartbeat: `coordinate-ai-dev-days-build`, every five minutes in the coordinating task. Pause it after Phase 5 validates.
+Temporary coordinator heartbeat: `coordinate-ai-dev-days-build`, every five minutes in the coordinating task. Delete it after Phase 5 validates.
 
 ## Task creation
 
@@ -15,8 +15,8 @@ All six tasks were created on 2026-08-30. `list_threads` omitted these new tasks
 | Phase | App title                                 | Task ID                                | Release state                        |
 | ----- | ----------------------------------------- | -------------------------------------- | ------------------------------------ |
 | 0     | AI Dev Days — Phase 0: Foundation         | `01a05463-0245-77f0-9229-d45bc1a42db9` | Validated and integrated (`355720e`) |
-| 1     | AI Dev Days — Phase 1: Domain and storage | `01a05463-0af0-7783-92a8-0ec217730054` | Released after Phase 0 validation    |
-| 2     | AI Dev Days — Phase 2: Manual survey      | `01a05463-141f-70f3-ab93-af7f5c7f1921` | Ready; awaiting release              |
+| 1     | AI Dev Days — Phase 1: Domain and storage | `01a05463-0af0-7783-92a8-0ec217730054` | Validated and integrated (`e39cde6`) |
+| 2     | AI Dev Days — Phase 2: Manual survey      | `01a05463-141f-70f3-ab93-af7f5c7f1921` | Released after Phase 1 validation    |
 | 3     | AI Dev Days — Phase 3: Management         | `01a05463-237c-7372-ae9a-16648b437057` | Ready; awaiting release              |
 | 4     | AI Dev Days — Phase 4: WebMCP             | `01a05463-2ef2-7692-a9f5-1c1d91461e14` | Ready; awaiting release              |
 | 5     | AI Dev Days — Phase 5: Verification…      | `01a05463-4065-7b91-98f3-66d1b4dd3bfc` | Ready; awaiting release              |
@@ -34,6 +34,6 @@ All tasks use host `local`. Worktree directory prefixes by phase: `ae76`, `92e7`
 
 ## Current gate
 
-Phase 0 commit `355720e4001df98e80caa713b2f1d4fed36fb862` passed independent coordinator validation and was merged into main. Phase 1 is the sole released implementation task; Phases 2–5 remain queued.
+Phases 0 and 1 passed independent coordinator validation and were merged into main. Implementation commits are `355720e4001df98e80caa713b2f1d4fed36fb862` and `e39cde6bad995286b187ab2b856f215743fdacba`. Phase 2 is the sole released implementation task; Phases 3–5 remain queued.
 
-The coordinator reran formatting, type checking, four Vitest tests with 100% statements/branches/functions/lines, and four production Playwright tests. Coverage includes all handwritten application source; the branch denominator is zero for the foundation. Live Chrome at `http://127.0.0.1:3100/` verified Home → `/survey/new?step=1` → `/survey`, correct preview headings, and no warning/error logs. The startup issue was sandbox local-listener permission, not an application defect; the exact production test passes with permission. Navigation drift was fixed with failing-then-passing route assertions. Scope remains foundation-only.
+The Phase 1 coordinator reran formatting, type checking, all 23 Vitest tests, four production desktop/mobile Playwright tests, the real browser-to-Node server-function flow, and production build. Coverage was 93.85% statements, 97.14% branches, 93.02% functions, and 93.51% lines, with no new exclusions. Live Chrome at `http://127.0.0.1:3101/` verified Home → `/survey/new?step=1` → `/survey`, the expected placeholders, and an empty warning/error log. Persistence, combined filtering, case-insensitive IDs, concurrent writes/deletion, and the timestamp-tie ordering regression passed. No blocker remains. Phase 2 must validate production submission once its UI makes the server functions reachable in the production application graph.
