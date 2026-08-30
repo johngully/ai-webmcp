@@ -72,6 +72,10 @@ pnpm add -D @mcp-b/webmcp-types
 
 Resolved Phase 0 framework versions and validation are recorded in [Phase 0](./phase-0-foundation.md). Keep later dependency changes deliberate and validated against current official documentation.
 
+Phase 1 pins `zod@4.5.4` and `nanoid@6.0.1` with no framework upgrades. Its
+schema, JSONL, operation, and live validation evidence is recorded in
+[Phase 1](./phase-1-domain-storage.md).
+
 ## Data and operating dependencies
 
 | Dependency           | Contract                                                                                   |
