@@ -4,7 +4,7 @@ export const Route = createFileRoute('/')({ component: Home })
 
 function Home() {
   return (
-    <section aria-labelledby="welcome-heading">
+    <section className="welcome" aria-labelledby="welcome-heading">
       <p className="eyebrow">Conference feedback</p>
       <h1 id="welcome-heading">AI Dev Days</h1>
       <p className="intro">Tell us about your talk.</p>

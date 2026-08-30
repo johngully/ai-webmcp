@@ -89,6 +89,10 @@ test('production polyfill discovers one tool, corrects invalid input, and saves 
   await expect(
     page.getByRole('status', { name: 'Assistant submission result' }),
   ).toContainText(result.surveyId)
+  await testInfo.attach('assistant-result', {
+    body: await page.screenshot({ fullPage: true }),
+    contentType: 'image/png',
+  })
   const rows = await repository.find({ name })
   expect(rows).toEqual([
     { ...input, id: result.surveyId, submittedAt: expect.any(String) },
@@ -136,6 +140,10 @@ for (const state of ['unavailable', 'registration error'] as const) {
           : 'Assistant submission could not connect. You can still take the survey.',
       ),
     ).toBeVisible()
+    await testInfo.attach(`assistant-${state}`, {
+      body: await page.screenshot({ fullPage: true }),
+      contentType: 'image/png',
+    })
     await page.getByLabel('Talk attended').selectOption(surveyInput.talk)
     await page.getByRole('radio', { name: '9', exact: true }).check()
     await page

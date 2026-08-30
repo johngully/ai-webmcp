@@ -109,7 +109,10 @@ export function SurveyForm({
 
   if (surveyId)
     return (
-      <section className="panel" aria-labelledby="success-heading">
+      <section
+        className="panel survey-panel success-panel"
+        aria-labelledby="success-heading"
+      >
         <div role="status" className="feedback feedback-success">
           <h1 id="success-heading">Thank you!</h1>
           <p>Your survey has been saved.</p>
@@ -134,6 +137,14 @@ export function SurveyForm({
       <p className="eyebrow">Step {step} of 2 · AI Dev Days</p>
       <h1 id="survey-heading">Take survey</h1>
       <p>All fields are required.</p>
+      <ol className="survey-progress" aria-label="Survey progress">
+        <li aria-current={step === 1 ? 'step' : undefined}>
+          1 · Talk feedback{step === 2 && ' · Complete'}
+        </li>
+        <li aria-current={step === 2 ? 'step' : undefined}>
+          2 · Gift and delivery
+        </li>
+      </ol>
       {storageUnavailable && (
         <p role="status" className="feedback feedback-info">
           Draft storage is unavailable. Keep this page open until you submit;

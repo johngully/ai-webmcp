@@ -1,0 +1,74 @@
+[
+  {
+    "role": "Primary text",
+    "foreground": "#0d0d0d",
+    "background": "#ffffff",
+    "ratio": 19.44
+  },
+  {
+    "role": "Secondary text",
+    "foreground": "#5d5d5d",
+    "background": "#ffffff",
+    "ratio": 6.58
+  },
+  {
+    "role": "Secondary on quiet",
+    "foreground": "#5d5d5d",
+    "background": "#f9f9f9",
+    "ratio": 6.25
+  },
+  {
+    "role": "Secondary on hover",
+    "foreground": "#5d5d5d",
+    "background": "#f3f3f3",
+    "ratio": 5.93
+  },
+  {
+    "role": "Primary action",
+    "foreground": "#ffffff",
+    "background": "#181818",
+    "ratio": 17.76
+  },
+  {
+    "role": "Input boundary",
+    "foreground": "#8f8f8f",
+    "background": "#ffffff",
+    "ratio": 3.23
+  },
+  {
+    "role": "Focus on page",
+    "foreground": "#0169cc",
+    "background": "#ffffff",
+    "ratio": 5.39
+  },
+  {
+    "role": "Focus on quiet",
+    "foreground": "#0169cc",
+    "background": "#f9f9f9",
+    "ratio": 5.12
+  },
+  {
+    "role": "Error text",
+    "foreground": "#911e1b",
+    "background": "#fff0ee",
+    "ratio": 7.88
+  },
+  {
+    "role": "Destructive text/border",
+    "foreground": "#911e1b",
+    "background": "#ffffff",
+    "ratio": 8.73
+  },
+  {
+    "role": "Success text",
+    "foreground": "#00692a",
+    "background": "#f3f3f3",
+    "ratio": 6.2
+  },
+  {
+    "role": "Selected boundary",
+    "foreground": "#181818",
+    "background": "#f3f3f3",
+    "ratio": 16
+  }
+]

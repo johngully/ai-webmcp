@@ -1,5 +1,11 @@
 import { createMemoryHistory, RouterProvider } from '@tanstack/react-router'
-import { cleanup, render, screen, waitFor } from '@testing-library/react'
+import {
+  cleanup,
+  render,
+  screen,
+  waitFor,
+  within,
+} from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { afterEach, beforeEach, expect, test, vi } from 'vitest'
 import { getRouter } from '../src/router'
@@ -65,6 +71,34 @@ async function giveFeedback(user: ReturnType<typeof userEvent.setup>) {
   )
   await user.click(screen.getByRole('button', { name: 'Next' }))
 }
+
+test('attendee can identify the current and completed steps when advancing and returning', async () => {
+  const user = userEvent.setup()
+  await openSurvey()
+  const progress = screen.getByRole('list', { name: 'Survey progress' })
+  expect(within(progress).getByText('1 · Talk feedback')).toHaveAttribute(
+    'aria-current',
+    'step',
+  )
+  await giveFeedback(user)
+  expect(screen.getByRole('link', { name: 'Take survey' })).toHaveAttribute(
+    'aria-current',
+    'page',
+  )
+  expect(
+    within(progress).getByText('1 · Talk feedback · Complete'),
+  ).toBeVisible()
+  expect(within(progress).getByText('2 · Gift and delivery')).toHaveAttribute(
+    'aria-current',
+    'step',
+  )
+  await user.click(screen.getByRole('button', { name: 'Back' }))
+  expect(within(progress).getByText('1 · Talk feedback')).toHaveAttribute(
+    'aria-current',
+    'step',
+  )
+  expect(within(progress).queryByText(/Complete/)).not.toBeInTheDocument()
+})
 
 test('attendee keeps both steps when going Back and gets delivery field errors', async () => {
   const user = userEvent.setup()

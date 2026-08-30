@@ -59,7 +59,11 @@ function RootDocument({ children }: { children: React.ReactNode }) {
               <Link to="/" activeOptions={{ exact: true }}>
                 Home
               </Link>
-              <Link to="/survey/new" search={{ step: 1 }}>
+              <Link
+                to="/survey/new"
+                search={{ step: 1 }}
+                activeOptions={{ includeSearch: false }}
+              >
                 Take survey
               </Link>
               <Link to="/survey" activeOptions={{ exact: true }}>

@@ -1,0 +1,142 @@
+[
+  {
+    "surface": "success",
+    "pageWidth": 320,
+    "width": 320
+  },
+  {
+    "surface": "success",
+    "pageWidth": 390,
+    "width": 390
+  },
+  {
+    "surface": "success",
+    "pageWidth": 768,
+    "width": 768
+  },
+  {
+    "surface": "success",
+    "pageWidth": 1280,
+    "width": 1280
+  },
+  {
+    "surface": "management",
+    "pageWidth": 320,
+    "width": 320
+  },
+  {
+    "surface": "management",
+    "pageWidth": 390,
+    "width": 390
+  },
+  {
+    "surface": "management",
+    "pageWidth": 768,
+    "width": 768
+  },
+  {
+    "surface": "management",
+    "pageWidth": 1280,
+    "width": 1280
+  },
+  {
+    "surface": "details",
+    "pageWidth": 320,
+    "width": 320
+  },
+  {
+    "surface": "details",
+    "pageWidth": 390,
+    "width": 390
+  },
+  {
+    "surface": "details",
+    "pageWidth": 768,
+    "width": 768
+  },
+  {
+    "surface": "details",
+    "pageWidth": 1280,
+    "width": 1280
+  },
+  {
+    "surface": "delete-dialog",
+    "pageWidth": 320,
+    "width": 320
+  },
+  {
+    "surface": "delete-dialog",
+    "pageWidth": 390,
+    "width": 390
+  },
+  {
+    "surface": "delete-dialog",
+    "pageWidth": 768,
+    "width": 768
+  },
+  {
+    "surface": "delete-dialog",
+    "pageWidth": 1280,
+    "width": 1280
+  },
+  {
+    "surface": "home",
+    "pageWidth": 320,
+    "width": 320
+  },
+  {
+    "surface": "home",
+    "pageWidth": 390,
+    "width": 390
+  },
+  {
+    "surface": "home",
+    "pageWidth": 768,
+    "width": 768
+  },
+  {
+    "surface": "home",
+    "pageWidth": 1280,
+    "width": 1280
+  },
+  {
+    "surface": "step-1",
+    "pageWidth": 320,
+    "width": 320
+  },
+  {
+    "surface": "step-1",
+    "pageWidth": 390,
+    "width": 390
+  },
+  {
+    "surface": "step-1",
+    "pageWidth": 768,
+    "width": 768
+  },
+  {
+    "surface": "step-1",
+    "pageWidth": 1280,
+    "width": 1280
+  },
+  {
+    "surface": "step-2",
+    "pageWidth": 320,
+    "width": 320
+  },
+  {
+    "surface": "step-2",
+    "pageWidth": 390,
+    "width": 390
+  },
+  {
+    "surface": "step-2",
+    "pageWidth": 768,
+    "width": 768
+  },
+  {
+    "surface": "step-2",
+    "pageWidth": 1280,
+    "width": 1280
+  }
+]

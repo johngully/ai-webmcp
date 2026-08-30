@@ -128,6 +128,10 @@ test('pending submission stays on the form when navigation is attempted', async 
     await expect(
       page.getByRole('button', { name: 'Submitting…' }),
     ).toBeDisabled()
+    await testInfo.attach('submission-pending', {
+      body: await page.screenshot({ fullPage: true }),
+      contentType: 'image/png',
+    })
     await page.getByRole('link', { name: 'Home', exact: true }).click()
     await expect(page).toHaveURL('/survey/new?step=2', { timeout: 1000 })
     await expect(

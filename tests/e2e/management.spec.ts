@@ -54,6 +54,19 @@ test('organizer filters, inspects, cancels, and deletes only the intended persis
   await expect(dialog).toContainText('Private feedback from Ada Low.')
   await expect(dialog).toContainText('123 Synthetic Lane')
   await expect(dialog).toContainText('0 / 10')
+  // The modal should stay centered in the viewport, with room around every
+  // edge, regardless of its position in the underlying management content.
+  const geometry = await dialog.evaluate((element) => {
+    const rect = element.getBoundingClientRect()
+    return {
+      centerOffset: Math.abs(rect.top + rect.height / 2 - innerHeight / 2),
+      top: rect.top,
+      bottomGap: innerHeight - rect.bottom,
+    }
+  })
+  expect(geometry.centerOffset).toBeLessThan(2)
+  expect(geometry.top).toBeGreaterThanOrEqual(15)
+  expect(geometry.bottomGap).toBeGreaterThanOrEqual(15)
   await expect(
     page.getByRole('button', { name: 'Close details' }),
   ).toBeFocused()

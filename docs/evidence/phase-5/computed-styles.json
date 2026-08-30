@@ -1,0 +1,65 @@
+{
+  "body": {
+    "background": "rgba(0, 0, 0, 0)",
+    "border": "rgb(13, 13, 13)",
+    "color": "rgb(13, 13, 13)",
+    "font": "system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+    "height": 1425.3984375,
+    "size": "16px",
+    "weight": "400"
+  },
+  "button": {
+    "background": "rgb(24, 24, 24)",
+    "border": "rgba(0, 0, 0, 0)",
+    "color": "rgb(255, 255, 255)",
+    "font": "system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+    "height": 46,
+    "size": "16px",
+    "weight": "500"
+  },
+  "footer": {
+    "background": "rgba(0, 0, 0, 0)",
+    "border": "rgb(237, 237, 237) rgb(93, 93, 93) rgb(93, 93, 93)",
+    "color": "rgb(93, 93, 93)",
+    "font": "system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+    "height": 107,
+    "size": "14px",
+    "weight": "400"
+  },
+  "h1": {
+    "background": "rgba(0, 0, 0, 0)",
+    "border": "rgb(13, 13, 13)",
+    "color": "rgb(13, 13, 13)",
+    "font": "system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+    "height": 38.3984375,
+    "size": "32px",
+    "weight": "500"
+  },
+  "input": {
+    "background": "rgb(255, 255, 255)",
+    "border": "rgb(143, 143, 143)",
+    "color": "rgb(13, 13, 13)",
+    "font": "system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+    "height": 50,
+    "size": "16px",
+    "weight": "400"
+  },
+  "nav a": {
+    "background": "rgba(0, 0, 0, 0)",
+    "border": "rgb(13, 13, 13)",
+    "color": "rgb(13, 13, 13)",
+    "font": "system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+    "height": 44,
+    "size": "14px",
+    "weight": "500"
+  },
+  "select": {
+    "background": "rgb(255, 255, 255)",
+    "border": "rgb(143, 143, 143)",
+    "color": "rgb(13, 13, 13)",
+    "font": "system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+    "height": 48,
+    "size": "16px",
+    "weight": "400"
+  }
+}

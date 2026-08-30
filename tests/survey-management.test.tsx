@@ -73,6 +73,21 @@ test('organizer sees newest summaries first without private feedback or addresse
   ).not.toBeInTheDocument()
 })
 
+test('organizer sees the visible response count update with filters and clearing', async () => {
+  const user = userEvent.setup()
+  await setup()
+  expect(screen.getByText('3 responses shown')).toBeVisible()
+  await user.type(screen.getByLabelText('Name contains'), 'Grace')
+  await user.click(screen.getByRole('button', { name: 'Apply' }))
+  expect(await screen.findByText('1 response shown')).toBeVisible()
+  await user.clear(screen.getByLabelText('Name contains'))
+  await user.type(screen.getByLabelText('Name contains'), 'Nobody')
+  await user.click(screen.getByRole('button', { name: 'Apply' }))
+  expect(await screen.findByText('0 responses shown')).toBeVisible()
+  await user.click(screen.getByRole('button', { name: 'Clear' }))
+  expect(await screen.findByText('3 responses shown')).toBeVisible()
+})
+
 test('organizer opens only the requested full response and closing restores focus', async () => {
   const user = userEvent.setup()
   const { operations } = await setup()

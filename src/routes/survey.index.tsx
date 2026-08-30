@@ -95,6 +95,9 @@ function ManagementPage() {
       <h1 id="management-heading" tabIndex={-1}>
         Manage responses
       </h1>
+      <p className="response-count">
+        {responses.length} response{responses.length === 1 ? '' : 's'} shown
+      </p>
       <form
         key={JSON.stringify(search)}
         onSubmit={(event) => {
@@ -158,6 +161,7 @@ function ManagementPage() {
       <div className="selection-actions">
         <p>{visibleSelected.length} selected</p>
         <button
+          className="button-danger"
           type="button"
           disabled={!visibleSelected.length}
           onClick={() =>
@@ -231,20 +235,22 @@ function ManagementPage() {
               {responses.map((response) => (
                 <tr key={response.id}>
                   <td>
-                    <input
-                      type="checkbox"
-                      aria-label={`Select ${response.name}`}
-                      checked={visibleSelected.includes(response.id)}
-                      onChange={(event) =>
-                        setSelected(
-                          event.target.checked
-                            ? [...visibleSelected, response.id]
-                            : visibleSelected.filter(
-                                (id) => id !== response.id,
-                              ),
-                        )
-                      }
-                    />
+                    <label className="row-select">
+                      <input
+                        type="checkbox"
+                        aria-label={`Select ${response.name}`}
+                        checked={visibleSelected.includes(response.id)}
+                        onChange={(event) =>
+                          setSelected(
+                            event.target.checked
+                              ? [...visibleSelected, response.id]
+                              : visibleSelected.filter(
+                                  (id) => id !== response.id,
+                                ),
+                          )
+                        }
+                      />
+                    </label>
                   </td>
                   <td>{response.id}</td>
                   <td>{response.name}</td>
@@ -257,10 +263,15 @@ function ManagementPage() {
                     </time>
                   </td>
                   <td>
-                    <button type="button" onClick={() => setDetails(response)}>
+                    <button
+                      className="button-secondary"
+                      type="button"
+                      onClick={() => setDetails(response)}
+                    >
                       Details
                     </button>
                     <button
+                      className="button-danger"
                       type="button"
                       onClick={() => requestDeletion([response])}
                     >
@@ -308,6 +319,7 @@ function ManagementPage() {
               Cancel
             </button>
             <button
+              className="button-danger"
               type="button"
               disabled={deleting}
               onClick={() => void confirmDeletion()}
