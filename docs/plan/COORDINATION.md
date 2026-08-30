@@ -16,8 +16,8 @@ All six tasks were created on 2026-08-30. `list_threads` omitted these new tasks
 | ----- | ----------------------------------------- | -------------------------------------- | ------------------------------------ |
 | 0     | AI Dev Days — Phase 0: Foundation         | `01a05463-0245-77f0-9229-d45bc1a42db9` | Validated and integrated (`355720e`) |
 | 1     | AI Dev Days — Phase 1: Domain and storage | `01a05463-0af0-7783-92a8-0ec217730054` | Validated and integrated (`e39cde6`) |
-| 2     | AI Dev Days — Phase 2: Manual survey      | `01a05463-141f-70f3-ab93-af7f5c7f1921` | Released after Phase 1 validation    |
-| 3     | AI Dev Days — Phase 3: Management         | `01a05463-237c-7372-ae9a-16648b437057` | Ready; awaiting release              |
+| 2     | AI Dev Days — Phase 2: Manual survey      | `01a05463-141f-70f3-ab93-af7f5c7f1921` | Validated and integrated (`05adb65`) |
+| 3     | AI Dev Days — Phase 3: Management         | `01a05463-237c-7372-ae9a-16648b437057` | Released after Phase 2 validation    |
 | 4     | AI Dev Days — Phase 4: WebMCP             | `01a05463-2ef2-7692-a9f5-1c1d91461e14` | Ready; awaiting release              |
 | 5     | AI Dev Days — Phase 5: Verification…      | `01a05463-4065-7b91-98f3-66d1b4dd3bfc` | Ready; awaiting release              |
 
@@ -34,6 +34,6 @@ All tasks use host `local`. Worktree directory prefixes by phase: `ae76`, `92e7`
 
 ## Current gate
 
-Phases 0 and 1 passed independent coordinator validation and were merged into main. Implementation commits are `355720e4001df98e80caa713b2f1d4fed36fb862` and `e39cde6bad995286b187ab2b856f215743fdacba`. Phase 2 is the sole released implementation task; Phases 3–5 remain queued.
+Phases 0–2 passed independent coordinator validation and were merged into main. Their implementation commits are recorded in the table above and each phase's acceptance evidence. Phase 3 is the sole released implementation task; Phases 4–5 remain queued.
 
-The Phase 1 coordinator reran formatting, type checking, all 23 Vitest tests, four production desktop/mobile Playwright tests, the real browser-to-Node server-function flow, and production build. Coverage was 93.85% statements, 97.14% branches, 93.02% functions, and 93.51% lines, with no new exclusions. Live Chrome at `http://127.0.0.1:3101/` verified Home → `/survey/new?step=1` → `/survey`, the expected placeholders, and an empty warning/error log. Persistence, combined filtering, case-insensitive IDs, concurrent writes/deletion, and the timestamp-tie ordering regression passed. No blocker remains. Phase 2 must validate production submission once its UI makes the server functions reachable in the production application graph.
+The Phase 2 coordinator reran formatting, types, 37 Vitest tests, 10 production desktop/mobile browser tests (including a fresh production build), and the real server-function test. Coverage was 97.14% statements, 97.50% branches, 94.59% functions, and 97.48% lines with unchanged exclusions and thresholds. Live Chrome at `http://127.0.0.1:3102/` verified required-field errors, rating zero, Back/reload retention, success ID `JYX-UKX` matching exactly one isolated JSONL record, fresh-survey reset, and conference-only copy. The only Chrome error came from the installed password-manager extension, not app code. Draft restoration, copy, and pending-navigation regressions pass. No blocker remains.
