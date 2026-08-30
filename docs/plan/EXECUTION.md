@@ -2,6 +2,12 @@
 
 These requirements supersede earlier sequencing and testing assumptions in the phase documents.
 
+## Product language
+
+Present the application as the AI Dev Days conference survey, with ordinary attendee and organizer language about feedback, gifts, and responses. The app must not describe itself as a demo, demonstration, preview, prototype, or development phase. Apply this to visible copy, document titles and metadata, accessibility text, and agent-facing WebMCP tool descriptions and results. Keep comparison scripts, implementation status, and local-only/no-auth operational warnings in contributor documentation. This copy requirement does not change the local-only security or deployment scope.
+
+Phase 2 owns replacing the existing shell and route framing, with a user-visible regression test and production Chrome verification. Later phases preserve that requirement; Phase 5 audits all rendered routes and WebMCP metadata/results before release.
+
 ## Sequential delivery
 
 Each phase has a separate Codex task. Execute Phase 0, 1, 2, 3, 4, then 5. Only one phase implements at a time. Queued tasks may read their plan and report readiness, but must wait for the coordinating task to release them after validation of their predecessor.

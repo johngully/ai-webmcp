@@ -24,4 +24,4 @@ The unauthenticated local management page can find, inspect, select, and remove 
 
 ## Privacy treatment
 
-The summary table does not show the rating reason or shipping address. Those fields appear only after the user explicitly opens the details modal. The page visibly identifies itself as an unauthenticated local demo.
+The summary table does not show the rating reason or shipping address. Those fields appear only after the user explicitly opens the details modal. Use ordinary organizer-facing language under the product-language requirement in [Execution rules](./EXECUTION.md). Document the unauthenticated, local-only deployment limit in operating documentation.
