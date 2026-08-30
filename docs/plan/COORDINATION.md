@@ -12,14 +12,14 @@ Temporary coordinator heartbeat: `coordinate-ai-dev-days-build`, every five minu
 
 All six tasks were created on 2026-08-30. `list_threads` omitted these new tasks even after creation. The mapping below was recovered from the app's task-creation logs and verified with `read_thread` and `wait_threads`; use these real IDs directly. Do not recreate the tasks or confuse an omitted listing with unfinished setup.
 
-| Phase | App title | Task ID | Release state |
-| --- | --- | --- | --- |
-| 0 | AI Dev Days — Phase 0: Foundation | `01a05463-0245-77f0-9229-d45bc1a42db9` | Implementing and validating |
-| 1 | AI Dev Days — Phase 1: Domain and storage | `01a05463-0af0-7783-92a8-0ec217730054` | Ready; awaiting release |
-| 2 | AI Dev Days — Phase 2: Manual survey | `01a05463-141f-70f3-ab93-af7f5c7f1921` | Ready; awaiting release |
-| 3 | AI Dev Days — Phase 3: Management | `01a05463-237c-7372-ae9a-16648b437057` | Ready; awaiting release |
-| 4 | AI Dev Days — Phase 4: WebMCP | `01a05463-2ef2-7692-a9f5-1c1d91461e14` | Ready; awaiting release |
-| 5 | AI Dev Days — Phase 5: Verification… | `01a05463-4065-7b91-98f3-66d1b4dd3bfc` | Ready; awaiting release |
+| Phase | App title                                 | Task ID                                | Release state                        |
+| ----- | ----------------------------------------- | -------------------------------------- | ------------------------------------ |
+| 0     | AI Dev Days — Phase 0: Foundation         | `01a05463-0245-77f0-9229-d45bc1a42db9` | Validated and integrated (`355720e`) |
+| 1     | AI Dev Days — Phase 1: Domain and storage | `01a05463-0af0-7783-92a8-0ec217730054` | Released after Phase 0 validation    |
+| 2     | AI Dev Days — Phase 2: Manual survey      | `01a05463-141f-70f3-ab93-af7f5c7f1921` | Ready; awaiting release              |
+| 3     | AI Dev Days — Phase 3: Management         | `01a05463-237c-7372-ae9a-16648b437057` | Ready; awaiting release              |
+| 4     | AI Dev Days — Phase 4: WebMCP             | `01a05463-2ef2-7692-a9f5-1c1d91461e14` | Ready; awaiting release              |
+| 5     | AI Dev Days — Phase 5: Verification…      | `01a05463-4065-7b91-98f3-66d1b4dd3bfc` | Ready; awaiting release              |
 
 All tasks use host `local`. Worktree directory prefixes by phase: `ae76`, `92e7`, `d739`, `046d`, `46af`, `bcf3`, under `/Users/john/.codex/worktrees/<prefix>/ai-webmcp`.
 
@@ -34,4 +34,6 @@ All tasks use host `local`. Worktree directory prefixes by phase: `ae76`, `92e7`
 
 ## Current gate
 
-Phase 0 is implementing and validating. Shell behavior tests pass. Its production browser test found that the generated server exits immediately without listening despite a successful build; the Phase 0 task is diagnosing/fixing this before acceptance. Coordinator also identified navigation drift (`/survey` and `/manage` instead of `/survey/new?step=1` and `/survey`) and requested a failing regression test, correction, and renewed functional checks. Phases 1–5 acknowledged readiness without editing files. Chrome connection succeeded in the coordinator; future tasks must establish their own skill-compliant browser sessions.
+Phase 0 commit `355720e4001df98e80caa713b2f1d4fed36fb862` passed independent coordinator validation and was merged into main. Phase 1 is the sole released implementation task; Phases 2–5 remain queued.
+
+The coordinator reran formatting, type checking, four Vitest tests with 100% statements/branches/functions/lines, and four production Playwright tests. Coverage includes all handwritten application source; the branch denominator is zero for the foundation. Live Chrome at `http://127.0.0.1:3100/` verified Home → `/survey/new?step=1` → `/survey`, correct preview headings, and no warning/error logs. The startup issue was sandbox local-listener permission, not an application defect; the exact production test passes with permission. Navigation drift was fixed with failing-then-passing route assertions. Scope remains foundation-only.

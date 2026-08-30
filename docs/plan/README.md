@@ -20,7 +20,7 @@ Check a phase here only after every task in its phase file is checked.
 
 ## Phases
 
-- [ ] [Phase 0 — Foundation](./phase-0-foundation.md)
+- [x] [Phase 0 — Foundation](./phase-0-foundation.md)
 - [ ] [Phase 1 — Survey domain and JSONL persistence](./phase-1-domain-storage.md)
 - [ ] [Phase 2 — Manual multi-step survey](./phase-2-survey-flow.md)
 - [ ] [Phase 3 — Survey management](./phase-3-management.md)
