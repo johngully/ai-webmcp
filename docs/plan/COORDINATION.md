@@ -12,15 +12,15 @@ Temporary coordinator heartbeat: `coordinate-ai-dev-days-build`, every five minu
 
 The original six tasks were created on 2026-08-30. The user then inserted styling as Phase 5; its new task was created and the original verification task renamed to Phase 6. `list_threads` can omit these tasks even after creation. The mappings were recovered from exact task-creation log entries and verified with `read_thread`/`wait_threads`; use these real IDs directly. Do not recreate tasks or confuse an omitted listing with unfinished setup.
 
-| Phase | App title                                 | Task ID                                | Release state                                           |
-| ----- | ----------------------------------------- | -------------------------------------- | ------------------------------------------------------- |
-| 0     | AI Dev Days — Phase 0: Foundation         | `01a05463-0245-77f0-9229-d45bc1a42db9` | Validated and integrated (`355720e`)                    |
-| 1     | AI Dev Days — Phase 1: Domain and storage | `01a05463-0af0-7783-92a8-0ec217730054` | Validated and integrated (`e39cde6`)                    |
-| 2     | AI Dev Days — Phase 2: Manual survey      | `01a05463-141f-70f3-ab93-af7f5c7f1921` | Validated and integrated (`05adb65`)                    |
-| 3     | AI Dev Days — Phase 3: Management         | `01a05463-237c-7372-ae9a-16648b437057` | Validated and integrated (`a768b5b`)                    |
-| 4     | AI Dev Days — Phase 4: WebMCP             | `01a05463-2ef2-7692-a9f5-1c1d91461e14` | Validated and integrated (`8cc0297`)                    |
-| 5     | AI Dev Days — Phase 5: Styling            | `01a054eb-aa27-7020-8358-bb5b8d88ee31` | Validated and integrated (`72ed4ab`)                    |
-| 6     | AI Dev Days — Phase 6: Final verification | `01a05463-4065-7b91-98f3-66d1b4dd3bfc` | Released after styling acceptance; checkpoint preserved |
+| Phase | App title                                 | Task ID                                | Release state                                    |
+| ----- | ----------------------------------------- | -------------------------------------- | ------------------------------------------------ |
+| 0     | AI Dev Days — Phase 0: Foundation         | `01a05463-0245-77f0-9229-d45bc1a42db9` | Validated and integrated (`355720e`)             |
+| 1     | AI Dev Days — Phase 1: Domain and storage | `01a05463-0af0-7783-92a8-0ec217730054` | Validated and integrated (`e39cde6`)             |
+| 2     | AI Dev Days — Phase 2: Manual survey      | `01a05463-141f-70f3-ab93-af7f5c7f1921` | Validated and integrated (`05adb65`)             |
+| 3     | AI Dev Days — Phase 3: Management         | `01a05463-237c-7372-ae9a-16648b437057` | Validated and integrated (`a768b5b`)             |
+| 4     | AI Dev Days — Phase 4: WebMCP             | `01a05463-2ef2-7692-a9f5-1c1d91461e14` | Validated and integrated (`8cc0297`)             |
+| 5     | AI Dev Days — Phase 5: Styling            | `01a054eb-aa27-7020-8358-bb5b8d88ee31` | Validated and integrated (`72ed4ab`)             |
+| 6     | AI Dev Days — Phase 6: Final verification | `01a05463-4065-7b91-98f3-66d1b4dd3bfc` | Blocked on explicit two-record deletion approval |
 
 All tasks use host `local`. Worktree directory prefixes by phase 0–6: `ae76`, `92e7`, `d739`, `046d`, `46af`, `1048`, `bcf3`, under `/Users/john/.codex/worktrees/<prefix>/ai-webmcp`. The styling creation initially returned client ID `client-new-thread:ea59f88b-0ff6-43da-916b-eefa53a18469`; its verified real task ID is recorded above.
 
@@ -36,6 +36,8 @@ All tasks use host `local`. Worktree directory prefixes by phase 0–6: `ae76`, 
 ## Current gate
 
 Phases 0–5 passed independent coordinator validation and were integrated into main. The original verification task completed commit `311155f080b92daac87bda6cb3cda35cc1f1b190` just as the styling request arrived. That work is independently checked and integrated as a pre-styling checkpoint, with history intact. Styling commit `72ed4ab08c5a82611b7e58770a675e6f4d0f9558` is now accepted. Phase 6 Final verification is the sole released task; its existing task and worktree are reused and must fast-forward to the exact coordinator handoff commit before working.
+
+Phase 6 started from `8566f84a321d8265511f6b6957d5b695e9e62c43` and completed unaffected checks, including the clean install, 58 unit/integration tests, 60 repeated production browser cases, one server-function case, and extensive live Chrome evidence. On 2026-08-30 local time, auto-review denied the final live bulk confirmation because exact action-time deletion approval was missing. The task stopped without retry or an alternate deletion path. Only disposable fictional responses `7PX-HLJ` (Disposable Bulk One) and `SZS-529` (Disposable Bulk Two) are intended targets in `/private/tmp/ai-dev-days-final-data-aZrT6n/surveys.jsonl`, served by the isolated app on port 3114. Matching manual/tool responses `48G-LRE` and `FN8-VRY` must remain. The coordinator requested this exact approval from the user. Do not retry or resume destructive validation until it arrives; unchanged waiting state does not warrant repeated notifications. The Phase 6 worktree holds uncommitted evidence/docs with P6.3/P6.7 open. Final commit, independent acceptance, integration, and automation cleanup remain pending. This coordinator-only blocker update need not be merged into the dirty phase worktree; preserve both histories at integration if necessary.
 
 The Phase 3 coordinator reran formatting, types, 45 Vitest tests, 14 production desktop/mobile browser tests (including build/start), and the real server-function test. Coverage was 96.73% statements, 97.24% branches, 94.01% functions, and 97.22% lines with unchanged exclusions and thresholds. Live Chrome at `http://127.0.0.1:3104/` verified native detail focus/Escape/restore, two manual submissions, combined case-insensitive name/talk/inclusive 0–10 filters, hidden-selection pruning, canceled and confirmed bulk/single deletion, post-delete focus, and retained JSONL data after reload. The coordinator Chrome log was empty. All changes were confined to isolated synthetic records; no user data was touched. No blocker remains.
 

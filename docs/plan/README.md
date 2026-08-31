@@ -26,7 +26,7 @@ Check a phase here only after every task in its phase file is checked.
 - [x] [Phase 3 — Survey management](./phase-3-management.md)
 - [x] [Phase 4 — WebMCP submission](./phase-4-webmcp.md)
 - [x] [Phase 5 — Styling](./phase-5-styling.md)
-- [ ] [Phase 6 — Final verification](./phase-6-final-verification.md) **IN PROGRESS**
+- [ ] [Phase 6 — Final verification](./phase-6-final-verification.md) **BLOCKED: explicit approval for two-record live bulk-deletion check**
 
 The original verification work is preserved in commit `311155f` and its [pre-styling checkpoint evidence](./phase-5-verification-demo.md). On 2026-08-30 the user inserted styling as Phase 5; final verification moved to Phase 6 and must run against the restyled application.
 
