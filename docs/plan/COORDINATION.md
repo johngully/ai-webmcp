@@ -43,6 +43,14 @@ Task `01a0555f-94b8-7df0-ba83-46afe9f776a3` was created and released from the co
 
 ## Phase 8 planning gate
 
+### Phase 8 independent review — 2026-08-31
+
+The Phase 8 task completed implementation in `/Users/john/.codex/worktrees/42db/ai-webmcp`, still uncommitted pending its final live gate. The coordinator reviewed shared ID filtering, privacy-limited summary projection, guarded adapters, array-only deletion, availability/route cleanup, contributor confirmation and regression evidence. No implementation defect requiring changes was found in this review.
+
+An independent source-only copy at `/private/tmp/ai-dev-days-phase8-accept-fH6q5C` passed frozen install, formatting, types, **77 unit/integration tests**, exact **26-file** coverage scope, production build, **54 desktop/mobile browser cases** (59.3 seconds) and **three real server-function cases** (5.6 seconds). Coverage is **93.71/91.48/88.46/95.00%** for statements/branches/functions/lines, with the 86% thresholds, scope script and exclusions unchanged. All 66 recorded source/test/configuration hashes match the worktree and independent copy after its final build. An initial offline install lacked a cached package; the ordinary frozen install succeeded without dependency changes.
+
+The phase task reports Chrome reconnected and completed live discovery/search/manual comparison, off/on, cancellation and narrow-layout checks against its separate immutable snapshot at `/private/tmp/ai-p8-live-Amn9oN`, app `http://127.0.0.1:63045`, client `http://127.0.0.1:63058/__verification__/webmcp`. The coordinator inspected the captured narrow layout and exact-ID confirmation screenshot, not a new live browser session. The live final gate remains pending: one call deleting fictional `ABC-234`, followed by one bulk call deleting fictional `DEF-567` and `GHK-789`, retaining `LMN-234`. The coordinator asked for explicit permission in chat; no permission has yet arrived and no live deletion is authorized by this record. Earlier previews/data are unchanged. Phase 8 remains uncommitted and unintegrated until that gate is resolved.
+
 ### Accepted Phase 7 and Phase 8 release — 2026-08-31
 
 Phase 7 finalized scoped implementation commit `4fa0f629c332fbd54af1d67981a18e2617e97bd2` on `codex/phase-7-webmcp-control` with a clean worktree. The coordinator independently rechecked all 60 source/test/script/package hashes against the corrected revision already validated below: zero mismatches. The final evidence retains 66 unit/integration tests, 48 production desktop/mobile cases, 96 immutable repeated cases, two real RPC cases, and coverage of 94.59/92.01/91.02/95.75%. Dependencies and the existing coverage configuration, scope assertion, and thresholds are unchanged. Final formatting and staged diff checks pass. Only retained log whitespace was normalized during finalization.
