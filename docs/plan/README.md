@@ -26,9 +26,11 @@ Check a phase here only after every task in its phase file is checked.
 - [x] [Phase 3 — Survey management](./phase-3-management.md)
 - [x] [Phase 4 — WebMCP submission](./phase-4-webmcp.md)
 - [x] [Phase 5 — Styling](./phase-5-styling.md)
-- [ ] [Phase 6 — Final verification](./phase-6-final-verification.md) **BLOCKED: explicit approval for two-record live bulk-deletion check**
+- [x] [Phase 6 — Final verification](./phase-6-final-verification.md)
 
 The original verification work is preserved in commit `311155f` and its [pre-styling checkpoint evidence](./phase-5-verification-demo.md). On 2026-08-30 the user inserted styling as Phase 5; final verification moved to Phase 6 and must run against the restyled application.
+
+All planned phases are now independently validated and integrated. Phase 6 is commit `910298314f4160421e8e0d6affa11e0784db62b5`; its final record includes the approved bulk-deletion check and coverage-scope regression. See the [comparison guide](../demo-guide.md) for manual-only and WebMCP test instructions and the [final evidence](../evidence/phase-6/README.md) for screenshots and operating limits.
 
 See [Dependencies](./DEPENDENCIES.md) for the package inventory, runtime prerequisites, data dependencies, and phase graph.
 
