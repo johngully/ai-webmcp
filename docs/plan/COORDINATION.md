@@ -12,16 +12,17 @@ The temporary five-minute coordinator heartbeat `coordinate-ai-dev-days-build` w
 
 The original six tasks were created on 2026-08-30. The user then inserted styling as Phase 5; its new task was created and the original verification task renamed to Phase 6. `list_threads` can omit these tasks even after creation. The mappings were recovered from exact task-creation log entries and verified with `read_thread`/`wait_threads`; use these real IDs directly. Do not recreate tasks or confuse an omitted listing with unfinished setup.
 
-| Phase | App title                                   | Task ID                                | Release state                         |
-| ----- | ------------------------------------------- | -------------------------------------- | ------------------------------------- |
-| 0     | AI Dev Days — Phase 0: Foundation           | `01a05463-0245-77f0-9229-d45bc1a42db9` | Validated and integrated (`355720e`)  |
-| 1     | AI Dev Days — Phase 1: Domain and storage   | `01a05463-0af0-7783-92a8-0ec217730054` | Validated and integrated (`e39cde6`)  |
-| 2     | AI Dev Days — Phase 2: Manual survey        | `01a05463-141f-70f3-ab93-af7f5c7f1921` | Validated and integrated (`05adb65`)  |
-| 3     | AI Dev Days — Phase 3: Management           | `01a05463-237c-7372-ae9a-16648b437057` | Validated and integrated (`a768b5b`)  |
-| 4     | AI Dev Days — Phase 4: WebMCP               | `01a05463-2ef2-7692-a9f5-1c1d91461e14` | Validated and integrated (`8cc0297`)  |
-| 5     | AI Dev Days — Phase 5: Styling              | `01a054eb-aa27-7020-8358-bb5b8d88ee31` | Validated and integrated (`72ed4ab`)  |
-| 6     | AI Dev Days — Phase 6: Final verification   | `01a05463-4065-7b91-98f3-66d1b4dd3bfc` | Validated and integrated (`9102983`)  |
-| 7     | AI Dev Days — Phase 7: WebMCP availability… | `01a0555f-94b8-7df0-ba83-46afe9f776a3` | Released from `cfece56`; implementing |
+| Phase | App title                                   | Task ID                                | Release state                             |
+| ----- | ------------------------------------------- | -------------------------------------- | ----------------------------------------- |
+| 0     | AI Dev Days — Phase 0: Foundation           | `01a05463-0245-77f0-9229-d45bc1a42db9` | Validated and integrated (`355720e`)      |
+| 1     | AI Dev Days — Phase 1: Domain and storage   | `01a05463-0af0-7783-92a8-0ec217730054` | Validated and integrated (`e39cde6`)      |
+| 2     | AI Dev Days — Phase 2: Manual survey        | `01a05463-141f-70f3-ab93-af7f5c7f1921` | Validated and integrated (`05adb65`)      |
+| 3     | AI Dev Days — Phase 3: Management           | `01a05463-237c-7372-ae9a-16648b437057` | Validated and integrated (`a768b5b`)      |
+| 4     | AI Dev Days — Phase 4: WebMCP               | `01a05463-2ef2-7692-a9f5-1c1d91461e14` | Validated and integrated (`8cc0297`)      |
+| 5     | AI Dev Days — Phase 5: Styling              | `01a054eb-aa27-7020-8358-bb5b8d88ee31` | Validated and integrated (`72ed4ab`)      |
+| 6     | AI Dev Days — Phase 6: Final verification   | `01a05463-4065-7b91-98f3-66d1b4dd3bfc` | Validated and integrated (`9102983`)      |
+| 7     | AI Dev Days — Phase 7: WebMCP availability… | `01a0555f-94b8-7df0-ba83-46afe9f776a3` | Released from `cfece56`; implementing     |
+| 8     | AI Dev Days — Phase 8: WebMCP management    | `01a058ce-d43c-7050-9c44-6dcd1481fc9a` | Queued; read-only readiness, not released |
 
 All tasks use host `local`. Worktree directory prefixes by phase 0–6: `ae76`, `92e7`, `d739`, `046d`, `46af`, `1048`, `bcf3`, under `/Users/john/.codex/worktrees/<prefix>/ai-webmcp`. The styling creation initially returned client ID `client-new-thread:ea59f88b-0ff6-43da-916b-eefa53a18469`; its verified real task ID is recorded above.
 
@@ -42,7 +43,9 @@ Task `01a0555f-94b8-7df0-ba83-46afe9f776a3` was created and released from the co
 
 ## Phase 8 planning gate
 
-On 2026-08-31 the user requested a new phase for WebMCP search by ID/name/talk/rating range and array-only deletion. [Phase 8](./phase-8-webmcp-management.md) is planned, not released. The existing single-row and selected-row management actions already delegate to the same array-taking delete operation; the plan preserves that path. A separate queued Codex task will read the plan and wait for a coordinator release after Phase 7 acceptance.
+On 2026-08-31 the user requested a new phase for WebMCP search by ID/name/talk/rating range and array-only deletion. [Phase 8](./phase-8-webmcp-management.md) is planned, not released. The existing single-row and selected-row management actions already delegate to the same array-taking delete operation; the plan preserves that path.
+
+Queued task `01a058ce-d43c-7050-9c44-6dcd1481fc9a`, **AI Dev Days — Phase 8: WebMCP management**, uses `/Users/john/.codex/worktrees/42db/ai-webmcp` from planning commit `05ded072830e6114392001408dd7cc39f9ebf88d`. It is instructed only to read and report readiness, then stop until a coordinator release supplies the accepted Phase 7 baseline. Creation returned `client-new-thread:48e2b2fd-3334-49a4-a017-1ba52affa0e9`; the real task ID was resolved from its exact app lifecycle entry and verified with `read_thread`/`wait_threads`. Its completed readiness turn found no blocking plan conflict, confirmed a clean worktree, and stopped without edits, installs, server/test runs, or survey operations. No Phase 8 implementation or mutation test was authorized by this planning turn.
 
 The planning-time Phase 7 snapshot reports implementation and automated checks complete in its own worktree, but final Chrome saved-response validation and the scoped commit remain pending. Its last handoff reports 65 unit/integration tests, 46 production browser cases (92 repeated), two real RPC cases, and 94.31/91.88/91.02/95.71% coverage. These are phase-task reports, not coordinator acceptance. User-reported manual success and the coordinator's later read-only tool discovery do not by themselves close all remaining checks. Do not release Phase 8 or merge uncommitted Phase 7 work in this planning turn.
 
