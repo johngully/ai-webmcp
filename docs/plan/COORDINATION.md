@@ -12,17 +12,17 @@ The temporary five-minute coordinator heartbeat `coordinate-ai-dev-days-build` w
 
 The original six tasks were created on 2026-08-30. The user then inserted styling as Phase 5; its new task was created and the original verification task renamed to Phase 6. `list_threads` can omit these tasks even after creation. The mappings were recovered from exact task-creation log entries and verified with `read_thread`/`wait_threads`; use these real IDs directly. Do not recreate tasks or confuse an omitted listing with unfinished setup.
 
-| Phase | App title                                   | Task ID                                | Release state                                     |
-| ----- | ------------------------------------------- | -------------------------------------- | ------------------------------------------------- |
-| 0     | AI Dev Days — Phase 0: Foundation           | `01a05463-0245-77f0-9229-d45bc1a42db9` | Validated and integrated (`355720e`)              |
-| 1     | AI Dev Days — Phase 1: Domain and storage   | `01a05463-0af0-7783-92a8-0ec217730054` | Validated and integrated (`e39cde6`)              |
-| 2     | AI Dev Days — Phase 2: Manual survey        | `01a05463-141f-70f3-ab93-af7f5c7f1921` | Validated and integrated (`05adb65`)              |
-| 3     | AI Dev Days — Phase 3: Management           | `01a05463-237c-7372-ae9a-16648b437057` | Validated and integrated (`a768b5b`)              |
-| 4     | AI Dev Days — Phase 4: WebMCP               | `01a05463-2ef2-7692-a9f5-1c1d91461e14` | Validated and integrated (`8cc0297`)              |
-| 5     | AI Dev Days — Phase 5: Styling              | `01a054eb-aa27-7020-8358-bb5b8d88ee31` | Validated and integrated (`72ed4ab`)              |
-| 6     | AI Dev Days — Phase 6: Final verification   | `01a05463-4065-7b91-98f3-66d1b4dd3bfc` | Validated and integrated (`9102983`)              |
-| 7     | AI Dev Days — Phase 7: WebMCP availability… | `01a0555f-94b8-7df0-ba83-46afe9f776a3` | Corrected checks pass; live Chrome/commit pending |
-| 8     | AI Dev Days — Phase 8: WebMCP management    | `01a058ce-d43c-7050-9c44-6dcd1481fc9a` | Queued; read-only readiness, not released         |
+| Phase | App title                                   | Task ID                                | Release state                                      |
+| ----- | ------------------------------------------- | -------------------------------------- | -------------------------------------------------- |
+| 0     | AI Dev Days — Phase 0: Foundation           | `01a05463-0245-77f0-9229-d45bc1a42db9` | Validated and integrated (`355720e`)               |
+| 1     | AI Dev Days — Phase 1: Domain and storage   | `01a05463-0af0-7783-92a8-0ec217730054` | Validated and integrated (`e39cde6`)               |
+| 2     | AI Dev Days — Phase 2: Manual survey        | `01a05463-141f-70f3-ab93-af7f5c7f1921` | Validated and integrated (`05adb65`)               |
+| 3     | AI Dev Days — Phase 3: Management           | `01a05463-237c-7372-ae9a-16648b437057` | Validated and integrated (`a768b5b`)               |
+| 4     | AI Dev Days — Phase 4: WebMCP               | `01a05463-2ef2-7692-a9f5-1c1d91461e14` | Validated and integrated (`8cc0297`)               |
+| 5     | AI Dev Days — Phase 5: Styling              | `01a054eb-aa27-7020-8358-bb5b8d88ee31` | Validated and integrated (`72ed4ab`)               |
+| 6     | AI Dev Days — Phase 6: Final verification   | `01a05463-4065-7b91-98f3-66d1b4dd3bfc` | Validated and integrated (`9102983`)               |
+| 7     | AI Dev Days — Phase 7: WebMCP availability… | `01a0555f-94b8-7df0-ba83-46afe9f776a3` | Accepted (`4fa0f62`); remaining manual gate waived |
+| 8     | AI Dev Days — Phase 8: WebMCP management    | `01a058ce-d43c-7050-9c44-6dcd1481fc9a` | Released after Phase 7 integration                 |
 
 All tasks use host `local`. Worktree directory prefixes by phase 0–6: `ae76`, `92e7`, `d739`, `046d`, `46af`, `1048`, `bcf3`, under `/Users/john/.codex/worktrees/<prefix>/ai-webmcp`. The styling creation initially returned client ID `client-new-thread:ea59f88b-0ff6-43da-916b-eefa53a18469`; its verified real task ID is recorded above.
 
@@ -42,6 +42,16 @@ The user added [Phase 7 — WebMCP availability control](./phase-7-webmcp-contro
 Task `01a0555f-94b8-7df0-ba83-46afe9f776a3` was created and released from the committed plan, `cfece566384096e5438efad19cffd6fc934483bd`. Its worktree is `/Users/john/.codex/worktrees/8e6f/ai-webmcp`. Creation returned `client-new-thread:2fcf2374-aba3-4a05-9142-b5e6dcc09a86`; the real ID was resolved from the exact app lifecycle entry and verified through `read_thread` and `wait_threads`. The first active snapshot confirmed repository/TDD/plan inspection and an in-progress implementation turn. The overall gate remains unchecked until independent acceptance and integration. Earlier previews and response data remain out of scope. No coordinator automation has been recreated.
 
 ## Phase 8 planning gate
+
+### Accepted Phase 7 and Phase 8 release — 2026-08-31
+
+Phase 7 finalized scoped implementation commit `4fa0f629c332fbd54af1d67981a18e2617e97bd2` on `codex/phase-7-webmcp-control` with a clean worktree. The coordinator independently rechecked all 60 source/test/script/package hashes against the corrected revision already validated below: zero mismatches. The final evidence retains 66 unit/integration tests, 48 production desktop/mobile cases, 96 immutable repeated cases, two real RPC cases, and coverage of 94.59/92.01/91.02/95.75%. Dependencies and the existing coverage configuration, scope assertion, and thresholds are unchanged. Final formatting and staged diff checks pass. Only retained log whitespace was normalized during finalization.
+
+The remaining corrected-revision manual Chrome checks are **waived, not passed**, under the user-directed exception. No pending browser action was performed and no old preview or response data was changed. The earlier live-check hold below is historical and superseded by this explicit exception. Integration preserves both phase and coordinator histories; its only conflict is the phase-index status, resolved by retaining Phase 8 and recording Phase 7 acceptance.
+
+Post-merge checks in the coordinating checkout passed types, all 66 unit/integration tests, the exact 24-file coverage-scope assertion, the same coverage percentages, and full formatting. The route generator's transient removal of production type declarations was restored to the validated committed content; no application source differs from the verified phase commit.
+
+The existing Phase 8 task is released from the integrated coordinator commit supplied in its follow-up prompt. It must fast-forward to that baseline, reread the phase and execution documents, implement search and array-only deletion with TDD, validate actual functionality and unchanged coverage gates, and return its own scoped commit for independent review. This release does not waive Phase 8 validation or action-time safety requirements.
 
 ### User-directed continuation — 2026-08-31
 

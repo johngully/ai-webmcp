@@ -1,0 +1,184 @@
+
+Running 2 tests using 2 workers
+
+(node:23972) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:23973) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [desktop] › tests/e2e/webmcp-control.spec.ts:68:1 › management retains disabled state after process restart without rewriting responses (4.2s)
+  ✘  2 [desktop] › tests/e2e/webmcp-control.spec.ts:7:1 › off propagates to drafts and the separate client; fresh disabled pages load no integration; on restores one tool (10.3s)
+
+
+  1) [desktop] › tests/e2e/webmcp-control.spec.ts:7:1 › off propagates to drafts and the separate client; fresh disabled pages load no integration; on restores one tool
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: getByLabel('Discovered tools')
+    Timeout: 5000ms
+    - Expected  -  1
+    + Received  + 67
+
+    - []
+    + [
+    +   {
+    +     "name": "submit_ai_dev_days_survey",
+    +     "title": "",
+    +     "description": "Submit AI Dev Days talk feedback and a thank-you gift request. Collect all six required answers from the attendee before calling. Each call creates one survey response and returns its survey ID. It does not change or delete existing responses. Repeating the call creates another response; do not retry automatically.",
+    +     "inputSchema": {
+    +       "$schema": "https://json-schema.org/draft/2020-12/schema",
+    +       "type": "object",
+    +       "properties": {
+    +         "talk": {
+    +           "type": "string",
+    +           "enum": [
+    +             "Building Reliable AI Agents",
+    +             "Multimodal Apps with Modern Models",
+    +             "Retrieval-Augmented Generation in Production",
+    +             "Building Agent-Ready Websites with WebMCP",
+    +             "Evaluating and Securing LLM Applications"
+    +           ],
+    +           "description": "The AI Dev Days talk you attended"
+    +         },
+    +         "rating": {
+    +           "type": "integer",
+    +           "minimum": 0,
+    +           "maximum": 10,
+    +           "description": "Likelihood to recommend the talk, from 0 to 10"
+    +         },
+    +         "ratingReason": {
+    +           "type": "string",
+    +           "minLength": 1,
+    +           "description": "Primary reason for your rating"
+    +         },
+    +         "swagGift": {
+    +           "type": "string",
+    +           "enum": [
+    +             "Hoodie",
+    +             "Headphones",
+    +             "Keyboard"
+    +           ],
+    +           "description": "Your preferred thank-you gift"
+    +         },
+    +         "name": {
+    +           "type": "string",
+    +           "minLength": 1,
+    +           "description": "Your full name"
+    +         },
+    +         "shippingAddress": {
+    +           "type": "string",
+    +           "minLength": 1,
+    +           "description": "Shipping address for your gift"
+    +         }
+    +       },
+    +       "required": [
+    +         "talk",
+    +         "rating",
+    +         "ratingReason",
+    +         "swagGift",
+    +         "name",
+    +         "shippingAddress"
+    +       ]
+    +     },
+    +     "origin": "http://127.0.0.1:65375",
+    +     "annotations": {
+    +       "readOnlyHint": false,
+    +       "untrustedContentHint": false
+    +     }
+    +   }
+    + ]
+
+    Call log:
+      - Expect "toHaveText" with timeout 5000ms
+      - waiting for getByLabel('Discovered tools')
+        14 × locator resolved to <pre id="tools" aria-label="Discovered tools">[↵  {↵    "name": "submit_ai_dev_days_survey",↵  …</pre>
+           - unexpected value "[
+      {
+        "name": "submit_ai_dev_days_survey",
+        "title": "",
+        "description": "Submit AI Dev Days talk feedback and a thank-you gift request. Collect all six required answers from the attendee before calling. Each call creates one survey response and returns its survey ID. It does not change or delete existing responses. Repeating the call creates another response; do not retry automatically.",
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "talk": {
+              "type": "string",
+              "enum": [
+                "Building Reliable AI Agents",
+                "Multimodal Apps with Modern Models",
+                "Retrieval-Augmented Generation in Production",
+                "Building Agent-Ready Websites with WebMCP",
+                "Evaluating and Securing LLM Applications"
+              ],
+              "description": "The AI Dev Days talk you attended"
+            },
+            "rating": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10,
+              "description": "Likelihood to recommend the talk, from 0 to 10"
+            },
+            "ratingReason": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Primary reason for your rating"
+            },
+            "swagGift": {
+              "type": "string",
+              "enum": [
+                "Hoodie",
+                "Headphones",
+                "Keyboard"
+              ],
+              "description": "Your preferred thank-you gift"
+            },
+            "name": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Your full name"
+            },
+            "shippingAddress": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Shipping address for your gift"
+            }
+          },
+          "required": [
+            "talk",
+            "rating",
+            "ratingReason",
+            "swagGift",
+            "name",
+            "shippingAddress"
+          ]
+        },
+        "origin": "http://127.0.0.1:65375",
+        "annotations": {
+          "readOnlyHint": false,
+          "untrustedContentHint": false
+        }
+      }
+    ]"
+
+
+      32 |   await expect(page.getByLabel('Primary reason for your rating')).toHaveValue('Fictional Phase Seven draft retained across availability changes.')
+      33 |   await client.getByRole('button', { name: 'Discover survey tools' }).click()
+    > 34 |   await expect(client.getByLabel('Discovered tools')).toHaveText('[]')
+         |                                                       ^
+      35 |   await expect(client.getByRole('button', { name: 'Submit through assistant' })).toBeDisabled()
+      36 |   const fresh = await context.newPage()
+      37 |   const requests: string[] = []
+        at /Users/john/.codex/worktrees/8e6f/ai-webmcp/tests/e2e/webmcp-control.spec.ts:34:55
+
+    Error Context: test-results/webmcp-control-off-propaga-cfacd-ration-on-restores-one-tool-desktop/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/webmcp-control-off-propaga-cfacd-ration-on-restores-one-tool-desktop/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/webmcp-control-off-propaga-cfacd-ration-on-restores-one-tool-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [desktop] › tests/e2e/webmcp-control.spec.ts:7:1 › off propagates to drafts and the separate client; fresh disabled pages load no integration; on restores one tool
+  1 passed (12.2s)

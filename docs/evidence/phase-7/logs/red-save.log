@@ -1,0 +1,33 @@
+
+ RUN  v4.1.11 /Users/john/.codex/worktrees/8e6f/ai-webmcp
+
+ ❯ |ui| tests/webmcp-control.test.tsx (2 tests | 1 failed) 138ms
+   × uncertain saving reports no success, prevents another change, and recovers by checking server state 27ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |ui| tests/webmcp-control.test.tsx > uncertain saving reports no success, prevents another change, and recovers by checking server state
+Error: expect(element).toBeDisabled()
+
+Received element is not disabled:
+  <button
+  aria-checked="true"
+  aria-label="WebMCP"
+  role="switch"
+  type="button"
+/>
+ ❯ tests/webmcp-control.test.tsx:52:21
+     50|     rejectWrite(new Error('Connection lost'))
+     51|     expect(await screen.findByRole('alert')).toHaveTextContent('could …
+     52|     expect(control).toBeDisabled()
+       |                     ^
+     53|     await userEvent.click(screen.getByRole('button', { name: 'Check se…
+     54|     expect(await screen.findByText('WebMCP enabled.')).toBeVisible()
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 passed (2)
+   Start at  20:15:35
+   Duration  683ms (transform 70ms, setup 73ms, import 141ms, tests 138ms, environment 267ms)

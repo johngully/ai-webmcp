@@ -1,0 +1,6 @@
+
+> ai-dev-days@ format:check /Users/john/.codex/worktrees/8e6f/ai-webmcp
+> prettier --check .
+
+Checking formatting...
+All matched files use Prettier code style!

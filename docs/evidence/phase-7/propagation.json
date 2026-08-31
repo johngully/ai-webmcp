@@ -1,0 +1,38 @@
+[
+  {
+    "project": "desktop",
+    "run": 1,
+    "propagationMs": 2014,
+    "enabledIntegrationAssets": [
+      "http://127.0.0.1:50138/assets/survey-assistant-DHjxgtFN.js",
+      "http://127.0.0.1:50138/assets/dist-Dm5DlVoj.js"
+    ]
+  },
+  {
+    "project": "desktop",
+    "run": 2,
+    "propagationMs": 2040,
+    "enabledIntegrationAssets": [
+      "http://127.0.0.1:50334/assets/survey-assistant-DHjxgtFN.js",
+      "http://127.0.0.1:50334/assets/dist-Dm5DlVoj.js"
+    ]
+  },
+  {
+    "project": "mobile",
+    "run": 1,
+    "propagationMs": 1026,
+    "enabledIntegrationAssets": [
+      "http://127.0.0.1:50544/assets/survey-assistant-DHjxgtFN.js",
+      "http://127.0.0.1:50544/assets/dist-Dm5DlVoj.js"
+    ]
+  },
+  {
+    "project": "mobile",
+    "run": 2,
+    "propagationMs": 2032,
+    "enabledIntegrationAssets": [
+      "http://127.0.0.1:50739/assets/survey-assistant-DHjxgtFN.js",
+      "http://127.0.0.1:50739/assets/dist-Dm5DlVoj.js"
+    ]
+  }
+]

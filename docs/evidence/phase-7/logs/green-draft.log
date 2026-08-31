@@ -1,0 +1,44 @@
+
+Running 3 tests using 3 workers
+
+(node:24098) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24099) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24097) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [desktop] › tests/e2e/webmcp-control.spec.ts:68:1 › management retains disabled state after process restart without rewriting responses (3.6s)
+  ✓  3 [desktop] › tests/e2e/webmcp-control.spec.ts:85:1 › turning off keeps an unsaved draft when browser storage is unavailable (5.2s)
+  ✘  1 [desktop] › tests/e2e/webmcp-control.spec.ts:7:1 › off propagates to drafts and the separate client; fresh disabled pages load no integration; on restores one tool (6.9s)
+
+
+  1) [desktop] › tests/e2e/webmcp-control.spec.ts:7:1 › off propagates to drafts and the separate client; fresh disabled pages load no integration; on restores one tool
+
+    Error: expect(received).toHaveLength(expected)
+
+    Expected length: 1
+    Received length: 0
+    Received array:  []
+
+      56 |   await client.getByRole('button', { name: 'Discover survey tools' }).click()
+      57 |   const tools = JSON.parse((await client.getByLabel('Discovered tools').textContent())!)
+    > 58 |   expect(tools).toHaveLength(1)
+         |                 ^
+      59 |   await client.getByLabel('Synthetic survey answers').fill(JSON.stringify({ ...surveyInput, name: 'Fictional Phase Seven Assistant' }))
+      60 |   await client.getByRole('button', { name: 'Submit through assistant' }).click()
+      61 |   await expect(client.getByRole('status', { name: 'Tool result' })).toContainText('"success":true')
+        at /Users/john/.codex/worktrees/8e6f/ai-webmcp/tests/e2e/webmcp-control.spec.ts:58:17
+
+    Error Context: test-results/webmcp-control-off-propaga-cfacd-ration-on-restores-one-tool-desktop/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/webmcp-control-off-propaga-cfacd-ration-on-restores-one-tool-desktop/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/webmcp-control-off-propaga-cfacd-ration-on-restores-one-tool-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [desktop] › tests/e2e/webmcp-control.spec.ts:7:1 › off propagates to drafts and the separate client; fresh disabled pages load no integration; on restores one tool
+  2 passed (7.4s)

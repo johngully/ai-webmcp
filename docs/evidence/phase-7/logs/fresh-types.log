@@ -1,0 +1,10 @@
+
+> ai-dev-days@ typecheck /private/tmp/ai-webmcp-p7-fresh-1phe7mxq/src/checkout
+> pnpm generate-routes && tsc --noEmit
+
+
+> ai-dev-days@ generate-routes /private/tmp/ai-webmcp-p7-fresh-1phe7mxq/src/checkout
+> tsr generate
+
+(node:25464) Warning: Accessing non-existent property 'replaceRouteChunk' of module exports inside circular dependency
+(Use `node --trace-warnings ...` to show where the warning was created)

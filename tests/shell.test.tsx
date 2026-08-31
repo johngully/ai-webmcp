@@ -2,12 +2,14 @@ import { createMemoryHistory, RouterProvider } from '@tanstack/react-router'
 import { render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { expect, test } from 'vitest'
+import { isolatedAvailability } from './support/availability.fixture'
 import { getRouter } from '../src/router'
 import { createSurveyOperations } from '../src/survey/survey.operations.server'
 import { createMemorySurveyRepository } from '../src/survey/survey-repository.memory'
 
 async function renderPage(path = '/') {
   const router = getRouter({
+    availability: isolatedAvailability(),
     management: createSurveyOperations(createMemorySurveyRepository()),
   })
   router.update({

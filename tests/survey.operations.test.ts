@@ -58,3 +58,38 @@ test('server operation resolution honors the configured data path and retains da
     await rm(directory, { recursive: true, force: true })
   }
 })
+
+test('disabled WebMCP rejects stale submissions without saving while the manual operation remains available', async () => {
+  const directory = await mkdtemp(join(tmpdir(), 'ai-survey-guard-'))
+  try {
+    const file = join(directory, 'surveys.jsonl')
+    const { createAvailabilityOperations } =
+      await import('../src/availability/availability.operations.server')
+    const settings = createAvailabilityOperations(file)
+    const operations = createSurveyOperations(
+      createJsonlSurveyRepository(file),
+      settings,
+    )
+    await settings.setAvailability({ enabled: false })
+    await expect(
+      operations.submitAssistantSurvey(surveyInput),
+    ).resolves.toEqual({ success: false, error: 'disabled' })
+    expect(await operations.findSurveys()).toEqual([])
+    const manual = await operations.submitSurvey(surveyInput)
+    await settings.setAvailability({ enabled: true })
+    const assistant = await operations.submitAssistantSurvey({
+      ...surveyInput,
+      name: 'Fictional Phase Seven',
+    })
+    expect(assistant).toMatchObject({
+      success: true,
+      surveyId: expect.any(String),
+    })
+    expect(await operations.findSurveys()).toHaveLength(2)
+    expect(await operations.findSurveys({ name: surveyInput.name })).toEqual([
+      expect.objectContaining({ id: manual.surveyId }),
+    ])
+  } finally {
+    await rm(directory, { recursive: true, force: true })
+  }
+})

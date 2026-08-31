@@ -9,7 +9,7 @@ import type { NewSurveyResponse } from '../survey/survey.types'
 
 export type SubmitSurvey = (
   input: NewSurveyResponse,
-) => Promise<{ surveyId: string }>
+) => Promise<{ surveyId: string } | { success: false; error: 'disabled' }>
 
 // Native discovery currently preserves only the standard hints. Keep the
 // mutation contract in the description as well for those clients.
@@ -55,6 +55,12 @@ export async function registerSurveyTool(
         }
         try {
           const result = await options.submit(parsed.data)
+          if (!('surveyId' in result))
+            return {
+              ...result,
+              message:
+                'Assistant submission is disabled. No response was saved. You can still take the survey.',
+            }
           options.onSubmitted?.(result.surveyId)
           return { success: true, surveyId: result.surveyId }
         } catch {

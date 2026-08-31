@@ -1,3 +1,4 @@
+import { WebMCPControl } from '../availability/availability'
 import { useEffect, useRef, useState } from 'react'
 import { ManagementDialog } from '../survey/management-dialog'
 import type { SurveyResponse } from '../survey/survey.types'
@@ -95,6 +96,7 @@ function ManagementPage() {
       <h1 id="management-heading" tabIndex={-1}>
         Manage responses
       </h1>
+      <WebMCPControl />
       <p className="response-count">
         {responses.length} response{responses.length === 1 ? '' : 's'} shown
       </p>

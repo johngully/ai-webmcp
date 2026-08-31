@@ -1,0 +1,29 @@
+
+Running 8 tests using 4 workers
+
+(node:24219) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24218) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24221) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24220) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  3 [desktop] › tests/e2e/webmcp-control.spec.ts:69:1 › management retains disabled state after process restart without rewriting responses (3.6s)
+(node:24249) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [desktop] › tests/e2e/webmcp-control.spec.ts:101:1 › a failed setting save remains visible until the organizer checks the confirmed state (5.1s)
+  ✓  4 [desktop] › tests/e2e/webmcp-control.spec.ts:86:1 › turning off keeps an unsaved draft when browser storage is unavailable (5.2s)
+(node:24257) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24259) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [desktop] › tests/e2e/webmcp-control.spec.ts:7:1 › off propagates to drafts and the separate client; fresh disabled pages load no integration; on restores one tool (7.0s)
+(node:24274) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  6 [mobile] › tests/e2e/webmcp-control.spec.ts:69:1 › management retains disabled state after process restart without rewriting responses (3.5s)
+  ✓  7 [mobile] › tests/e2e/webmcp-control.spec.ts:86:1 › turning off keeps an unsaved draft when browser storage is unavailable (5.2s)
+  ✓  5 [mobile] › tests/e2e/webmcp-control.spec.ts:7:1 › off propagates to drafts and the separate client; fresh disabled pages load no integration; on restores one tool (6.9s)
+  ✓  8 [mobile] › tests/e2e/webmcp-control.spec.ts:101:1 › a failed setting save remains visible until the organizer checks the confirmed state (5.5s)
+
+  8 passed (13.4s)

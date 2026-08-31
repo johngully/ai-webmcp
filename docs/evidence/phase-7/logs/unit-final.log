@@ -1,0 +1,21 @@
+
+> ai-dev-days@ test /Users/john/.codex/worktrees/8e6f/ai-webmcp
+> pnpm generate-routes && vitest run
+
+
+> ai-dev-days@ generate-routes /Users/john/.codex/worktrees/8e6f/ai-webmcp
+> tsr generate
+
+(node:25409) Warning: Accessing non-existent property 'replaceRouteChunk' of module exports inside circular dependency
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+ RUN  v4.1.11 /Users/john/.codex/worktrees/8e6f/ai-webmcp
+
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+ Test Files  13 passed (13)
+      Tests  65 passed (65)
+   Start at  20:34:25
+   Duration  2.56s (transform 743ms, setup 954ms, import 2.13s, tests 4.95s, environment 3.89s)

@@ -1,0 +1,25 @@
+
+ RUN  v4.1.11 /Users/john/.codex/worktrees/8e6f/ai-webmcp
+
+ ❯ |node| tests/survey.operations.test.ts (3 tests | 1 failed) 17ms
+   × disabled WebMCP rejects stale submissions without saving while the manual operation remains available 4ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| tests/survey.operations.test.ts > disabled WebMCP rejects stale submissions without saving while the manual operation remains available
+TypeError: operations.submitAssistantSurvey is not a function
+ ❯ tests/survey.operations.test.ts:70:29
+     68|     const operations = createSurveyOperations(createJsonlSurveyReposit…
+     69|     await settings.setAvailability({ enabled: false })
+     70|     await expect(operations.submitAssistantSurvey(surveyInput)).resolv…
+       |                             ^
+     71|     expect(await operations.findSurveys()).toEqual([])
+     72|     const manual = await operations.submitSurvey(surveyInput)
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 passed (3)
+   Start at  20:16:21
+   Duration  131ms (transform 30ms, setup 0ms, import 54ms, tests 17ms, environment 0ms)

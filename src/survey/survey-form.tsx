@@ -107,6 +107,29 @@ export function SurveyForm({
     }
   }, [ready, step, form, navigate, surveyId])
 
+  useEffect(() => {
+    const preserveBeforeRefresh = (event: Event) => {
+      // Keep pending/uncertain submissions and their confirmation visible.
+      // A refresh must never imply that an uncertain write should be repeated.
+      if (!ready || submitting.current || submissionError || surveyId) {
+        event.preventDefault()
+        return
+      }
+      try {
+        saveSurveyDraft(form.state.values)
+      } catch {
+        event.preventDefault()
+        setStorageUnavailable(true)
+      }
+    }
+    window.addEventListener('ai-dev-days:before-refresh', preserveBeforeRefresh)
+    return () =>
+      window.removeEventListener(
+        'ai-dev-days:before-refresh',
+        preserveBeforeRefresh,
+      )
+  }, [form, ready, submissionError, surveyId])
+
   if (surveyId)
     return (
       <section

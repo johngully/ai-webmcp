@@ -1,0 +1,8 @@
+{
+  "test": "manual attendee can submit when assistant is unavailable (mobile)",
+  "resource": "http://127.0.0.1:59928/assets/dist-Dm5DlVoj.js",
+  "status": 500,
+  "requestTime": "2026-08-31T17:21:19.534Z",
+  "assetMtime": "2026-08-31T17:21:19.647276+00:00",
+  "explanation": "This task rebuilt its own .output while the repeated test suite was using it. The 500 asset response caused connection-error UI instead of the expected synthetic unavailable state. Shared preview snapshots were untouched. Reverification uses the immutable corrected snapshot with no concurrent rebuild."
+}

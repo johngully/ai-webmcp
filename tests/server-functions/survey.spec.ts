@@ -46,3 +46,29 @@ test('browser callers submit, query, validate, and delete through real TanStack 
   expect(result.remaining).toEqual([])
   expect(pageErrors).toEqual([])
 })
+
+test('stale assistant RPC is refused after disabling while manual submission uses the shared operation', async ({
+  page,
+}) => {
+  await page.goto('/survey')
+  await expect(page.getByText('WebMCP enabled.')).toBeVisible()
+  await page.getByRole('switch', { name: 'WebMCP' }).click()
+  await expect(page.getByText('WebMCP disabled.')).toBeVisible()
+  const result = await page.evaluate(
+    async (input) => {
+      const moduleUrl = '/src/survey/survey.functions.ts'
+      const api = await import(/* @vite-ignore */ moduleUrl)
+      const stale = await api.submitAssistantSurvey({ data: input })
+      const afterStale = await api.findSurveys()
+      const manual = await api.submitSurvey({ data: input })
+      const afterManual = await api.findSurveys()
+      return { stale, afterStale, manual, afterManual }
+    },
+    { ...surveyInput, name: 'Fictional Stale Client' },
+  )
+  expect(result.stale).toEqual({ success: false, error: 'disabled' })
+  expect(result.afterStale).toEqual([])
+  expect(result.afterManual).toEqual([
+    expect.objectContaining({ id: result.manual.surveyId }),
+  ])
+})

@@ -1,0 +1,45 @@
+
+Running 1 test using 1 worker
+
+(node:24138) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [desktop] › tests/e2e/webmcp-control.spec.ts:100:1 › a failed setting save remains visible until the organizer checks the confirmed state (7.1s)
+
+
+  1) [desktop] › tests/e2e/webmcp-control.spec.ts:100:1 › a failed setting save remains visible until the organizer checks the confirmed state
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('alert')
+    Expected substring: "could not confirm"
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toContainText" with timeout 5000ms
+      - waiting for getByRole('alert')
+        - waiting for navigation to finish...
+        - navigated to "http://127.0.0.1:65531/survey"
+
+
+      103 |   await page.route('**/*', route => route.request().method() === 'POST' ? route.abort() : route.continue())
+      104 |   await page.getByRole('switch', { name: 'WebMCP' }).click()
+    > 105 |   await expect(page.getByRole('alert')).toContainText('could not confirm')
+          |                                         ^
+      106 |   await page.waitForTimeout(2500)
+      107 |   await expect(page.getByRole('alert')).toContainText('could not confirm')
+      108 |   await expect(page.getByRole('switch', { name: 'WebMCP' })).toBeDisabled()
+        at /Users/john/.codex/worktrees/8e6f/ai-webmcp/tests/e2e/webmcp-control.spec.ts:105:41
+
+    Error Context: test-results/webmcp-control-a-failed-se-cfca5--checks-the-confirmed-state-desktop/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/webmcp-control-a-failed-se-cfca5--checks-the-confirmed-state-desktop/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/webmcp-control-a-failed-se-cfca5--checks-the-confirmed-state-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [desktop] › tests/e2e/webmcp-control.spec.ts:100:1 › a failed setting save remains visible until the organizer checks the confirmed state

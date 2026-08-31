@@ -1,0 +1,22 @@
+[
+  {
+    "project": "desktop",
+    "run": 1,
+    "propagationMs": 2016
+  },
+  {
+    "project": "desktop",
+    "run": 2,
+    "propagationMs": 2029
+  },
+  {
+    "project": "mobile",
+    "run": 1,
+    "propagationMs": 2025
+  },
+  {
+    "project": "mobile",
+    "run": 2,
+    "propagationMs": 2028
+  }
+]

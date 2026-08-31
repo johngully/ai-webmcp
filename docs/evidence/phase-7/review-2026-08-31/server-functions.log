@@ -1,0 +1,13 @@
+
+> ai-dev-days@ test:server-functions /Users/john/.codex/worktrees/8e6f/ai-webmcp
+> playwright test --config playwright.server-functions.config.ts
+
+
+Running 2 tests using 1 worker
+
+(node:32537) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [server-functions] › tests/server-functions/survey.spec.ts:4:1 › browser callers submit, query, validate, and delete through real TanStack server functions (1.5s)
+  ✓  2 [server-functions] › tests/server-functions/survey.spec.ts:50:1 › stale assistant RPC is refused after disabling while manual submission uses the shared operation (2.2s)
+
+  2 passed (4.1s)

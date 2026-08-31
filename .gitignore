@@ -14,3 +14,7 @@ test-results/
 # Survey responses and atomic rewrite files must never enter version control.
 *.jsonl
 *.jsonl.*
+
+# Per-data-file runtime availability and atomic settings writes.
+*.webmcp.json
+*.webmcp.json.*

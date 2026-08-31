@@ -7,6 +7,7 @@ import { afterEach, expect, test } from 'vitest'
 import { createSurveyOperations } from '../src/survey/survey.operations.server'
 import { createMemorySurveyRepository } from '../src/survey/survey-repository.memory'
 import { registerSurveyTool } from '../src/webmcp/register-survey-tool'
+import { isolatedAvailability } from './support/availability.fixture'
 import { surveyInput } from './survey.fixture'
 
 afterEach(cleanupWebMCPPolyfill)
@@ -147,4 +148,30 @@ test('assistant discovers the complete survey contract and submits exactly one r
   ])
   registration.abort()
   expect(await context.getTools()).toEqual([])
+})
+
+test('a stale discovered tool explains disabled rejection without reporting a saved ID', async () => {
+  const availability = isolatedAvailability()
+  const operations = createSurveyOperations(
+    createMemorySurveyRepository(),
+    availability,
+  )
+  initializeWebMCPPolyfill()
+  const context = document.modelContext as ChromeModelContext
+  await registerSurveyTool(context, {
+    signal: new AbortController().signal,
+    submit: operations.submitAssistantSurvey,
+  })
+  const [tool] = await context.getTools()
+  await availability.setAvailability({ enabled: false })
+  const result = JSON.parse(
+    (await context.executeTool!(tool, JSON.stringify(surveyInput)))!,
+  )
+  expect(result).toEqual({
+    success: false,
+    error: 'disabled',
+    message:
+      'Assistant submission is disabled. No response was saved. You can still take the survey.',
+  })
+  expect(await operations.findSurveys()).toEqual([])
 })

@@ -1,6 +1,6 @@
 # Phase 8 — WebMCP search and bulk deletion
 
-Status: **PLANNED — NOT RELEASED**. This turn plans the work only. Implementation waits for Phase 7's completed live validation, scoped commit, and coordinator acceptance/integration, followed by an explicit coordinator release.
+Status: **IN PROGRESS — RELEASED AFTER PHASE 7 INTEGRATION**. Phase 7 implementation commit `4fa0f629c332fbd54af1d67981a18e2617e97bd2` passed independent corrected-revision automated validation; its remaining manual Chrome checks were explicitly waived under the user-directed exception in [Execution rules](./EXECUTION.md). The coordinator supplies the integrated baseline to the existing Phase 8 task before implementation. Phase 8 retains its own TDD, coverage, functional verification, and scoped-commit requirements.
 
 ## Outcome
 
@@ -11,7 +11,7 @@ Expose survey search and deletion through WebMCP using the same application oper
 - `surveyFiltersSchema` and the shared `filterSurveys` function already support case-insensitive name substring matching, exact talk matching, inclusive minimum/maximum ratings, combined AND filters, and newest-first results. ID filtering is missing.
 - `SurveyManagementOperations.deleteSurveys({ ids })`, the TanStack server function, and the application operation already use an array. Both repository adapters expose `deleteMany(ids)`. Single-row and selected-row UI actions already converge on `pendingDelete.map(response => response.id)` and that same bulk operation.
 - Therefore no single-ID API replacement is currently needed. Preserve this contract and audit it again after the Phase 7 handoff. Do not add a parallel single-delete endpoint or loop through one delete request per ID.
-- Accepted main still exposes only submission through WebMCP. The unintegrated Phase 7 worktree supplies availability-aware loading, runtime unregistration, and a guarded assistant submission entry point. Phase 8 must build on its accepted commit, not copy unfinished Phase 7 code into this phase.
+- Accepted main still exposes only submission through WebMCP. Integrated Phase 7 supplies availability-aware loading, runtime unregistration, and a guarded assistant submission entry point. Phase 8 builds on the coordinator-supplied integrated baseline.
 
 ## Recommended scope and defaults
 
