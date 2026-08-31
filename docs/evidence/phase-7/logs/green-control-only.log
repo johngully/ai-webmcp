@@ -1,0 +1,8 @@
+
+ RUN  v4.1.11 /Users/john/.codex/worktrees/8e6f/ai-webmcp
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  20:15:16
+   Duration  655ms (transform 68ms, setup 74ms, import 138ms, tests 112ms, environment 268ms)

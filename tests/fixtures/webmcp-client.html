@@ -58,15 +58,21 @@
         .querySelector('#discover')
         .addEventListener('click', async () => {
           context = frame.contentDocument.modelContext
-          const tools = await context.getTools()
+          const tools = context?.getTools ? await context.getTools() : []
           toolsOutput.textContent = JSON.stringify(
             tools.map(({ window, ...metadata }) => metadata),
             null,
             2,
           )
           tool = tools.find(({ name }) => name === 'submit_ai_dev_days_survey')
-          invoke.disabled = !tool || !context.executeTool
+          invoke.disabled = !tool || !context?.executeTool
         })
+      frame.addEventListener('load', () => {
+        context = undefined
+        tool = undefined
+        toolsOutput.textContent = '[]'
+        invoke.disabled = true
+      })
       invoke.addEventListener('click', async () => {
         invoke.disabled = true
         try {
@@ -77,7 +83,10 @@
           document.querySelector('#result').textContent =
             'Execution could not be confirmed. Check responses before repeating.'
         } finally {
-          invoke.disabled = false
+          invoke.disabled =
+            !tool ||
+            !context?.executeTool ||
+            context !== frame.contentDocument.modelContext
         }
       })
     </script>

@@ -1,0 +1,37 @@
+
+Running 16 tests using 4 workers
+
+(node:24443) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24445) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24442) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24444) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   4 [desktop] › tests/e2e/webmcp-control.spec.ts:124:1 › management retains disabled state after process restart without rewriting responses (3.6s)
+  ✓   1 [desktop] › tests/e2e/webmcp-control.spec.ts:185:1 › a failed setting save remains visible until the organizer checks the confirmed state (5.1s)
+  ✓   2 [desktop] › tests/e2e/webmcp-control.spec.ts:152:1 › turning off keeps an unsaved draft when browser storage is unavailable (5.2s)
+  ✓   3 [desktop] › tests/e2e/webmcp-control.spec.ts:7:1 › off propagates to drafts and the separate client; fresh disabled pages load no integration; on restores one tool (6.8s)
+  ✓   5 [desktop] › tests/e2e/webmcp-control.spec.ts:204:1 › a suspended page rechecks on resume and native browser APIs remain untouched on disabled documents (5.2s)
+(node:24485) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   8 [desktop] › tests/e2e/webmcp-control.spec.ts:303:1 › a stale production assistant request is rejected after off without saving another response (2.2s)
+(node:24486) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   6 [desktop] › tests/e2e/webmcp-control.spec.ts:246:3 › availability refresh preserves a confirmed in-flight manual submission without retry (5.6s)
+  ✓   7 [desktop] › tests/e2e/webmcp-control.spec.ts:246:3 › availability refresh preserves a uncertain in-flight manual submission without retry (5.6s)
+(node:24503) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24505) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  10 [mobile] › tests/e2e/webmcp-control.spec.ts:124:1 › management retains disabled state after process restart without rewriting responses (3.5s)
+  ✓   9 [mobile] › tests/e2e/webmcp-control.spec.ts:7:1 › off propagates to drafts and the separate client; fresh disabled pages load no integration; on restores one tool (6.9s)
+  ✓  11 [mobile] › tests/e2e/webmcp-control.spec.ts:152:1 › turning off keeps an unsaved draft when browser storage is unavailable (5.2s)
+  ✓  12 [mobile] › tests/e2e/webmcp-control.spec.ts:185:1 › a failed setting save remains visible until the organizer checks the confirmed state (5.5s)
+  ✓  13 [mobile] › tests/e2e/webmcp-control.spec.ts:204:1 › a suspended page rechecks on resume and native browser APIs remain untouched on disabled documents (5.1s)
+  ✓  16 [mobile] › tests/e2e/webmcp-control.spec.ts:303:1 › a stale production assistant request is rejected after off without saving another response (2.2s)
+  ✓  14 [mobile] › tests/e2e/webmcp-control.spec.ts:246:3 › availability refresh preserves a confirmed in-flight manual submission without retry (5.6s)
+  ✓  15 [mobile] › tests/e2e/webmcp-control.spec.ts:246:3 › availability refresh preserves a uncertain in-flight manual submission without retry (6.1s)
+
+  16 passed (23.0s)

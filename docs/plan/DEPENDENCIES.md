@@ -76,7 +76,7 @@ Phase 1 pins `zod@4.5.4` and `nanoid@6.0.1` with no framework upgrades. Its
 schema, JSONL, operation, and live validation evidence is recorded in
 [Phase 1](./phase-1-domain-storage.md).
 
-Phase 4 pins `@mcp-b/webmcp-polyfill@5.0.1` and `@mcp-b/webmcp-types@5.0.1`, without framework upgrades. The polyfill loads after hydration only when `document.modelContext` is absent. The installed execution extension takes JSON text, whereas the 26 August 2026 draft takes an object. Standard discovery retains only read-only/untrusted-content hints, so the tool description also states non-destructive and non-idempotent behavior. See [Phase 4](./phase-4-webmcp.md) for the validated browser lane and evidence.
+Phase 4 pins `@mcp-b/webmcp-polyfill@5.0.1` and `@mcp-b/webmcp-types@5.0.1`, without framework upgrades. The polyfill loads after hydration only when `document.modelContext` is absent. Since Phase 7, a confirmed enabled server setting is also required before importing the entire assistant integration. The installed execution extension takes JSON text, whereas the 26 August 2026 draft takes an object. Standard discovery retains only read-only/untrusted-content hints, so the tool description also states non-destructive and non-idempotent behavior. See [Phase 4](./phase-4-webmcp.md) for the validated browser lane and evidence.
 
 ## Data and operating dependencies
 
@@ -106,7 +106,7 @@ Production responses are excluded from version control. Tests use a unique tempo
 
 ### WebMCP availability dependencies
 
-Phase 7 requires no planned package addition or upgrade. Use current TanStack server functions and React, Node filesystem primitives, browser lifecycle/change notification facilities, and conditional feature imports. Store the setting separately beside the configured survey file and isolate it per test server; never insert configuration into survey JSONL or share settings across isolated test data stores. Document the exact path during implementation. A saved setting must survive a process restart; fresh disabled pages must not preload/import the integration or polyfill. Existing open documents require safe unregistration/refresh and server-side rejection of stale WebMCP calls, without blocking ordinary submission. Preserve browser-native APIs and document cross-tab/resume behavior honestly.
+Phase 7 requires no planned package addition or upgrade. Use current TanStack server functions and React, Node filesystem primitives, browser lifecycle/change notification facilities, and conditional feature imports. Store the setting separately beside the configured survey file and isolate it per test server; never insert configuration into survey JSONL or share settings across isolated test data stores. The implemented path is `<resolved SURVEY_DATA_FILE>.webmcp.json`; it is atomic and Git-ignored independently of the response file extension. A saved setting must survive a process restart; fresh disabled pages must not preload/import the integration or polyfill. Existing open documents require safe unregistration/refresh and server-side rejection of stale WebMCP calls, without blocking ordinary submission. Preserve browser-native APIs and document cross-tab/resume behavior honestly.
 
 ### Styling dependencies
 

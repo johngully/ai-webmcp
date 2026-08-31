@@ -10,6 +10,7 @@ import {
 } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { expect, test } from 'vitest'
+import { isolatedAvailability } from './support/availability.fixture'
 import { getRouter } from '../src/router'
 import { createSurveyOperations } from '../src/survey/survey.operations.server'
 import { createMemorySurveyRepository } from '../src/survey/survey-repository.memory'
@@ -35,6 +36,7 @@ async function setup(
     rating: 10,
   })
   const router = getRouter({
+    availability: isolatedAvailability(),
     management: boundary ? boundary(operations) : operations,
   })
   router.update({

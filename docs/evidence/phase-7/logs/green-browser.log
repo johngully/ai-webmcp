@@ -1,0 +1,11 @@
+
+Running 2 tests using 2 workers
+
+(node:24012) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24011) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [desktop] › tests/e2e/webmcp-control.spec.ts:68:1 › management retains disabled state after process restart without rewriting responses (3.5s)
+  ✓  1 [desktop] › tests/e2e/webmcp-control.spec.ts:7:1 › off propagates to drafts and the separate client; fresh disabled pages load no integration; on restores one tool (7.0s)
+
+  2 passed (7.4s)

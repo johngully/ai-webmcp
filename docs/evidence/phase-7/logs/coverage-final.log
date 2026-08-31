@@ -1,0 +1,52 @@
+
+> ai-dev-days@ test:coverage /Users/john/.codex/worktrees/8e6f/ai-webmcp
+> pnpm generate-routes && vitest run --coverage && node scripts/check-coverage-scope.mjs
+
+
+> ai-dev-days@ generate-routes /Users/john/.codex/worktrees/8e6f/ai-webmcp
+> tsr generate
+
+(node:25507) Warning: Accessing non-existent property 'replaceRouteChunk' of module exports inside circular dependency
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+ RUN  v4.1.11 /Users/john/.codex/worktrees/8e6f/ai-webmcp
+      Coverage enabled with v8
+
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+ Test Files  13 passed (13)
+      Tests  65 passed (65)
+   Start at  20:34:28
+   Duration  3.98s (transform 823ms, setup 1.35s, import 2.96s, tests 9.58s, environment 3.86s)
+
+ % Coverage report from v8
+-------------------|---------|----------|---------|---------|-------------------
+File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+-------------------|---------|----------|---------|---------|-------------------
+All files          |   94.31 |    91.88 |   91.02 |   95.71 |
+ src               |      50 |      100 |      40 |      50 |
+  router.tsx       |      50 |      100 |      40 |      50 | 20-24
+ src/availability  |   94.44 |       86 |   86.95 |   97.95 |
+  ....functions.ts |      50 |      100 |       0 |      50 | 7,12
+  ...ons.server.ts |     100 |    83.33 |      80 |     100 | 44
+  availability.tsx |   94.87 |    86.36 |     100 |     100 | 51-69,93-108
+ src/routes        |   96.55 |    97.82 |   95.45 |   97.56 |
+  survey.index.tsx |   97.22 |    97.72 |   97.22 |    98.5 | 297
+  survey.new.tsx   |      90 |      100 |      80 |      90 | 24
+ src/survey        |   94.46 |    92.17 |   93.33 |   94.59 |
+  ...ent-search.ts |     100 |    92.85 |     100 |     100 | 19
+  survey-form.tsx  |    90.8 |    86.27 |   96.55 |   91.56 | 114-122
+  ...ory.server.ts |   98.11 |    94.11 |     100 |   97.91 | 45
+  ....functions.ts |      50 |      100 |       0 |      50 | 11,15,19,23
+ src/webmcp        |   94.87 |    89.47 |   88.88 |     100 |
+  ...assistant.tsx |      92 |    86.66 |   83.33 |     100 | 24,36
+-------------------|---------|----------|---------|---------|-------------------
+
+=============================== Coverage summary ===============================
+Statements   : 94.31% ( 448/475 )
+Branches     : 91.88% ( 215/234 )
+Functions    : 91.02% ( 142/156 )
+Lines        : 95.71% ( 424/443 )
+================================================================================
+Coverage scope verified: 24 application source files, no out-of-source entries.

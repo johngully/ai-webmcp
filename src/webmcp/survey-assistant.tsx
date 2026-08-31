@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-import { submitSurvey } from '../survey/survey.functions'
+import { submitAssistantSurvey } from '../survey/survey.functions'
 import { registerSurveyTool, type SubmitSurvey } from './register-survey-tool'
 
-const submit: SubmitSurvey = (data) => submitSurvey({ data })
+const submit: SubmitSurvey = (data) => submitAssistantSurvey({ data })
 
 export function SurveyAssistant({
   submit: submitResponse = submit,

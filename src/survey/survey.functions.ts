@@ -17,3 +17,7 @@ export const findSurveys = createServerFn({ method: 'GET' })
 export const deleteSurveys = createServerFn({ method: 'POST' })
   .validator(deleteSurveysSchema)
   .handler(({ data }) => getSurveyOperations().deleteSurveys(data))
+
+export const submitAssistantSurvey = createServerFn({ method: 'POST' })
+  .validator(newSurveyResponseSchema)
+  .handler(({ data }) => getSurveyOperations().submitAssistantSurvey(data))

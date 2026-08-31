@@ -1,0 +1,154 @@
+
+> ai-dev-days@ test:e2e /Users/john/.codex/worktrees/8e6f/ai-webmcp
+> pnpm build && playwright test
+
+
+> ai-dev-days@ build /Users/john/.codex/worktrees/8e6f/ai-webmcp
+> vite build
+
+vite v8.2.2 building client environment for production...
+transforming...
+✓ 299 modules transformed.
+rendering chunks...
+computing gzip size...
+.output/public/assets/styles-OuXNkDTa.css              11.54 kB │ gzip:  2.88 kB
+.output/public/assets/routes-BUj25Ysj.js                0.65 kB │ gzip:  0.38 kB
+.output/public/assets/useBlocker-Dfy52Xmk.js            1.54 kB │ gzip:  0.67 kB
+.output/public/assets/survey-assistant-DHjxgtFN.js      2.49 kB │ gzip:  1.18 kB
+.output/public/assets/lazyRouteComponent-BKYx7S4y.js    4.38 kB │ gzip:  1.52 kB
+.output/public/assets/survey.index-D54UWoko.js          6.36 kB │ gzip:  2.30 kB
+.output/public/assets/jsx-runtime-CEnj1x2X.js           8.48 kB │ gzip:  3.23 kB
+.output/public/assets/link-DMxUxzqw.js                 21.53 kB │ gzip:  8.24 kB
+.output/public/assets/dist-Dm5DlVoj.js                 24.14 kB │ gzip:  7.83 kB
+.output/public/assets/survey.new-DVgihVfj.js           71.33 kB │ gzip: 18.00 kB
+.output/public/assets/survey.schemas-B1HXmYzN.js       89.94 kB │ gzip: 25.69 kB
+.output/public/assets/index-Cul61XFg.js               288.29 kB │ gzip: 92.52 kB
+
+✓ built in 177ms
+vite v8.2.2 building ssr environment for production...
+transforming...
+✓ 140 modules transformed.
+rendering chunks...
+computing gzip size...
+node_modules/.nitro/vite/services/ssr/assets/styles-OuXNkDTa.css                          11.54 kB │ gzip:  2.88 kB
+node_modules/.nitro/vite/services/ssr/assets/start-d3N1JdIl.js                             0.28 kB │ gzip:  0.21 kB
+node_modules/.nitro/vite/services/ssr/assets/empty-plugin-adapters-BJ4m9L8g.js             0.31 kB │ gzip:  0.20 kB
+node_modules/.nitro/vite/services/ssr/assets/routes-DJx3g0pa.js                            0.93 kB │ gzip:  0.47 kB
+node_modules/.nitro/vite/services/ssr/assets/_tanstack-start-manifest_v-DqxYzBNR.js        1.16 kB │ gzip:  0.47 kB
+node_modules/.nitro/vite/services/ssr/assets/availability.functions-CrMzTgT9.js            1.34 kB │ gzip:  0.50 kB
+node_modules/.nitro/vite/services/ssr/assets/availability.operations.server-BJJosPby.js    2.09 kB │ gzip:  0.98 kB
+node_modules/.nitro/vite/services/ssr/assets/survey.schemas-BMrG_D0B.js                    2.41 kB │ gzip:  1.12 kB
+node_modules/.nitro/vite/services/ssr/assets/survey-assistant-ByxG8fDT.js                  3.61 kB │ gzip:  1.43 kB
+node_modules/.nitro/vite/services/ssr/assets/survey.functions-pKVxojmx.js                  7.23 kB │ gzip:  2.34 kB
+node_modules/.nitro/vite/services/ssr/assets/survey.index-5gQc_iwH.js                     11.03 kB │ gzip:  2.93 kB
+node_modules/.nitro/vite/services/ssr/assets/router-AzzLfBWP.js                           13.15 kB │ gzip:  4.35 kB
+node_modules/.nitro/vite/services/ssr/assets/survey.new-B_QodWKk.js                       15.00 kB │ gzip:  3.39 kB
+node_modules/.nitro/vite/services/ssr/index.js                                           229.19 kB │ gzip: 52.22 kB
+
+✓ built in 121ms
+
+[nitro] ◐ Building [Nitro] (preset: node-server, compatibility: 2026-08-25)
+[nitro] ✔ Generated public .output/public
+vite v8.2.2 building nitro environment for production...
+transforming...
+✓ 320 modules transformed.
+rendering chunks...
+computing gzip size...
+.output/server/_ssr/start-d3N1JdIl.mjs                             0.14 kB │ gzip:   0.13 kB
+.output/server/_ssr/empty-plugin-adapters-BJ4m9L8g.mjs             0.23 kB │ gzip:   0.16 kB
+.output/server/_ssr/routes-DJx3g0pa.mjs                            1.20 kB │ gzip:   0.53 kB
+.output/server/_tanstack-start-manifest_v-DqxYzBNR.mjs             1.21 kB │ gzip:   0.51 kB
+.output/server/_chunks/ssr-renderer.mjs                            1.21 kB │ gzip:   0.58 kB
+.output/server/_ssr/availability.functions-CrMzTgT9.mjs            1.39 kB │ gzip:   0.54 kB
+.output/server/_runtime.mjs                                        1.58 kB │ gzip:   0.74 kB
+.output/server/_ssr/availability.operations.server-BJJosPby.mjs    1.94 kB │ gzip:   0.92 kB
+.output/server/_libs/ufo.mjs                                       2.21 kB │ gzip:   0.72 kB
+.output/server/_ssr/survey.schemas-BMrG_D0B.mjs                    2.48 kB │ gzip:   1.18 kB
+.output/server/_libs/nanoid.mjs                                    3.12 kB │ gzip:   1.15 kB
+.output/server/_ssr/survey-assistant-ByxG8fDT.mjs                  3.97 kB │ gzip:   1.55 kB
+.output/server/_libs/@tanstack/devtools-event-client+[...].mjs     6.76 kB │ gzip:   1.72 kB
+.output/server/_ssr/survey.functions-pKVxojmx.mjs                  7.02 kB │ gzip:   2.34 kB
+.output/server/_libs/tanstack__history.mjs                        10.67 kB │ gzip:   3.12 kB
+.output/server/_ssr/survey.index-5gQc_iwH.mjs                     12.95 kB │ gzip:   3.06 kB
+.output/server/index.mjs                                          13.25 kB │ gzip:   4.14 kB
+.output/server/_ssr/router-AzzLfBWP.mjs                           13.74 kB │ gzip:   4.28 kB
+.output/server/_ssr/survey.new-B_QodWKk.mjs                       16.98 kB │ gzip:   3.50 kB
+.output/server/_libs/@tanstack/react-form+[...].mjs               34.31 kB │ gzip:   7.47 kB
+.output/server/_libs/h3+rou3+srvx.mjs                             46.29 kB │ gzip:  12.41 kB
+.output/server/_libs/mcp-b__webmcp-polyfill.mjs                   46.97 kB │ gzip:  11.49 kB
+.output/server/_libs/@tanstack/form-core+[...].mjs               111.23 kB │ gzip:  20.89 kB
+.output/server/_libs/zod.mjs                                     172.63 kB │ gzip:  37.63 kB
+.output/server/_ssr/ssr.mjs                                      222.00 kB │ gzip:  51.30 kB
+.output/server/_libs/@tanstack/react-router+[...].mjs            658.84 kB │ gzip: 137.33 kB
+
+✓ built in 75ms
+ℹ Generated .output/nitro.json
+
+[nitro] ✔ You can preview this build using npx vite preview
+
+Running 46 tests using 4 workers
+
+(node:25040) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:25038) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:25039) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:25037) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   3 [desktop] › tests/e2e/foundation.spec.ts:3:1 › production shell supports pointer and keyboard navigation without overflow (1.6s)
+  ✓   1 [desktop] › tests/e2e/accessibility.spec.ts:31:1 › keyboard-only attendee and organizer can complete every action with long content at both viewport widths (2.9s)
+  ✓   5 [desktop] › tests/e2e/isolation.spec.ts:5:5 › each browser case receives an empty repository › fresh attendee run 1 (1.4s)
+  ✓   7 [desktop] › tests/e2e/isolation.spec.ts:5:5 › each browser case receives an empty repository › fresh attendee run 2 (1.4s)
+  ✓   2 [desktop] › tests/e2e/foundation.spec.ts:59:1 › a direct production request renders usable navigation without JavaScript (5.2s)
+  ✓   4 [desktop] › tests/e2e/comparison.spec.ts:13:1 › documented client submits the same answers as the manual path with one invocation and stays out of production (5.3s)
+  ✓   8 [desktop] › tests/e2e/management.spec.ts:165:1 › shared empty filters are omitted and malformed rating URLs remain recoverable (1.3s)
+  ✓   9 [desktop] › tests/e2e/reflow.spec.ts:4:1 › attendee and organizer retain required content at 320px with enlarged text (1.7s)
+  ✓   6 [desktop] › tests/e2e/management.spec.ts:6:1 › organizer filters, inspects, cancels, and deletes only the intended persisted responses (5.1s)
+  ✓  10 [desktop] › tests/e2e/survey-flow.spec.ts:4:1 › production attendee validates, goes Back, refreshes, submits once, and starts again (5.1s)
+  ✓  11 [desktop] › tests/e2e/survey-flow.spec.ts:79:1 › production routes present conference copy and direct Step 2 recovers safely (5.3s)
+  ✓  12 [desktop] › tests/e2e/survey-flow.spec.ts:101:1 › pending submission stays on the form when navigation is attempted (5.1s)
+  ✓  14 [desktop] › tests/e2e/webmcp-control.spec.ts:124:1 › management retains disabled state after process restart without rewriting responses (4.3s)
+  ✓  13 [desktop] › tests/e2e/webmcp-control.spec.ts:7:1 › off propagates to drafts and the separate client; fresh disabled pages load no integration; on restores one tool (6.9s)
+  ✓  15 [desktop] › tests/e2e/webmcp-control.spec.ts:170:1 › turning off keeps an unsaved draft when browser storage is unavailable (5.1s)
+  ✓  16 [desktop] › tests/e2e/webmcp-control.spec.ts:203:1 › a failed setting save remains visible until the organizer checks the confirmed state (5.0s)
+  ✓  20 [desktop] › tests/e2e/webmcp-control.spec.ts:321:1 › a stale production assistant request is rejected after off without saving another response (2.2s)
+  ✓  17 [desktop] › tests/e2e/webmcp-control.spec.ts:222:1 › a suspended page rechecks on resume and native browser APIs remain untouched on disabled documents (5.1s)
+  ✓  18 [desktop] › tests/e2e/webmcp-control.spec.ts:264:3 › availability refresh preserves a confirmed in-flight manual submission without retry (5.5s)
+  ✓  19 [desktop] › tests/e2e/webmcp-control.spec.ts:264:3 › availability refresh preserves a uncertain in-flight manual submission without retry (5.6s)
+(node:25121) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  21 [desktop] › tests/e2e/webmcp.spec.ts:6:1 › production polyfill discovers one tool, corrects invalid input, and saves one response through the server (3.0s)
+(node:25127) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  24 [mobile] › tests/e2e/accessibility.spec.ts:31:1 › keyboard-only attendee and organizer can complete every action with long content at both viewport widths (2.7s)
+  ✓  22 [desktop] › tests/e2e/webmcp.spec.ts:118:3 › manual attendee can submit when assistant is unavailable (5.1s)
+(node:25137) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  23 [desktop] › tests/e2e/webmcp.spec.ts:118:3 › manual attendee can submit when assistant is registration error (5.1s)
+(node:25143) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  26 [mobile] › tests/e2e/foundation.spec.ts:3:1 › production shell supports pointer and keyboard navigation without overflow (1.4s)
+  ✓  28 [mobile] › tests/e2e/isolation.spec.ts:5:5 › each browser case receives an empty repository › fresh attendee run 1 (1.4s)
+  ✓  25 [mobile] › tests/e2e/comparison.spec.ts:13:1 › documented client submits the same answers as the manual path with one invocation and stays out of production (5.2s)
+  ✓  30 [mobile] › tests/e2e/isolation.spec.ts:5:5 › each browser case receives an empty repository › fresh attendee run 2 (1.4s)
+  ✓  31 [mobile] › tests/e2e/management.spec.ts:165:1 › shared empty filters are omitted and malformed rating URLs remain recoverable (1.3s)
+  ✓  27 [mobile] › tests/e2e/foundation.spec.ts:59:1 › a direct production request renders usable navigation without JavaScript (5.1s)
+  ✓  32 [mobile] › tests/e2e/reflow.spec.ts:4:1 › attendee and organizer retain required content at 320px with enlarged text (1.7s)
+  ✓  29 [mobile] › tests/e2e/management.spec.ts:6:1 › organizer filters, inspects, cancels, and deletes only the intended persisted responses (5.1s)
+  ✓  33 [mobile] › tests/e2e/survey-flow.spec.ts:4:1 › production attendee validates, goes Back, refreshes, submits once, and starts again (5.1s)
+  ✓  35 [mobile] › tests/e2e/survey-flow.spec.ts:101:1 › pending submission stays on the form when navigation is attempted (5.1s)
+  ✓  34 [mobile] › tests/e2e/survey-flow.spec.ts:79:1 › production routes present conference copy and direct Step 2 recovers safely (5.3s)
+  ✓  36 [mobile] › tests/e2e/webmcp-control.spec.ts:7:1 › off propagates to drafts and the separate client; fresh disabled pages load no integration; on restores one tool (7.0s)
+  ✓  37 [mobile] › tests/e2e/webmcp-control.spec.ts:124:1 › management retains disabled state after process restart without rewriting responses (4.3s)
+  ✓  39 [mobile] › tests/e2e/webmcp-control.spec.ts:203:1 › a failed setting save remains visible until the organizer checks the confirmed state (4.9s)
+  ✓  38 [mobile] › tests/e2e/webmcp-control.spec.ts:170:1 › turning off keeps an unsaved draft when browser storage is unavailable (5.1s)
+  ✓  43 [mobile] › tests/e2e/webmcp-control.spec.ts:321:1 › a stale production assistant request is rejected after off without saving another response (2.1s)
+  ✓  40 [mobile] › tests/e2e/webmcp-control.spec.ts:222:1 › a suspended page rechecks on resume and native browser APIs remain untouched on disabled documents (5.1s)
+  ✓  41 [mobile] › tests/e2e/webmcp-control.spec.ts:264:3 › availability refresh preserves a confirmed in-flight manual submission without retry (6.1s)
+  ✓  44 [mobile] › tests/e2e/webmcp.spec.ts:6:1 › production polyfill discovers one tool, corrects invalid input, and saves one response through the server (2.9s)
+  ✓  42 [mobile] › tests/e2e/webmcp-control.spec.ts:264:3 › availability refresh preserves a uncertain in-flight manual submission without retry (5.5s)
+  ✓  45 [mobile] › tests/e2e/webmcp.spec.ts:118:3 › manual attendee can submit when assistant is unavailable (5.1s)
+  ✓  46 [mobile] › tests/e2e/webmcp.spec.ts:118:3 › manual attendee can submit when assistant is registration error (5.1s)
+
+  46 passed (50.6s)

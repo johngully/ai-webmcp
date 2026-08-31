@@ -27,11 +27,11 @@ Check a phase here only after every task in its phase file is checked.
 - [x] [Phase 4 — WebMCP submission](./phase-4-webmcp.md)
 - [x] [Phase 5 — Styling](./phase-5-styling.md)
 - [x] [Phase 6 — Final verification](./phase-6-final-verification.md)
-- [ ] [Phase 7 — WebMCP availability control](./phase-7-webmcp-control.md) — **IN PROGRESS: planning and task release**
+- [ ] [Phase 7 — WebMCP availability control](./phase-7-webmcp-control.md) — **IMPLEMENTATION COMPLETE: corrected checks passed; remaining manual Chrome checks WAIVED; coordinator integration pending**
 
 The original verification work is preserved in commit `311155f` and its [pre-styling checkpoint evidence](./phase-5-verification-demo.md). On 2026-08-30 the user inserted styling as Phase 5; final verification moved to Phase 6 and must run against the restyled application.
 
-Phases 0–6 are independently validated and integrated. Phase 6 is commit `910298314f4160421e8e0d6affa11e0784db62b5`; its final record includes the approved bulk-deletion check and coverage-scope regression. The user subsequently added Phase 7 for an actual app-wide WebMCP availability toggle. See the [comparison guide](../demo-guide.md) for the currently delivered manual-only and WebMCP test instructions and the [final evidence](../evidence/phase-6/README.md) for accepted screenshots and operating limits. Phase 7 will update the guide after validating the disabled-runtime flow.
+Phases 0–6 are independently validated and integrated. Phase 6 is commit `910298314f4160421e8e0d6affa11e0784db62b5`; its final record includes the approved bulk-deletion check and coverage-scope regression. The user subsequently added Phase 7 for an actual app-wide WebMCP availability toggle. See the [comparison guide](../demo-guide.md) for the currently delivered manual-only and WebMCP test instructions and the [final evidence](../evidence/phase-6/README.md) for accepted screenshots and operating limits. Phase 7 documents the persisted disabled-runtime flow and passing automated checks; its remaining corrected-revision manual Chrome checks are explicitly waived by user-directed continuation, not claimed as passed.
 
 See [Dependencies](./DEPENDENCIES.md) for the package inventory, runtime prerequisites, data dependencies, and phase graph.
 

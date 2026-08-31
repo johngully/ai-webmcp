@@ -5,11 +5,16 @@ import {
   createRootRouteWithContext,
 } from '@tanstack/react-router'
 
+import {
+  AvailabilityProvider,
+  AvailableAssistant,
+  type AvailabilityOperations,
+} from '../availability/availability'
 import appCss from '../styles.css?url'
 import type { SurveyManagementOperations } from '../survey/survey.types'
-import { SurveyAssistant } from '../webmcp/survey-assistant'
 
 export const Route = createRootRouteWithContext<{
+  availability: AvailabilityOperations
   management: SurveyManagementOperations
 }>()({
   head: () => ({
@@ -47,39 +52,40 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        <a className="skip-link" href="#main-content">
-          Skip to content
-        </a>
-        <header className="site-header">
-          <div className="container header-content">
-            <span className="brand">
-              AI Dev Days <span> / Conference survey</span>
-            </span>
-            <nav aria-label="Main">
-              <Link to="/" activeOptions={{ exact: true }}>
-                Home
-              </Link>
-              <Link
-                to="/survey/new"
-                search={{ step: 1 }}
-                activeOptions={{ includeSearch: false }}
-              >
-                Take survey
-              </Link>
-              <Link to="/survey" activeOptions={{ exact: true }}>
-                Manage responses
-              </Link>
-            </nav>
-          </div>
-        </header>
-        <main className="container" id="main-content" tabIndex={-1}>
-          {children}
-        </main>
-        <footer className="container site-footer">
-          <SurveyAssistant />
-          AI Dev Days · Conference feedback
-        </footer>
-
+        <AvailabilityProvider operations={Route.useRouteContext().availability}>
+          <a className="skip-link" href="#main-content">
+            Skip to content
+          </a>
+          <header className="site-header">
+            <div className="container header-content">
+              <span className="brand">
+                AI Dev Days <span> / Conference survey</span>
+              </span>
+              <nav aria-label="Main">
+                <Link to="/" activeOptions={{ exact: true }}>
+                  Home
+                </Link>
+                <Link
+                  to="/survey/new"
+                  search={{ step: 1 }}
+                  activeOptions={{ includeSearch: false }}
+                >
+                  Take survey
+                </Link>
+                <Link to="/survey" activeOptions={{ exact: true }}>
+                  Manage responses
+                </Link>
+              </nav>
+            </div>
+          </header>
+          <main className="container" id="main-content" tabIndex={-1}>
+            {children}
+          </main>
+          <footer className="container site-footer">
+            <AvailableAssistant />
+            AI Dev Days · Conference feedback
+          </footer>
+        </AvailabilityProvider>
         <Scripts />
       </body>
     </html>

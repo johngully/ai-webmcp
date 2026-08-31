@@ -1,0 +1,84 @@
+{
+  "propagationMs": 2025,
+  "enabledScripts": [
+    "http://127.0.0.1:60765/assets/survey-assistant-ChDzRpzy.js",
+    "http://127.0.0.1:60765/assets/dist-Dm5DlVoj.js"
+  ],
+  "disabledRequests": [
+    "http://127.0.0.1:60765/survey/new?step=1",
+    "http://127.0.0.1:60765/assets/styles-OuXNkDTa.css",
+    "http://127.0.0.1:60765/assets/index-P3OzKzn4.js",
+    "http://127.0.0.1:60765/assets/jsx-runtime-CEnj1x2X.js",
+    "http://127.0.0.1:60765/assets/link-DMxUxzqw.js",
+    "http://127.0.0.1:60765/assets/lazyRouteComponent-BKYx7S4y.js",
+    "http://127.0.0.1:60765/assets/survey.schemas-B1HXmYzN.js",
+    "http://127.0.0.1:60765/assets/survey.new-Cq4gF9kq.js",
+    "http://127.0.0.1:60765/assets/useBlocker-Dfy52Xmk.js",
+    "http://127.0.0.1:60765/_serverFn/948b871c40c92e317eba7a7c620592a6526a22fc3fcb2a3c4d9ae83b23989f26",
+    "http://127.0.0.1:60765/assets/survey.index-C_IxFBrk.js",
+    "http://127.0.0.1:60765/_serverFn/582e7b3d9ec5e0e43134a6b0314c46f2cafa702f06cd1f312973142b73984ce4?payload=%7B%22t%22%3A%7B%22t%22%3A10%2C%22i%22%3A0%2C%22p%22%3A%7B%22k%22%3A%5B%22data%22%5D%2C%22v%22%3A%5B%7B%22t%22%3A10%2C%22i%22%3A1%2C%22p%22%3A%7B%22k%22%3A%5B%22name%22%2C%22talk%22%2C%22minRating%22%2C%22maxRating%22%5D%2C%22v%22%3A%5B%7B%22t%22%3A2%2C%22s%22%3A1%7D%2C%7B%22t%22%3A2%2C%22s%22%3A1%7D%2C%7B%22t%22%3A2%2C%22s%22%3A1%7D%2C%7B%22t%22%3A2%2C%22s%22%3A1%7D%5D%7D%2C%22o%22%3A0%7D%5D%7D%2C%22o%22%3A0%7D%2C%22f%22%3A127%2C%22m%22%3A%5B%5D%7D"
+  ],
+  "tools": [
+    {
+      "name": "submit_ai_dev_days_survey",
+      "title": "",
+      "description": "Submit AI Dev Days talk feedback and a thank-you gift request. Collect all six required answers from the attendee before calling. Each call creates one survey response and returns its survey ID. It does not change or delete existing responses. Repeating the call creates another response; do not retry automatically.",
+      "inputSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "talk": {
+            "type": "string",
+            "enum": [
+              "Building Reliable AI Agents",
+              "Multimodal Apps with Modern Models",
+              "Retrieval-Augmented Generation in Production",
+              "Building Agent-Ready Websites with WebMCP",
+              "Evaluating and Securing LLM Applications"
+            ],
+            "description": "The AI Dev Days talk you attended"
+          },
+          "rating": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 10,
+            "description": "Likelihood to recommend the talk, from 0 to 10"
+          },
+          "ratingReason": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Primary reason for your rating"
+          },
+          "swagGift": {
+            "type": "string",
+            "enum": ["Hoodie", "Headphones", "Keyboard"],
+            "description": "Your preferred thank-you gift"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Your full name"
+          },
+          "shippingAddress": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Shipping address for your gift"
+          }
+        },
+        "required": [
+          "talk",
+          "rating",
+          "ratingReason",
+          "swagGift",
+          "name",
+          "shippingAddress"
+        ]
+      },
+      "origin": "http://127.0.0.1:60766",
+      "annotations": {
+        "readOnlyHint": false,
+        "untrustedContentHint": false
+      }
+    }
+  ]
+}

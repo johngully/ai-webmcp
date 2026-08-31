@@ -1,0 +1,55 @@
+
+ RUN  v4.1.11 /Users/john/.codex/worktrees/8e6f/ai-webmcp
+
+ ❯ |ui| tests/webmcp-control.test.tsx (3 tests | 2 failed) 141ms
+   × organizer can turn default-enabled WebMCP off and retain the choice after reopening management 77ms
+   × a disabled document has no assistant integration and enabling restores just one tool 16ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |ui| tests/webmcp-control.test.tsx > organizer can turn default-enabled WebMCP off and retain the choice after reopening management
+Error: expect(element).toBeChecked()
+
+Received element is not checked:
+  <button
+  aria-checked="false"
+  aria-label="WebMCP"
+  disabled=""
+  role="switch"
+  type="button"
+/>
+ ❯ tests/webmcp-control.test.tsx:30:21
+     28|     await show(createAvailabilityOperations(file))
+     29|     const control = await screen.findByRole('switch', { name: 'WebMCP'…
+     30|     expect(control).toBeChecked()
+       |                     ^
+     31|     await userEvent.click(control)
+     32|     expect(await screen.findByText('WebMCP disabled.')).toBeVisible()
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |ui| tests/webmcp-control.test.tsx > a disabled document has no assistant integration and enabling restores just one tool
+Error: expect(element).not.toBeInTheDocument()
+
+expected document not to contain element, found <aside
+  aria-label="Assistant submission"
+>
+  <p>
+    Assistant submission available.
+  </p>
+</aside> instead
+ ❯ tests/webmcp-control.test.tsx:70:65
+     68|     await show(operations)
+     69|     await screen.findByText('WebMCP disabled.')
+     70|     expect(screen.queryByLabelText('Assistant submission')).not.toBeIn…
+       |                                                                 ^
+     71|     expect(document.modelContext).toBeUndefined()
+     72|     await userEvent.click(screen.getByRole('switch', { name: 'WebMCP' …
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 1 passed (3)
+   Start at  20:17:13
+   Duration  674ms (transform 70ms, setup 72ms, import 140ms, tests 141ms, environment 258ms)

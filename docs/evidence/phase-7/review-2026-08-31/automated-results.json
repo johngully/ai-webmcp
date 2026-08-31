@@ -1,0 +1,684 @@
+{
+  "stats": {
+    "startTime": "2026-08-31T17:23:25.319Z",
+    "duration": 103494.574,
+    "expected": 96,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "results": [
+    {
+      "title": "keyboard-only attendee and organizer can complete every action with long content at both viewport widths",
+      "project": "desktop",
+      "run": 1,
+      "status": "passed",
+      "duration": 2882
+    },
+    {
+      "title": "keyboard-only attendee and organizer can complete every action with long content at both viewport widths",
+      "project": "desktop",
+      "run": 2,
+      "status": "passed",
+      "duration": 2710
+    },
+    {
+      "title": "keyboard-only attendee and organizer can complete every action with long content at both viewport widths",
+      "project": "mobile",
+      "run": 1,
+      "status": "passed",
+      "duration": 2746
+    },
+    {
+      "title": "keyboard-only attendee and organizer can complete every action with long content at both viewport widths",
+      "project": "mobile",
+      "run": 2,
+      "status": "passed",
+      "duration": 2696
+    },
+    {
+      "title": "documented client submits the same answers as the manual path with one invocation and stays out of production",
+      "project": "desktop",
+      "run": 1,
+      "status": "passed",
+      "duration": 5247
+    },
+    {
+      "title": "documented client submits the same answers as the manual path with one invocation and stays out of production",
+      "project": "desktop",
+      "run": 2,
+      "status": "passed",
+      "duration": 5213
+    },
+    {
+      "title": "documented client submits the same answers as the manual path with one invocation and stays out of production",
+      "project": "mobile",
+      "run": 1,
+      "status": "passed",
+      "duration": 5198
+    },
+    {
+      "title": "documented client submits the same answers as the manual path with one invocation and stays out of production",
+      "project": "mobile",
+      "run": 2,
+      "status": "passed",
+      "duration": 5194
+    },
+    {
+      "title": "production shell supports pointer and keyboard navigation without overflow",
+      "project": "desktop",
+      "run": 1,
+      "status": "passed",
+      "duration": 1510
+    },
+    {
+      "title": "a direct production request renders usable navigation without JavaScript",
+      "project": "desktop",
+      "run": 1,
+      "status": "passed",
+      "duration": 5216
+    },
+    {
+      "title": "production shell supports pointer and keyboard navigation without overflow",
+      "project": "desktop",
+      "run": 2,
+      "status": "passed",
+      "duration": 1391
+    },
+    {
+      "title": "a direct production request renders usable navigation without JavaScript",
+      "project": "desktop",
+      "run": 2,
+      "status": "passed",
+      "duration": 5152
+    },
+    {
+      "title": "production shell supports pointer and keyboard navigation without overflow",
+      "project": "mobile",
+      "run": 1,
+      "status": "passed",
+      "duration": 1379
+    },
+    {
+      "title": "a direct production request renders usable navigation without JavaScript",
+      "project": "mobile",
+      "run": 1,
+      "status": "passed",
+      "duration": 5121
+    },
+    {
+      "title": "production shell supports pointer and keyboard navigation without overflow",
+      "project": "mobile",
+      "run": 2,
+      "status": "passed",
+      "duration": 1353
+    },
+    {
+      "title": "a direct production request renders usable navigation without JavaScript",
+      "project": "mobile",
+      "run": 2,
+      "status": "passed",
+      "duration": 5141
+    },
+    {
+      "title": "fresh attendee run 1",
+      "project": "desktop",
+      "run": 1,
+      "status": "passed",
+      "duration": 1408
+    },
+    {
+      "title": "fresh attendee run 2",
+      "project": "desktop",
+      "run": 1,
+      "status": "passed",
+      "duration": 1419
+    },
+    {
+      "title": "fresh attendee run 1",
+      "project": "desktop",
+      "run": 2,
+      "status": "passed",
+      "duration": 1370
+    },
+    {
+      "title": "fresh attendee run 2",
+      "project": "desktop",
+      "run": 2,
+      "status": "passed",
+      "duration": 1393
+    },
+    {
+      "title": "fresh attendee run 1",
+      "project": "mobile",
+      "run": 1,
+      "status": "passed",
+      "duration": 1393
+    },
+    {
+      "title": "fresh attendee run 2",
+      "project": "mobile",
+      "run": 1,
+      "status": "passed",
+      "duration": 1414
+    },
+    {
+      "title": "fresh attendee run 1",
+      "project": "mobile",
+      "run": 2,
+      "status": "passed",
+      "duration": 1411
+    },
+    {
+      "title": "fresh attendee run 2",
+      "project": "mobile",
+      "run": 2,
+      "status": "passed",
+      "duration": 1369
+    },
+    {
+      "title": "organizer filters, inspects, cancels, and deletes only the intended persisted responses",
+      "project": "desktop",
+      "run": 1,
+      "status": "passed",
+      "duration": 5131
+    },
+    {
+      "title": "shared empty filters are omitted and malformed rating URLs remain recoverable",
+      "project": "desktop",
+      "run": 1,
+      "status": "passed",
+      "duration": 1229
+    },
+    {
+      "title": "organizer filters, inspects, cancels, and deletes only the intended persisted responses",
+      "project": "desktop",
+      "run": 2,
+      "status": "passed",
+      "duration": 5125
+    },
+    {
+      "title": "shared empty filters are omitted and malformed rating URLs remain recoverable",
+      "project": "desktop",
+      "run": 2,
+      "status": "passed",
+      "duration": 1269
+    },
+    {
+      "title": "organizer filters, inspects, cancels, and deletes only the intended persisted responses",
+      "project": "mobile",
+      "run": 1,
+      "status": "passed",
+      "duration": 5142
+    },
+    {
+      "title": "shared empty filters are omitted and malformed rating URLs remain recoverable",
+      "project": "mobile",
+      "run": 1,
+      "status": "passed",
+      "duration": 1322
+    },
+    {
+      "title": "organizer filters, inspects, cancels, and deletes only the intended persisted responses",
+      "project": "mobile",
+      "run": 2,
+      "status": "passed",
+      "duration": 5138
+    },
+    {
+      "title": "shared empty filters are omitted and malformed rating URLs remain recoverable",
+      "project": "mobile",
+      "run": 2,
+      "status": "passed",
+      "duration": 1255
+    },
+    {
+      "title": "attendee and organizer retain required content at 320px with enlarged text",
+      "project": "desktop",
+      "run": 1,
+      "status": "passed",
+      "duration": 1750
+    },
+    {
+      "title": "attendee and organizer retain required content at 320px with enlarged text",
+      "project": "desktop",
+      "run": 2,
+      "status": "passed",
+      "duration": 1716
+    },
+    {
+      "title": "attendee and organizer retain required content at 320px with enlarged text",
+      "project": "mobile",
+      "run": 1,
+      "status": "passed",
+      "duration": 1741
+    },
+    {
+      "title": "attendee and organizer retain required content at 320px with enlarged text",
+      "project": "mobile",
+      "run": 2,
+      "status": "passed",
+      "duration": 1732
+    },
+    {
+      "title": "production attendee validates, goes Back, refreshes, submits once, and starts again",
+      "project": "desktop",
+      "run": 1,
+      "status": "passed",
+      "duration": 5140
+    },
+    {
+      "title": "production routes present conference copy and direct Step 2 recovers safely",
+      "project": "desktop",
+      "run": 1,
+      "status": "passed",
+      "duration": 5312
+    },
+    {
+      "title": "pending submission stays on the form when navigation is attempted",
+      "project": "desktop",
+      "run": 1,
+      "status": "passed",
+      "duration": 5129
+    },
+    {
+      "title": "production attendee validates, goes Back, refreshes, submits once, and starts again",
+      "project": "desktop",
+      "run": 2,
+      "status": "passed",
+      "duration": 5143
+    },
+    {
+      "title": "production routes present conference copy and direct Step 2 recovers safely",
+      "project": "desktop",
+      "run": 2,
+      "status": "passed",
+      "duration": 5243
+    },
+    {
+      "title": "pending submission stays on the form when navigation is attempted",
+      "project": "desktop",
+      "run": 2,
+      "status": "passed",
+      "duration": 5118
+    },
+    {
+      "title": "production attendee validates, goes Back, refreshes, submits once, and starts again",
+      "project": "mobile",
+      "run": 1,
+      "status": "passed",
+      "duration": 5140
+    },
+    {
+      "title": "production routes present conference copy and direct Step 2 recovers safely",
+      "project": "mobile",
+      "run": 1,
+      "status": "passed",
+      "duration": 5238
+    },
+    {
+      "title": "pending submission stays on the form when navigation is attempted",
+      "project": "mobile",
+      "run": 1,
+      "status": "passed",
+      "duration": 5151
+    },
+    {
+      "title": "production attendee validates, goes Back, refreshes, submits once, and starts again",
+      "project": "mobile",
+      "run": 2,
+      "status": "passed",
+      "duration": 5144
+    },
+    {
+      "title": "production routes present conference copy and direct Step 2 recovers safely",
+      "project": "mobile",
+      "run": 2,
+      "status": "passed",
+      "duration": 5237
+    },
+    {
+      "title": "pending submission stays on the form when navigation is attempted",
+      "project": "mobile",
+      "run": 2,
+      "status": "passed",
+      "duration": 5122
+    },
+    {
+      "title": "off propagates to drafts and the separate client; fresh disabled pages load no integration; on restores one tool",
+      "project": "desktop",
+      "run": 1,
+      "status": "passed",
+      "duration": 6900
+    },
+    {
+      "title": "management retains disabled state after process restart without rewriting responses",
+      "project": "desktop",
+      "run": 1,
+      "status": "passed",
+      "duration": 4388
+    },
+    {
+      "title": "turning off keeps an unsaved draft when browser storage is unavailable",
+      "project": "desktop",
+      "run": 1,
+      "status": "passed",
+      "duration": 5127
+    },
+    {
+      "title": "a failed setting save remains visible until the organizer checks the confirmed state",
+      "project": "desktop",
+      "run": 1,
+      "status": "passed",
+      "duration": 4979
+    },
+    {
+      "title": "a suspended page rechecks on resume and native browser APIs remain untouched on disabled documents",
+      "project": "desktop",
+      "run": 1,
+      "status": "passed",
+      "duration": 5145
+    },
+    {
+      "title": "availability refresh preserves a confirmed in-flight manual submission without retry",
+      "project": "desktop",
+      "run": 1,
+      "status": "passed",
+      "duration": 5570
+    },
+    {
+      "title": "availability refresh preserves a uncertain in-flight manual submission without retry",
+      "project": "desktop",
+      "run": 1,
+      "status": "passed",
+      "duration": 5547
+    },
+    {
+      "title": "a stale production assistant request is rejected after off without saving another response",
+      "project": "desktop",
+      "run": 1,
+      "status": "passed",
+      "duration": 2133
+    },
+    {
+      "title": "slow server replies still confirm a fresh disabled management page",
+      "project": "desktop",
+      "run": 1,
+      "status": "passed",
+      "duration": 4224
+    },
+    {
+      "title": "off propagates to drafts and the separate client; fresh disabled pages load no integration; on restores one tool",
+      "project": "desktop",
+      "run": 2,
+      "status": "passed",
+      "duration": 6941
+    },
+    {
+      "title": "management retains disabled state after process restart without rewriting responses",
+      "project": "desktop",
+      "run": 2,
+      "status": "passed",
+      "duration": 4308
+    },
+    {
+      "title": "turning off keeps an unsaved draft when browser storage is unavailable",
+      "project": "desktop",
+      "run": 2,
+      "status": "passed",
+      "duration": 5138
+    },
+    {
+      "title": "a failed setting save remains visible until the organizer checks the confirmed state",
+      "project": "desktop",
+      "run": 2,
+      "status": "passed",
+      "duration": 4941
+    },
+    {
+      "title": "a suspended page rechecks on resume and native browser APIs remain untouched on disabled documents",
+      "project": "desktop",
+      "run": 2,
+      "status": "passed",
+      "duration": 5151
+    },
+    {
+      "title": "availability refresh preserves a confirmed in-flight manual submission without retry",
+      "project": "desktop",
+      "run": 2,
+      "status": "passed",
+      "duration": 5574
+    },
+    {
+      "title": "availability refresh preserves a uncertain in-flight manual submission without retry",
+      "project": "desktop",
+      "run": 2,
+      "status": "passed",
+      "duration": 5591
+    },
+    {
+      "title": "a stale production assistant request is rejected after off without saving another response",
+      "project": "desktop",
+      "run": 2,
+      "status": "passed",
+      "duration": 2207
+    },
+    {
+      "title": "slow server replies still confirm a fresh disabled management page",
+      "project": "desktop",
+      "run": 2,
+      "status": "passed",
+      "duration": 4237
+    },
+    {
+      "title": "off propagates to drafts and the separate client; fresh disabled pages load no integration; on restores one tool",
+      "project": "mobile",
+      "run": 1,
+      "status": "passed",
+      "duration": 6957
+    },
+    {
+      "title": "management retains disabled state after process restart without rewriting responses",
+      "project": "mobile",
+      "run": 1,
+      "status": "passed",
+      "duration": 4336
+    },
+    {
+      "title": "turning off keeps an unsaved draft when browser storage is unavailable",
+      "project": "mobile",
+      "run": 1,
+      "status": "passed",
+      "duration": 5131
+    },
+    {
+      "title": "a failed setting save remains visible until the organizer checks the confirmed state",
+      "project": "mobile",
+      "run": 1,
+      "status": "passed",
+      "duration": 5032
+    },
+    {
+      "title": "a suspended page rechecks on resume and native browser APIs remain untouched on disabled documents",
+      "project": "mobile",
+      "run": 1,
+      "status": "passed",
+      "duration": 5144
+    },
+    {
+      "title": "availability refresh preserves a confirmed in-flight manual submission without retry",
+      "project": "mobile",
+      "run": 1,
+      "status": "passed",
+      "duration": 6059
+    },
+    {
+      "title": "availability refresh preserves a uncertain in-flight manual submission without retry",
+      "project": "mobile",
+      "run": 1,
+      "status": "passed",
+      "duration": 5562
+    },
+    {
+      "title": "a stale production assistant request is rejected after off without saving another response",
+      "project": "mobile",
+      "run": 1,
+      "status": "passed",
+      "duration": 2205
+    },
+    {
+      "title": "slow server replies still confirm a fresh disabled management page",
+      "project": "mobile",
+      "run": 1,
+      "status": "passed",
+      "duration": 4230
+    },
+    {
+      "title": "off propagates to drafts and the separate client; fresh disabled pages load no integration; on restores one tool",
+      "project": "mobile",
+      "run": 2,
+      "status": "passed",
+      "duration": 6956
+    },
+    {
+      "title": "management retains disabled state after process restart without rewriting responses",
+      "project": "mobile",
+      "run": 2,
+      "status": "passed",
+      "duration": 4345
+    },
+    {
+      "title": "turning off keeps an unsaved draft when browser storage is unavailable",
+      "project": "mobile",
+      "run": 2,
+      "status": "passed",
+      "duration": 5119
+    },
+    {
+      "title": "a failed setting save remains visible until the organizer checks the confirmed state",
+      "project": "mobile",
+      "run": 2,
+      "status": "passed",
+      "duration": 4946
+    },
+    {
+      "title": "a suspended page rechecks on resume and native browser APIs remain untouched on disabled documents",
+      "project": "mobile",
+      "run": 2,
+      "status": "passed",
+      "duration": 5137
+    },
+    {
+      "title": "availability refresh preserves a confirmed in-flight manual submission without retry",
+      "project": "mobile",
+      "run": 2,
+      "status": "passed",
+      "duration": 6087
+    },
+    {
+      "title": "availability refresh preserves a uncertain in-flight manual submission without retry",
+      "project": "mobile",
+      "run": 2,
+      "status": "passed",
+      "duration": 6074
+    },
+    {
+      "title": "a stale production assistant request is rejected after off without saving another response",
+      "project": "mobile",
+      "run": 2,
+      "status": "passed",
+      "duration": 2214
+    },
+    {
+      "title": "slow server replies still confirm a fresh disabled management page",
+      "project": "mobile",
+      "run": 2,
+      "status": "passed",
+      "duration": 4245
+    },
+    {
+      "title": "production polyfill discovers one tool, corrects invalid input, and saves one response through the server",
+      "project": "desktop",
+      "run": 1,
+      "status": "passed",
+      "duration": 2981
+    },
+    {
+      "title": "manual attendee can submit when assistant is unavailable",
+      "project": "desktop",
+      "run": 1,
+      "status": "passed",
+      "duration": 5144
+    },
+    {
+      "title": "manual attendee can submit when assistant is registration error",
+      "project": "desktop",
+      "run": 1,
+      "status": "passed",
+      "duration": 5139
+    },
+    {
+      "title": "production polyfill discovers one tool, corrects invalid input, and saves one response through the server",
+      "project": "desktop",
+      "run": 2,
+      "status": "passed",
+      "duration": 2952
+    },
+    {
+      "title": "manual attendee can submit when assistant is unavailable",
+      "project": "desktop",
+      "run": 2,
+      "status": "passed",
+      "duration": 5143
+    },
+    {
+      "title": "manual attendee can submit when assistant is registration error",
+      "project": "desktop",
+      "run": 2,
+      "status": "passed",
+      "duration": 5131
+    },
+    {
+      "title": "production polyfill discovers one tool, corrects invalid input, and saves one response through the server",
+      "project": "mobile",
+      "run": 1,
+      "status": "passed",
+      "duration": 2980
+    },
+    {
+      "title": "manual attendee can submit when assistant is unavailable",
+      "project": "mobile",
+      "run": 1,
+      "status": "passed",
+      "duration": 5124
+    },
+    {
+      "title": "manual attendee can submit when assistant is registration error",
+      "project": "mobile",
+      "run": 1,
+      "status": "passed",
+      "duration": 5142
+    },
+    {
+      "title": "production polyfill discovers one tool, corrects invalid input, and saves one response through the server",
+      "project": "mobile",
+      "run": 2,
+      "status": "passed",
+      "duration": 2959
+    },
+    {
+      "title": "manual attendee can submit when assistant is unavailable",
+      "project": "mobile",
+      "run": 2,
+      "status": "passed",
+      "duration": 5139
+    },
+    {
+      "title": "manual attendee can submit when assistant is registration error",
+      "project": "mobile",
+      "run": 2,
+      "status": "passed",
+      "duration": 5139
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+
+ RUN  v4.1.11 /Users/john/.codex/worktrees/8e6f/ai-webmcp
+
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+ Test Files  1 passed (1)
+      Tests  3 passed (3)
+   Start at  20:18:01
+   Duration  1.02s (transform 77ms, setup 111ms, import 193ms, tests 193ms, environment 439ms)

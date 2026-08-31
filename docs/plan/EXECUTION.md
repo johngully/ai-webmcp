@@ -54,6 +54,10 @@ Before marking a phase complete:
 
 If Chrome is unavailable, follow the Chrome skill's recovery instructions and report the missing setup. Do not claim live validation or silently substitute another browser. A blocker in the required validation gate holds the next phase.
 
+### Phase 7 acceptance exception — 2026-08-31
+
+After being told that Phase 7 was waiting only on manual Chrome reconnection/validation, the user asked, “I don't see anything to approve. Can we just move on?” The coordinator accepts this as a one-time waiver of the remaining Phase 7 manual Chrome gate, not permission to open a browser window, transmit data, or delete records. Close Phase 7 using its independently verified corrected-revision automated evidence (66 unit/integration tests, 48 production browser cases, two real server-function cases, coverage/build/scope checks). Record the unperformed corrected-revision manual Chrome checks as **waived**, never as passed. The phase may receive its scoped commit and be integrated before Phase 8 starts. TDD, coverage, data preservation, separate commits, and action-time safety rules remain unchanged. This exception does not waive Phase 8's testing requirements.
+
 ## Phase handoff template
 
 Append this to the completed phase document:

@@ -1,0 +1,34 @@
+{
+  "date": "2026-08-31",
+  "baselineCommit": "cfece566384096e5438efad19cffd6fc934483bd",
+  "sourceHashVerification": [
+    {
+      "location": "/Users/john/.codex/worktrees/8e6f/ai-webmcp",
+      "matchingFiles": 60,
+      "mismatches": []
+    },
+    {
+      "location": "/tmp/ai-webmcp-p7-corrected-7hw_9pcy/src/checkout",
+      "matchingFiles": 60,
+      "mismatches": []
+    },
+    {
+      "location": "/private/tmp/ai-dev-days-phase7-fixed-accept-0DzgSJ",
+      "matchingFiles": 60,
+      "mismatches": []
+    }
+  ],
+  "unchangedFromBaseline": [
+    "package.json",
+    "pnpm-lock.yaml",
+    "vitest.config.ts",
+    "scripts/check-coverage-scope.mjs",
+    "playwright.config.ts",
+    "playwright.server-functions.config.ts"
+  ],
+  "diffCheck": "passed",
+  "scope": "Phase 7 implementation, tests, documentation and evidence only; no Phase 8 files, runtime data or build output",
+  "manualChromeAcceptance": "WAIVED, not passed, under the user-directed Phase 7 exception in docs/plan/EXECUTION.md",
+  "runtimeChecks": "Already verified corrected revision: 66 unit/integration tests, 48 production browser cases, 96 immutable repeated cases, 2 real RPC cases; no runtime source changed during finalization",
+  "sharedPreviewActions": "None during finalization; ports 3120/3121, build and records unchanged"
+}

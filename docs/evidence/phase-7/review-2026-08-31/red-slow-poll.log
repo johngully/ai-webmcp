@@ -1,0 +1,68 @@
+
+ RUN  v4.1.11 /Users/john/.codex/worktrees/8e6f/ai-webmcp
+
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+ ❯ |ui| tests/webmcp-control.test.tsx (6 tests | 1 failed) 356ms
+   × a slow availability response still confirms management state instead of being displaced by polling 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |ui| tests/webmcp-control.test.tsx > a slow availability response still confirms management state instead of being displaced by polling
+TestingLibraryElementError: Unable to find an element with the text: WebMCP disabled.. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<section[39m
+      [33maria-label[39m=[32m"Assistant availability"[39m
+      [33mclass[39m=[32m"availability-control"[39m
+    [36m>[39m
+      [36m<button[39m
+        [33maria-checked[39m=[32m"false"[39m
+        [33maria-describedby[39m=[32m"webmcp-state"[39m
+        [33maria-label[39m=[32m"WebMCP"[39m
+        [33mdisabled[39m=[32m""[39m
+        [33mrole[39m=[32m"switch"[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m>[39m
+        [0mWebMCP[0m
+        [0m [0m
+        [36m<span[39m
+          [33maria-hidden[39m=[32m"true"[39m
+        [36m>[39m
+          [0m?[0m
+        [36m</span>[39m
+      [36m</button>[39m
+      [36m<p[39m
+        [33maria-live[39m=[32m"polite"[39m
+        [33mid[39m=[32m"webmcp-state"[39m
+      [36m>[39m
+        [0mChecking WebMCP availability…[0m
+      [36m</p>[39m
+      [36m<p>[39m
+        [0mAllow assistants to submit conference feedback. The survey remains available to attendees.[0m
+      [36m</p>[39m
+    [36m</section>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ Object.getElementError node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ tests/webmcp-control.test.tsx:186:19
+    184|     )
+    185|     await act(async () => { await vi.advanceTimersByTimeAsync(6000) })
+    186|     expect(screen.getByText('WebMCP disabled.')).toBeVisible()
+       |                   ^
+    187|     expect(screen.getByRole('switch', { name: 'WebMCP' })).toBeEnabled…
+    188|   } finally {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 5 passed (6)
+   Start at  12:16:38
+   Duration  1.25s (transform 86ms, setup 109ms, import 210ms, tests 356ms, environment 485ms)

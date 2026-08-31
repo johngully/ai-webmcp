@@ -77,6 +77,20 @@ Malformed lines fail closed and identify a physical line number. Stop the server
 
 A lost network response can follow a successful save. Neither submission path has an idempotency key. **Check management before retrying an uncertain submission** or it may create a second response.
 
+## WebMCP availability
+
+On `/survey`, the **WebMCP** switch controls assistant submission for the whole running app. It defaults to enabled when no setting exists. Wait for the confirmed **WebMCP enabled.** or **WebMCP disabled.** message. Saving and read failures show an unconfirmed state; **Check setting** rereads the server before another change. Manual submission remains available in either state.
+
+The setting is an atomic JSON file at **`<resolved SURVEY_DATA_FILE>.webmcp.json`** (default `data/surveys.jsonl.webmcp.json`), with `{"enabled":false}` or `{"enabled":true}`. It is Git-ignored, separate from survey records, and scoped to that exact response-file path. Back it up alongside the responses. To reset to the enabled default without losing responses, stop the owning process and rename only that exact settings file to a backup name. Starting with a new response-file path also creates a separate default-enabled installation. A corrupt/unreadable settings file fails closed; repair or restore it with the process stopped, then use **Check setting**. Never edit the survey JSONL to change availability.
+
+No process restart is needed for the switch. The saving page immediately applies the confirmed value. Other pages poll their own server origin every **2 seconds** (coalescing checks while a read is pending), and also check on focus, `pageshow`, and visibility changes. This includes the contributor client's separate loopback origin, which proxies to the same server. Under a responsive local server, allow one polling interval plus request/render/reload time; background throttling, frozen pages, offline clients, or a slow server can delay delivery. Resumed pages recheck; there is no instantaneous delivery guarantee. New server-side assistant calls are refused after the off-setting write completes, even if a client still holds a tool. Requests admitted before disabling may complete; never automatically retry an uncertain write.
+
+A fresh disabled document does not load/preload the assistant integration or the pinned polyfill. An enabled document that sees off (or loses confirmation of availability) unmounts the integration and aborts registration. It then refreshes to remove app-installed polyfill state. Drafts are saved before refresh. The page defers refresh if draft storage fails, a manual submission is pending/uncertain, or its saved ID is still displayed; it retains answers/results and retries the safety check every 2 seconds. Finish or resolve the survey, then navigate or start another survey to permit refresh. Configuration errors stay visible until the state is confirmed. During a deferred refresh the old polyfill object may remain, but its app tool is unregistered and server calls remain gated. Re-enabling a deferred document also waits for that safe refresh.
+
+Browser-owned `document.modelContext` is never deleted or overwritten. In a native browser, off means no application tool/integration; the browser API itself may remain. The real **5.0.1 polyfill plus contributor client** is the verified execution lane; native/external bridge execution remains unverified. This local-only, unauthenticated, single-process setting is **not authentication**: callers can still use the ordinary manual-submission endpoint. No packages or coverage exclusions were changed.
+
+See the [comparison guide](docs/demo-guide.md) for a truly disabled manual baseline and [Phase 7 evidence](docs/evidence/phase-7/README.md) for validation and limitations.
+
 ## Troubleshooting
 
 | Symptom                                                     | Action                                                                                                                                                                                                      |
