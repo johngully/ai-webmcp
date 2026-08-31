@@ -27,7 +27,7 @@ Check a phase here only after every task in its phase file is checked.
 - [x] [Phase 4 — WebMCP submission](./phase-4-webmcp.md)
 - [x] [Phase 5 — Styling](./phase-5-styling.md)
 - [x] [Phase 6 — Final verification](./phase-6-final-verification.md)
-- [ ] [Phase 7 — WebMCP availability control](./phase-7-webmcp-control.md) — **IN PROGRESS: planning and task release**
+- [ ] [Phase 7 — WebMCP availability control](./phase-7-webmcp-control.md) — **IN PROGRESS: implementation task released**
 
 The original verification work is preserved in commit `311155f` and its [pre-styling checkpoint evidence](./phase-5-verification-demo.md). On 2026-08-30 the user inserted styling as Phase 5; final verification moved to Phase 6 and must run against the restyled application.
 

@@ -12,15 +12,16 @@ The temporary five-minute coordinator heartbeat `coordinate-ai-dev-days-build` w
 
 The original six tasks were created on 2026-08-30. The user then inserted styling as Phase 5; its new task was created and the original verification task renamed to Phase 6. `list_threads` can omit these tasks even after creation. The mappings were recovered from exact task-creation log entries and verified with `read_thread`/`wait_threads`; use these real IDs directly. Do not recreate tasks or confuse an omitted listing with unfinished setup.
 
-| Phase | App title                                 | Task ID                                | Release state                        |
-| ----- | ----------------------------------------- | -------------------------------------- | ------------------------------------ |
-| 0     | AI Dev Days — Phase 0: Foundation         | `01a05463-0245-77f0-9229-d45bc1a42db9` | Validated and integrated (`355720e`) |
-| 1     | AI Dev Days — Phase 1: Domain and storage | `01a05463-0af0-7783-92a8-0ec217730054` | Validated and integrated (`e39cde6`) |
-| 2     | AI Dev Days — Phase 2: Manual survey      | `01a05463-141f-70f3-ab93-af7f5c7f1921` | Validated and integrated (`05adb65`) |
-| 3     | AI Dev Days — Phase 3: Management         | `01a05463-237c-7372-ae9a-16648b437057` | Validated and integrated (`a768b5b`) |
-| 4     | AI Dev Days — Phase 4: WebMCP             | `01a05463-2ef2-7692-a9f5-1c1d91461e14` | Validated and integrated (`8cc0297`) |
-| 5     | AI Dev Days — Phase 5: Styling            | `01a054eb-aa27-7020-8358-bb5b8d88ee31` | Validated and integrated (`72ed4ab`) |
-| 6     | AI Dev Days — Phase 6: Final verification | `01a05463-4065-7b91-98f3-66d1b4dd3bfc` | Validated and integrated (`9102983`) |
+| Phase | App title                                   | Task ID                                | Release state                         |
+| ----- | ------------------------------------------- | -------------------------------------- | ------------------------------------- |
+| 0     | AI Dev Days — Phase 0: Foundation           | `01a05463-0245-77f0-9229-d45bc1a42db9` | Validated and integrated (`355720e`)  |
+| 1     | AI Dev Days — Phase 1: Domain and storage   | `01a05463-0af0-7783-92a8-0ec217730054` | Validated and integrated (`e39cde6`)  |
+| 2     | AI Dev Days — Phase 2: Manual survey        | `01a05463-141f-70f3-ab93-af7f5c7f1921` | Validated and integrated (`05adb65`)  |
+| 3     | AI Dev Days — Phase 3: Management           | `01a05463-237c-7372-ae9a-16648b437057` | Validated and integrated (`a768b5b`)  |
+| 4     | AI Dev Days — Phase 4: WebMCP               | `01a05463-2ef2-7692-a9f5-1c1d91461e14` | Validated and integrated (`8cc0297`)  |
+| 5     | AI Dev Days — Phase 5: Styling              | `01a054eb-aa27-7020-8358-bb5b8d88ee31` | Validated and integrated (`72ed4ab`)  |
+| 6     | AI Dev Days — Phase 6: Final verification   | `01a05463-4065-7b91-98f3-66d1b4dd3bfc` | Validated and integrated (`9102983`)  |
+| 7     | AI Dev Days — Phase 7: WebMCP availability… | `01a0555f-94b8-7df0-ba83-46afe9f776a3` | Released from `cfece56`; implementing |
 
 All tasks use host `local`. Worktree directory prefixes by phase 0–6: `ae76`, `92e7`, `d739`, `046d`, `46af`, `1048`, `bcf3`, under `/Users/john/.codex/worktrees/<prefix>/ai-webmcp`. The styling creation initially returned client ID `client-new-thread:ea59f88b-0ff6-43da-916b-eefa53a18469`; its verified real task ID is recorded above.
 
@@ -35,7 +36,9 @@ All tasks use host `local`. Worktree directory prefixes by phase 0–6: `ae76`, 
 
 ## Phase 7 release
 
-The user added [Phase 7 — WebMCP availability control](./phase-7-webmcp-control.md) after Phase 6 acceptance, and authorized starting once questions were resolved. No unresolved product decision remains. The phase adds a persistent app-wide management switch with genuine disabled-runtime behavior, unchanged manual submission, TDD, Chrome verification, and a phase-scoped implementation commit. Task creation/release follows the committed plan. Earlier previews and response data remain out of scope. No coordinator automation has been recreated.
+The user added [Phase 7 — WebMCP availability control](./phase-7-webmcp-control.md) after Phase 6 acceptance, and authorized starting once questions were resolved. No unresolved product decision remains. The phase adds a persistent app-wide management switch with genuine disabled-runtime behavior, unchanged manual submission, TDD, Chrome verification, and a phase-scoped implementation commit.
+
+Task `01a0555f-94b8-7df0-ba83-46afe9f776a3` was created and released from the committed plan, `cfece566384096e5438efad19cffd6fc934483bd`. Its worktree is `/Users/john/.codex/worktrees/8e6f/ai-webmcp`. Creation returned `client-new-thread:2fcf2374-aba3-4a05-9142-b5e6dcc09a86`; the real ID was resolved from the exact app lifecycle entry and verified through `read_thread` and `wait_threads`. The first active snapshot confirmed repository/TDD/plan inspection and an in-progress implementation turn. The overall gate remains unchecked until independent acceptance and integration. Earlier previews and response data remain out of scope. No coordinator automation has been recreated.
 
 ## Accepted Phase 6 gate
 
