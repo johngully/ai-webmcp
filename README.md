@@ -17,7 +17,7 @@ Open [the local app](http://127.0.0.1:3000). Routes:
 - `/survey/new?step=1` — talk, integer rating 0–10, and reason; Step 2 collects gift, name, and shipping address.
 - `/survey` — response table, name/talk/inclusive rating filters, details, and deletion.
 
-All six fields are required. Back/Next and refresh preserve an unfinished draft within the same tab. A successful submission shows an uppercase `XXX-XXX` ID and clears the draft. Assistant availability appears in the footer; an unavailable assistant does not disable the form. JavaScript is required for submission and management actions.
+All six fields are required. **Survey progress** identifies the current step and completed feedback. Back/Next and refresh preserve an unfinished draft within the same tab. A successful submission shows an uppercase `XXX-XXX` ID and clears the draft. Management shows the filtered response count and selected count separately. Assistant availability appears in the footer; an unavailable assistant does not disable the form. JavaScript is required for submission and management actions.
 
 **Local only:** no authentication or authorization is implemented. Do not expose these ports to a network, deploy publicly, or use real attendee data for a demonstration. Use one Node process per JSONL file; do not run development and production against the same file. This is a single-process filesystem application, not a cluster or edge deployment.
 
@@ -52,9 +52,11 @@ Run the two browser commands sequentially: the second uses a development build a
 pnpm test:e2e --repeat-each=2
 ```
 
-If browser binaries are in a shared location, set `PLAYWRIGHT_BROWSERS_PATH` for both installation and execution. The validation machine used `/private/tmp/ai-webmcp-playwright`. The automated browser has no personal Chrome profile; prior live Chrome checks are recorded in the [pre-styling checkpoint](docs/plan/phase-5-verification-demo.md). [Phase 5 styling](docs/plan/phase-5-styling.md) and [Phase 6 final verification](docs/plan/phase-6-final-verification.md) track the visual revision and its acceptance.
+If browser binaries are in a shared location, set `PLAYWRIGHT_BROWSERS_PATH` for both installation and execution. The validation machine used `/private/tmp/ai-webmcp-playwright`. The automated browser has no personal Chrome profile. [Final verification](docs/plan/phase-6-final-verification.md) records the clean install, 58 unit/integration tests, 60 repeated production browser cases, one real server-function case, and separate live Chrome audit. Coverage was **96.53% statements / 96.47% branches / 93.65% functions / 97.53% lines**. [Final screenshots and audit details](docs/evidence/phase-6/README.md), [styling evidence](docs/plan/phase-5-styling.md), and the [pre-styling checkpoint](docs/plan/phase-5-verification-demo.md) preserve the sequence.
 
 Vitest covers public schemas/IDs, both repositories, operations, rendered routes, form interactions, management, and WebMCP discovery/execution. The [verification matrix](docs/verification.md) maps success and recovery/cancellation cases to files. Coverage measures **all** `src/**/*.{ts,tsx}`, including unimported application files, with **86% minimums** for statements, branches, functions, and lines. Only generated `src/routeTree.gen.ts` and declarations are excluded. Tests, configuration, CSS, and generated output are outside that source glob; contributor scripts do not contain application operations. Do not move application code to bypass coverage.
+
+The coverage glob is anchored to the checkout's absolute `src` directory so a parent directory named `src` cannot accidentally include fixtures or configuration. `pnpm test:coverage` also checks the generated JSON summary against the actual application files and fails on unexpected or missing entries. This prevents out-of-scope files from inflating coverage and ensures unimported application files remain measured.
 
 `pnpm format` formats the repository. Route generation runs before type checking and Vitest, so those checks work before the first build. A production build regenerates additional Start route declarations; generated-file changes after alternating these commands are expected.
 

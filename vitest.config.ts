@@ -1,3 +1,4 @@
+import { fileURLToPath } from 'node:url'
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vitest/config'
 
@@ -27,7 +28,8 @@ export default defineConfig({
     ],
     coverage: {
       provider: 'v8',
-      include: ['src/**/*.{ts,tsx}'],
+      // Anchor to this checkout: an ancestor named src must not broaden coverage.
+      include: [fileURLToPath(new URL('./src/**/*.{ts,tsx}', import.meta.url))],
       // Generated routing and declarations have no hand-written behavior.
       // Config, tests, CSS, and build artifacts live outside this source glob.
       exclude: ['src/routeTree.gen.ts', 'src/**/*.d.ts'],

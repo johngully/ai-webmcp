@@ -1,0 +1,56 @@
+[
+  {
+    "use": "Primary text",
+    "foreground": "#0d0d0d",
+    "background": "#fff",
+    "ratio": 19.44
+  },
+  {
+    "use": "Secondary on white",
+    "foreground": "#5d5d5d",
+    "background": "#fff",
+    "ratio": 6.58
+  },
+  {
+    "use": "Secondary on quiet",
+    "foreground": "#5d5d5d",
+    "background": "#f9f9f9",
+    "ratio": 6.25
+  },
+  {
+    "use": "Secondary on selected",
+    "foreground": "#5d5d5d",
+    "background": "#f3f3f3",
+    "ratio": 5.93
+  },
+  {
+    "use": "Primary action",
+    "foreground": "#fff",
+    "background": "#181818",
+    "ratio": 17.76
+  },
+  {
+    "use": "Control border",
+    "foreground": "#8f8f8f",
+    "background": "#fff",
+    "ratio": 3.23
+  },
+  {
+    "use": "Focus ring",
+    "foreground": "#0169cc",
+    "background": "#fff",
+    "ratio": 5.39
+  },
+  {
+    "use": "Error feedback",
+    "foreground": "#911e1b",
+    "background": "#fff0ee",
+    "ratio": 7.88
+  },
+  {
+    "use": "Success feedback",
+    "foreground": "#00692a",
+    "background": "#f3f3f3",
+    "ratio": 6.2
+  }
+]

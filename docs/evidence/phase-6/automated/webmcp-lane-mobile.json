@@ -1,0 +1,68 @@
+{
+  "browser": "151.0.7922.34",
+  "lane": "@mcp-b/webmcp-polyfill@5.0.1",
+  "discovery": {
+    "polyfilled": true,
+    "tools": [
+      {
+        "name": "submit_ai_dev_days_survey",
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "talk": {
+              "type": "string",
+              "enum": [
+                "Building Reliable AI Agents",
+                "Multimodal Apps with Modern Models",
+                "Retrieval-Augmented Generation in Production",
+                "Building Agent-Ready Websites with WebMCP",
+                "Evaluating and Securing LLM Applications"
+              ],
+              "description": "The AI Dev Days talk you attended"
+            },
+            "rating": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10,
+              "description": "Likelihood to recommend the talk, from 0 to 10"
+            },
+            "ratingReason": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Primary reason for your rating"
+            },
+            "swagGift": {
+              "type": "string",
+              "enum": ["Hoodie", "Headphones", "Keyboard"],
+              "description": "Your preferred thank-you gift"
+            },
+            "name": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Your full name"
+            },
+            "shippingAddress": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Shipping address for your gift"
+            }
+          },
+          "required": [
+            "talk",
+            "rating",
+            "ratingReason",
+            "swagGift",
+            "name",
+            "shippingAddress"
+          ]
+        },
+        "annotations": {
+          "readOnlyHint": false,
+          "untrustedContentHint": false
+        },
+        "description": "Submit AI Dev Days talk feedback and a thank-you gift request. Collect all six required answers from the attendee before calling. Each call creates one survey response and returns its survey ID. It does not change or delete existing responses. Repeating the call creates another response; do not retry automatically."
+      }
+    ]
+  }
+}

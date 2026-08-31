@@ -1,0 +1,14 @@
+{
+  "--color-brand": "#181818",
+  "--color-control": "#8f8f8f",
+  "--color-error": "#911e1b",
+  "--color-error-soft": "#fff0ee",
+  "--color-focus": "#0169cc",
+  "--color-hover": "#f3f3f3",
+  "--color-ink": "#0d0d0d",
+  "--color-muted": "#5d5d5d",
+  "--color-page": "#fff",
+  "--color-quiet": "#f9f9f9",
+  "--color-success": "#00692a",
+  "--font-body": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+}
