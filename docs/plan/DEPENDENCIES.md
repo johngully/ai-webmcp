@@ -93,15 +93,20 @@ Production responses are excluded from version control. Tests use a unique tempo
 
 ## Phase prerequisites
 
-| Phase                  | Requires                                                           | Produces for later phases                                                    |
-| ---------------------- | ------------------------------------------------------------------ | ---------------------------------------------------------------------------- |
-| 0 — Foundation         | Empty repository, Node, pnpm                                       | Runnable TanStack app, scripts, test harness, layout                         |
-| 1 — Domain/storage     | Phase 0                                                            | Schemas, IDs, repository adapters, server operations                         |
-| 2 — Manual survey      | Phase 1                                                            | Complete browser form and shared submit path                                 |
-| 3 — Management         | Phase 1                                                            | Search, filters, details, single and bulk deletion                           |
-| 4 — WebMCP             | Phases 1 and 2                                                     | One-shot WebMCP survey tool and registration status                          |
-| 5 — Styling            | Phases 2, 3, 4; visual research; preserved verification checkpoint | Shared visual tokens, restyled routes/states, visual and functional evidence |
-| 6 — Final verification | Phase 5 and checkpoint tests/docs                                  | Restyled end-to-end evidence, refreshed guide, clean production build        |
+| Phase                   | Requires                                                                                    | Produces for later phases                                                                 |
+| ----------------------- | ------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| 0 — Foundation          | Empty repository, Node, pnpm                                                                | Runnable TanStack app, scripts, test harness, layout                                      |
+| 1 — Domain/storage      | Phase 0                                                                                     | Schemas, IDs, repository adapters, server operations                                      |
+| 2 — Manual survey       | Phase 1                                                                                     | Complete browser form and shared submit path                                              |
+| 3 — Management          | Phase 1                                                                                     | Search, filters, details, single and bulk deletion                                        |
+| 4 — WebMCP              | Phases 1 and 2                                                                              | One-shot WebMCP survey tool and registration status                                       |
+| 5 — Styling             | Phases 2, 3, 4; visual research; preserved verification checkpoint                          | Shared visual tokens, restyled routes/states, visual and functional evidence              |
+| 6 — Final verification  | Phase 5 and checkpoint tests/docs                                                           | Restyled end-to-end evidence, refreshed guide, clean production build                     |
+| 7 — WebMCP availability | Accepted Phase 6; existing management, manual draft, WebMCP and server-operation boundaries | Persistent app-wide switch, genuine disabled-runtime baseline, off/on regression evidence |
+
+### WebMCP availability dependencies
+
+Phase 7 requires no planned package addition or upgrade. Use current TanStack server functions and React, Node filesystem primitives, browser lifecycle/change notification facilities, and conditional feature imports. Store the setting separately beside the configured survey file and isolate it per test server; never insert configuration into survey JSONL or share settings across isolated test data stores. Document the exact path during implementation. A saved setting must survive a process restart; fresh disabled pages must not preload/import the integration or polyfill. Existing open documents require safe unregistration/refresh and server-side rejection of stale WebMCP calls, without blocking ordinary submission. Preserve browser-native APIs and document cross-tab/resume behavior honestly.
 
 ### Styling dependencies
 

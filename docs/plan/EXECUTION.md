@@ -10,7 +10,7 @@ Phase 2 owns replacing the existing shell and route framing, with a user-visible
 
 ## Sequential delivery
 
-Each phase has a separate Codex task. Execute Phase 0, 1, 2, 3, 4, 5 (styling), then 6 (final verification). Only one phase implements at a time. Queued tasks may read their plan and report readiness, but must wait for the coordinating task to release them after validation of their predecessor. The original verification commit is preserved as a pre-styling checkpoint; the renamed Phase 6 task reruns final acceptance after styling rather than discarding or recreating its work.
+Each phase has a separate Codex task. Execute Phase 0, 1, 2, 3, 4, 5 (styling), 6 (final verification), then the user-added 7 (WebMCP availability control). Only one phase implements at a time. Queued tasks may read their plan and report readiness, but must wait for the coordinating task to release them after validation of their predecessor. The original verification commit is preserved as a pre-styling checkpoint; the renamed Phase 6 task reruns final acceptance after styling rather than discarding or recreating its work.
 
 Place user feedback in an unfinished phase when it naturally fits that phase's scope. Otherwise add a separately documented feedback, cleanup, and refinement phase with its own Codex task, status-tracked tasks, validation gate, and scoped commit. Apply the same sequential delivery and testing requirements; update the phase index and coordination record when adding a phase. The current product-language correction fits Phase 2's UI work and does not need an extra phase.
 

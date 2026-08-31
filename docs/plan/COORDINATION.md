@@ -33,7 +33,11 @@ All tasks use host `local`. Worktree directory prefixes by phase 0–6: `ae76`, 
 5. Mark the phase complete in the plan index and release exactly the next phase with the integrated predecessor commit hash. Tell the next task to fast-forward its worktree to that commit before editing. Detached worktrees may create a `codex/` branch first.
 6. After Phase 6 and any added refinement phase pass, report the finished app, actual coverage, browser validation, and any limits to the user. Delete the temporary coordinator wake-up.
 
-## Current gate
+## Phase 7 release
+
+The user added [Phase 7 — WebMCP availability control](./phase-7-webmcp-control.md) after Phase 6 acceptance, and authorized starting once questions were resolved. No unresolved product decision remains. The phase adds a persistent app-wide management switch with genuine disabled-runtime behavior, unchanged manual submission, TDD, Chrome verification, and a phase-scoped implementation commit. Task creation/release follows the committed plan. Earlier previews and response data remain out of scope. No coordinator automation has been recreated.
+
+## Accepted Phase 6 gate
 
 All phases 0–6 passed independent coordinator validation and are integrated into main. No implementation task or approval remains pending. The original verification commit `311155f080b92daac87bda6cb3cda35cc1f1b190` remains a preserved pre-styling checkpoint; styling commit `72ed4ab08c5a82611b7e58770a675e6f4d0f9558` and final verification commit `910298314f4160421e8e0d6affa11e0784db62b5` are accepted. Integration preserved the phase and coordinator histories with a non-conflicting merge.
 

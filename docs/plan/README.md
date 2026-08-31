@@ -27,10 +27,11 @@ Check a phase here only after every task in its phase file is checked.
 - [x] [Phase 4 — WebMCP submission](./phase-4-webmcp.md)
 - [x] [Phase 5 — Styling](./phase-5-styling.md)
 - [x] [Phase 6 — Final verification](./phase-6-final-verification.md)
+- [ ] [Phase 7 — WebMCP availability control](./phase-7-webmcp-control.md) — **IN PROGRESS: planning and task release**
 
 The original verification work is preserved in commit `311155f` and its [pre-styling checkpoint evidence](./phase-5-verification-demo.md). On 2026-08-30 the user inserted styling as Phase 5; final verification moved to Phase 6 and must run against the restyled application.
 
-All planned phases are now independently validated and integrated. Phase 6 is commit `910298314f4160421e8e0d6affa11e0784db62b5`; its final record includes the approved bulk-deletion check and coverage-scope regression. See the [comparison guide](../demo-guide.md) for manual-only and WebMCP test instructions and the [final evidence](../evidence/phase-6/README.md) for screenshots and operating limits.
+Phases 0–6 are independently validated and integrated. Phase 6 is commit `910298314f4160421e8e0d6affa11e0784db62b5`; its final record includes the approved bulk-deletion check and coverage-scope regression. The user subsequently added Phase 7 for an actual app-wide WebMCP availability toggle. See the [comparison guide](../demo-guide.md) for the currently delivered manual-only and WebMCP test instructions and the [final evidence](../evidence/phase-6/README.md) for accepted screenshots and operating limits. Phase 7 will update the guide after validating the disabled-runtime flow.
 
 See [Dependencies](./DEPENDENCIES.md) for the package inventory, runtime prerequisites, data dependencies, and phase graph.
 
@@ -53,9 +54,12 @@ Phase 5: Styling
           |
           v
 Phase 6: Final verification
+          |
+          v
+Phase 7: WebMCP availability control
 ```
 
-The diagram describes technical dependencies only. Execution is strictly sequential: Phase 0 → 1 → 2 → 3 → 4 → 5 → 6. A later phase remains queued until the preceding phase passes the validation gate in [Execution rules](./EXECUTION.md).
+The diagram describes technical dependencies only. Execution is strictly sequential: Phase 0 → 1 → 2 → 3 → 4 → 5 → 6 → 7. A later phase remains queued until the preceding phase passes the validation gate in [Execution rules](./EXECUTION.md).
 
 ## Fixed product decisions
 
@@ -74,6 +78,7 @@ The diagram describes technical dependencies only. Execution is strictly sequent
 - The management page has no authentication because this is a local demonstration.
 - TanStack Table is omitted. A semantic HTML table plus ordinary React state covers the required filtering, selection, modal, and deletion behavior.
 - WebMCP exposes survey submission only. Management operations remain human-interface actions.
+- Phase 7 adds a persistent, app-wide WebMCP toggle on management, defaulting to enabled. Disabled documents must not load the integration; manual submission remains available. This is runtime availability control, not authentication.
 - The application uses plain CSS and native platform controls; it does not require a visual framework.
 - Styling follows the researched OpenAI homepage/developer-docs visual language while retaining AI Dev Days identity. Use a system-font fallback unless an alternative font's redistribution license is verified; see [visual research](../research/openai-visual-reference.md).
 
