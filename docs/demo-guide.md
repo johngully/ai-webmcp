@@ -1,6 +1,6 @@
 # Manual and WebMCP comparison
 
-This contributor guide reproduces the two submission paths against an isolated local production process. Use only fictional answers. Normal application pages do not contain demonstration or development framing.
+This contributor guide reproduces the two submission paths against an isolated local production process. It was rechecked after styling in [Phase 6](plan/phase-6-final-verification.md). Use only fictional answers. Normal application pages do not contain demonstration or development framing.
 
 ## Start an isolated session
 
@@ -76,7 +76,7 @@ The pinned **5.0.1** polyfill takes JSON text and returns JSON text. The latest 
 
 ## What was observed
 
-Live Chrome on 2026-08-30 saved manual **NYS-Z9Y** and tool **G8T-B6V**. These are evidence from one run, not IDs to expect when rerunning. All six stored answers matched; both JSONL records had the same eight keys (six answers plus `id` and `submittedAt`). IDs and timestamps differed. The automated comparison asserts two distinct IDs, matching normalized answers, valid timestamps, and one POST from the tool invocation. Extra accessibility audit records are not part of this pair.
+Final styled-app validation in Chrome on 2026-08-30 (America/Chicago) saved manual **48G-LRE** and tool **FN8-VRY**. The retained app is at [port 3114](http://127.0.0.1:3114/), with its [contributor client on 3115](http://127.0.0.1:3115/__verification__/webmcp). These are evidence from one run, not IDs to expect when rerunning. All six stored answers matched; both JSONL records had the same eight keys (six answers plus `id` and `submittedAt`). IDs and timestamps differed. The repeated automated comparison also asserts two distinct IDs, matching normalized answers, valid timestamps, and one POST from the tool invocation. A separate disposable long-record audit was deleted with confirmation; the comparison pair remains. The coordinator also confirmed bulk deletion of Disposable Bulk One/Two after direct user approval; an independent reload and file inspection verified that only the matching pair remains. The earlier NYS-Z9Y/G8T-B6V run is preserved in the [pre-styling checkpoint](plan/phase-5-verification-demo.md).
 
 Counts below begin with the specified page loaded and end at success; they exclude browser setup, approval exchanges, subsequent management inspection, and internal asset/RPC traffic. They are workflow counts, not measurements of model effort or tokens.
 
@@ -91,6 +91,8 @@ Counts below begin with the specified page loaded and end at success; they exclu
 | Structured survey tool invocations | 0                                                   | 1                                                                            |
 | Created responses                  | 1                                                   | 1                                                                            |
 
-The observed manual path used nine semantic UI actions after loading Home (six field changes plus three activations). The contributor client used two activations after loading, with discovery separate from execution. This does not claim that every external agent has the same interaction count, nor any token, time, or cost savings.
+The documented direct manual path uses nine semantic UI actions after loading Home (six field changes plus three activations); the repeated comparison test follows that path. The final live audit additionally exercised invalid Next, Back/Next, and a reload, so its total interaction count is higher. The contributor client used two activations after loading, with discovery separate from execution. Styling did not change these labels or steps. This does not claim that every external agent has the same interaction count, nor any token, time, or cost savings.
 
 To compare without raw-file access, open **Manage responses**, filter **Name contains** by `Casey Morgan`, then open each ID's **Details**. Check every field and retain both records. Repeating either successful script adds another response. For a new clean comparison, start a new isolated data directory instead of deleting unrelated responses.
+
+The **Talk**, **Minimum rating**, and **Maximum rating** filters combine with the name search after **Apply**; both rating endpoints are inclusive. Setting both ratings to `9` retains this pair. **Clear** removes filters. The displayed response count describes matching rows, while the selected count controls **Delete selected (N)**. On narrow screens, scroll the labeled response table horizontally or Tab to **Details**. **Close details** or Escape returns focus to the originating button. Single **Delete** and bulk **Delete selected (N)** open a dialog naming the affected records; **Cancel** or Escape preserves them. **Confirm deletion** permanently removes them, so use a separate disposable record for that exercise. [Final screenshots](evidence/phase-6/README.md) show the current controls and states.

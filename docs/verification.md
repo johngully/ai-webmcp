@@ -1,6 +1,6 @@
 # Verification matrix
 
-Tests exercise the pre-approved public seams. New behavior and discovered defects use a focused failing test before the minimum fix. Audit tests for existing passing behavior do not manufacture failures. The [pre-styling checkpoint](plan/phase-5-verification-demo.md) records prior commands, red/green observations, browser lane, and measured coverage. [Phase 6](plan/phase-6-final-verification.md) must refresh final evidence after the styling revision.
+Tests exercise the pre-approved public seams. New behavior and discovered defects use a focused failing test before the minimum fix. Audit tests for existing passing behavior do not manufacture failures. The [pre-styling checkpoint](plan/phase-5-verification-demo.md) preserves prior commands and red/green observations. [Phase 6](plan/phase-6-final-verification.md) records final styled-app verification: 58 unit/integration tests, 60 repeated production browser cases, one real server-function case, and live Chrome. Coverage remains 96.53% statements / 96.47% branches / 93.65% functions / 97.53% lines with unchanged 86% all-source thresholds.
 
 | Public seam / flow            | Success evidence                                                                                                                                                    | Failure, cancellation, or recovery evidence                                                                                                                                    |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -16,7 +16,9 @@ Tests exercise the pre-approved public seams. New behavior and discovered defect
 | Isolation                     | `e2e/isolation.spec.ts`: consecutive cases both begin empty and create exactly one response; repeated parallel projects                                             | No shared reset race; each test/retry gets a separate file, process, and port; all tests retain the application's one-writer constraint                                        |
 | Shell and product language    | `shell.test.tsx`, `shell-ssr.test.ts`, `e2e/foundation.spec.ts`, `e2e/survey-flow.spec.ts`: landmarks, heading hierarchy, metadata, navigation and no-JS navigation | Accessible errors/recovery and no demo/preview/prototype/development framing in route accessibility snapshots, titles, metadata, or tool metadata                              |
 
-All filenames without a directory prefix are under `tests/`. The production browser fixtures read persisted results only through the public repository; application writes occur through actual browser/server operations. Filesystem fault injection is limited to the OS append/rename boundary. It does not mock repository internals.
+`e2e/reflow.spec.ts` additionally checks home, invalid feedback, delivery, success, management, and details at 320px with a verified 32px root font after every route change. The management browser regression checks native dialog centering. Unit coverage includes current-step/Complete semantics and filtered response counts. These styling regressions all passed again in Phase 6.
+
+All filenames without a directory prefix are under `tests/`. The production browser fixtures read persisted results only through the public repository; application writes occur through actual browser/server operations. Filesystem fault injection is limited to the OS append/rename boundary. It does not mock repository internals. [Final screenshots](evidence/phase-6/README.md) distinguish live Chrome, read-only visual fault injection, and automated Chromium evidence.
 
 ## Accessibility scope
 
@@ -34,4 +36,8 @@ The one-process queue is stressed by two repository adapters concurrently creati
 - [TanStack Start hosting](https://tanstack.com/start/latest/docs/framework/react/guide/hosting): local Node production output.
 - [WebMCP draft](https://webmachinelearning.github.io/webmcp/) and installed `@mcp-b/webmcp-types@5.0.1` / polyfill source: distinguish the current object-input draft from the pinned JSON-text execution extension.
 
-No dependency upgrade was needed in the pre-styling checkpoint. The exact manifest and lockfile remain authoritative; validated versions are recorded in the checkpoint evidence.
+No dependency upgrade was needed in either verification phase. The exact manifest and lockfile remain authoritative; final runtime, browser, and package versions are recorded in [Phase 6](plan/phase-6-final-verification.md). Visual adaptation and first-party source attribution remain in the [OpenAI visual reference research](research/openai-visual-reference.md); no OpenAI font, logo, or affiliation claim is shipped.
+
+## Coverage report scope regression
+
+Phase 6 reproduced an actual report mismatch when the checkout had a parent directory named `src`: the relative include also counted root `survey.config.ts` and `tests/survey.fixture.ts`. A maintained public-report assertion, `scripts/check-coverage-scope.mjs`, failed on those unexpected files before the fix. Coverage now uses an absolute glob rooted at this checkout's `src`; the same assertion passes with exactly 21 application files in both ordinary and `src`-ancestor paths. It also rejects missing application files. `pnpm test:coverage` runs this assertion after Vitest. Thresholds and generated/declaration exclusions were not relaxed. [Before/after reports](evidence/phase-6/README.md) retain the measured regression evidence.

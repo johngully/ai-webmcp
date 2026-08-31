@@ -1,0 +1,26 @@
+[
+  {
+    "font": "16px",
+    "page": 1280,
+    "route": "/",
+    "width": 1280
+  },
+  {
+    "font": "16px",
+    "page": 768,
+    "route": "/",
+    "width": 768
+  },
+  {
+    "font": "16px",
+    "page": 390,
+    "route": "/",
+    "width": 390
+  },
+  {
+    "font": "16px",
+    "page": 320,
+    "route": "/",
+    "width": 320
+  }
+]
