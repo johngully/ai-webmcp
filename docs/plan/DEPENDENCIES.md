@@ -103,10 +103,15 @@ Production responses are excluded from version control. Tests use a unique tempo
 | 5 — Styling             | Phases 2, 3, 4; visual research; preserved verification checkpoint                          | Shared visual tokens, restyled routes/states, visual and functional evidence              |
 | 6 — Final verification  | Phase 5 and checkpoint tests/docs                                                           | Restyled end-to-end evidence, refreshed guide, clean production build                     |
 | 7 — WebMCP availability | Accepted Phase 6; existing management, manual draft, WebMCP and server-operation boundaries | Persistent app-wide switch, genuine disabled-runtime baseline, off/on regression evidence |
+| 8 — WebMCP management   | Accepted Phase 7; shared filters, array-only deletion, management route, contributor client | Guarded ID/name/talk/rating search and bulk deletion tools with lifecycle/safety evidence |
 
 ### WebMCP availability dependencies
 
 Phase 7 requires no planned package addition or upgrade. Use current TanStack server functions and React, Node filesystem primitives, browser lifecycle/change notification facilities, and conditional feature imports. Store the setting separately beside the configured survey file and isolate it per test server; never insert configuration into survey JSONL or share settings across isolated test data stores. Document the exact path during implementation. A saved setting must survive a process restart; fresh disabled pages must not preload/import the integration or polyfill. Existing open documents require safe unregistration/refresh and server-side rejection of stale WebMCP calls, without blocking ordinary submission. Preserve browser-native APIs and document cross-tab/resume behavior honestly.
+
+### WebMCP management dependencies
+
+Phase 8 requires Phase 7's accepted/integrated availability implementation, the shared filter schema/helper and both repository adapters from Phase 1, the existing array-only application/UI deletion path from Phase 3, WebMCP registration and pinned polyfill/types from Phase 4, and the current contributor client and production verification harness. It adds exact-ID filtering, summary-only search results, guarded search/delete adapters, route-scoped management tools, and explicit contributor-client deletion confirmation. Extend the shared filter rather than duplicate matching logic; keep single and multiple deletion on `deleteSurveys({ ids })` → `deleteMany(ids)`. No dependency upgrade, new package, JSONL migration, separate details tool, or authentication system is planned. The [Phase 8 document](./phase-8-webmcp-management.md) defines the contracts and ordered tasks.
 
 ### Styling dependencies
 

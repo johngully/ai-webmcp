@@ -40,7 +40,13 @@ The user added [Phase 7 — WebMCP availability control](./phase-7-webmcp-contro
 
 Task `01a0555f-94b8-7df0-ba83-46afe9f776a3` was created and released from the committed plan, `cfece566384096e5438efad19cffd6fc934483bd`. Its worktree is `/Users/john/.codex/worktrees/8e6f/ai-webmcp`. Creation returned `client-new-thread:2fcf2374-aba3-4a05-9142-b5e6dcc09a86`; the real ID was resolved from the exact app lifecycle entry and verified through `read_thread` and `wait_threads`. The first active snapshot confirmed repository/TDD/plan inspection and an in-progress implementation turn. The overall gate remains unchecked until independent acceptance and integration. Earlier previews and response data remain out of scope. No coordinator automation has been recreated.
 
-## Accepted Phase 6 gate
+## Phase 8 planning gate
+
+On 2026-08-31 the user requested a new phase for WebMCP search by ID/name/talk/rating range and array-only deletion. [Phase 8](./phase-8-webmcp-management.md) is planned, not released. The existing single-row and selected-row management actions already delegate to the same array-taking delete operation; the plan preserves that path. A separate queued Codex task will read the plan and wait for a coordinator release after Phase 7 acceptance.
+
+The planning-time Phase 7 snapshot reports implementation and automated checks complete in its own worktree, but final Chrome saved-response validation and the scoped commit remain pending. Its last handoff reports 65 unit/integration tests, 46 production browser cases (92 repeated), two real RPC cases, and 94.31/91.88/91.02/95.71% coverage. These are phase-task reports, not coordinator acceptance. User-reported manual success and the coordinator's later read-only tool discovery do not by themselves close all remaining checks. Do not release Phase 8 or merge uncommitted Phase 7 work in this planning turn.
+
+## Accepted Phase 6 gate (historical)
 
 All phases 0–6 passed independent coordinator validation and are integrated into main. No implementation task or approval remains pending. The original verification commit `311155f080b92daac87bda6cb3cda35cc1f1b190` remains a preserved pre-styling checkpoint; styling commit `72ed4ab08c5a82611b7e58770a675e6f4d0f9558` and final verification commit `910298314f4160421e8e0d6affa11e0784db62b5` are accepted. Integration preserved the phase and coordinator histories with a non-conflicting merge.
 
