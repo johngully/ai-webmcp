@@ -43,6 +43,10 @@ Task `01a0555f-94b8-7df0-ba83-46afe9f776a3` was created and released from the co
 
 ## Phase 8 planning gate
 
+### User-directed continuation — 2026-08-31
+
+The user asked to move on after the coordinator explained the missing Chrome reconnection approval. The coordinator is waiving only the remaining Phase 7 manual Chrome acceptance checks, based on the independently verified corrected-revision automated evidence below. This is a validation-scope exception, not approval to perform any pending browser action. No Chrome window, live submission, or deletion will be attempted under this exception. The Phase 7 task is being asked to mark the unperformed manual checks as waived, commit its scoped implementation/evidence, and return the commit for integration. Phase 8 may start after that integration; it must retain its own TDD and verification requirements.
+
 ### Resumed Phase 7 acceptance — 2026-08-31
 
 The user subsequently said “Do it,” authorizing execution of the Phase 8 plan after its prerequisite gate. Phase 7 was resumed for final review, while Phase 8 remains unreleased. No new authorization to start Phase 8 is needed once Phase 7 is independently accepted and integrated; the coordinator must supply that accepted baseline to the queued task.
